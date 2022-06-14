@@ -1,0 +1,47 @@
+{% if page.title !='Sign Up For Color Pass' %}
+
+
+<div class="sitewide-banner" style="width:100%;background-color:#E9F0F5">
+    {% if section.settings.desktop-banner != blank %}
+   
+    <div class="desktop-banner"><img src="{{ section.settings.desktop-banner | img_url: 'master' }}"></div> 
+     
+    {% endif %}
+    
+    {% if section.settings.mobile-banner != blank %}
+
+    <div class="mobile-banner"> <img src="{{ section.settings.mobile-banner | img_url: 'master'}}"></div>
+    
+    {% endif %}
+
+  </div>
+{%endif%}
+{% schema %}
+ {
+  "name": "Sitewide Banner ",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop-banner",
+      "label": "Desktop"
+    },
+ {
+      "type": "image_picker",
+      "id": "mobile-banner",
+      "label": "Mobile"
+    }
+  ]
+}
+
+{% endschema %}
+
+{% stylesheet %}
+<style>
+
+ 
+
+</style>
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

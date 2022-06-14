@@ -1,0 +1,263 @@
+<div onMouseOver="this.style.cursor='pointer'" onclick="window.location.href='{{ section.settings.button_link }}';" class="mobile-hidden hero hero--{{ section.settings.hero_size }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %} box ratio-container lazyload js"
+     {% if section.settings.image %}
+     data-bgset="{% include 'bgset', image: section.settings.image %}"
+     data-sizes="auto"
+     data-parent-fit="cover"
+     style="background-position: {{ section.settings.alignment }}; background-image: url('{{ section.settings.image | img_url: '1440x' }});"
+     {% endif %}>
+  {% if section.settings.image == blank %}
+    <div class="placeholder-background">
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      
+    </div>
+  {% endif %}
+  <div class="hero__inner">
+    
+  </div>
+ 
+  
+</div>
+
+{% if section.settings.mobile_image != blank %}
+<div onclick="window.location.href='{{ section.settings.button_link }}';" class="desktop-hidden hero_mobile" onMouseOver="this.style.cursor='pointer'" style="background-position: {{ section.settings.alignment }}; background-image: url('{{ section.settings.mobile_image | img_url: '800x960'}}')"></div>
+{% endif %}
+
+
+
+ <div class="page-width text-center">
+   
+   {% if section.settings.image_logo1 != blank %}
+      <div class="img-tag"><img src="{{ section.settings.image_logo1 | img_url: '300x300'}}"></div>
+       {% endif %}
+   
+      {% if section.settings.title != blank %}
+        <h1 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title | escape }}</h1>
+      {% endif %}
+      {% if section.settings.text != blank %}
+        <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
+      {% endif %}
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="btn hero__btn">
+          {{ section.settings.button_label | escape }}
+        </a>
+      {% endif %}
+    </div>
+
+
+<noscript>
+  <div class="hero hero--{{ section.settings.hero_size }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %}"{% if section.settings.image %} style="background-image: url('{{ section.settings.image | img_url: '2048x' }}'); background-position: center {{ section.settings.alignment }};"{% endif %}></div>
+</noscript>
+
+{% schema %}
+  {
+    "name": {
+      "en": "Image with text first",
+      "de": "Foto mit überlegtem Text",
+      "fr": "Image avec texte"
+    },
+    "class": "index-section index-section--flush first",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": {
+          "en": "Image",
+          "de": "Foto",
+          "fr": "Image"
+        }
+      },
+	  {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile image"
+      },
+      { 
+        "type": "image_picker",
+        "id": "image_logo1",
+        "label": {
+          "en": "Image",
+          "de": "Foto",
+          "fr": "Image"
+        }
+      },
+
+
+      {
+        "type": "select",
+        "id": "alignment",
+        "label": {
+          "en": "Image alignment",
+          "de": "Fotoausrichtung",
+          "fr": "Alignement de l'image"
+        },
+        "default": "center",
+        "options": [
+          {
+            "value": "top",
+            "label": {
+              "en": "Top",
+              "de": "Oben",
+              "fr": "Haut"
+            }
+          },
+          {
+            "value": "center",
+            "label": {
+              "en": "Middle",
+              "de": "Mitte",
+              "fr": "Milieu"
+            }
+          },
+          {
+            "value": "bottom",
+            "label": {
+              "en": "Bottom",
+              "de": "Unten",
+              "fr": "Bas"
+            }
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": {
+          "en": "Heading",
+          "de": "Titel",
+          "fr": "En-tête"
+        },
+        "default": {
+          "en": "Image with text first",
+          "de": "Foto mit überlegtem Text",
+          "fr": "Image avec superposition de texte"
+        }
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": {
+          "en": "Text",
+          "de": "Text",
+          "fr": "Texte"
+        },
+        "default": {
+          "en": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
+          "de": "<p>Nutzen Sie überlegten Text, um Kunden über Ihre Marke zu informieren. Wählen Sie Fotos und Text aus, die zu Ihrer Marke passen.</p>",
+          "fr": "<p>Utilisez la superposition de texte pour donner un aperçu de votre marque à vos clients. Utilisez une image et du texte qui se rapportent au style et à l'histoire de votre marque.</p>"
+        }
+      },
+      {
+        "type": "select",
+        "id": "hero_size",
+        "label": {
+          "en": "Section height",
+          "de": "Bereichs-Höhe",
+          "fr": "Hauteur de la section"
+        },
+        "default": "medium",
+        "options": [
+          {
+            "label": {
+              "en": "Extra Small",
+              "de": "Extra klein",
+              "fr": "Très petite"
+            },
+            "value": "x-small"
+          },
+          {
+            "label": {
+              "en": "Small",
+              "de": "Klein",
+              "fr": "Petite"
+            },
+            "value": "small"
+          },
+          {
+            "label": {
+              "en": "Medium",
+              "de": "Mitte",
+              "fr": "Moyenne"
+            },
+            "value": "medium"
+          },
+          {
+            "label": {
+              "en": "Large",
+              "de": "Groß",
+              "fr": "Grande"
+            },
+            "value": "large"
+          },
+          {
+            "label": {
+              "en": "Extra Large",
+              "de": "Extra groß",
+              "fr": "Très grande"
+            },
+            "value": "x-large"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "text_size",
+        "label": {
+          "en": "Text size",
+          "de": "Textgröße",
+          "fr": "Taille du texte"
+        },
+        "default": "medium",
+        "options": [
+          {
+            "label": {
+              "en": "Medium",
+              "de": "Mitte",
+              "fr": "Moyenne"
+            },
+            "value": "medium"
+          },
+          {
+            "label": {
+              "en": "Large",
+              "de": "Groß",
+              "fr": "Grande"
+            },
+            "value": "large"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": {
+          "en": "Button label",
+          "de": "Button-Etikett",
+          "fr": "Texte du bouton"
+        }
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": {
+          "en": "Button link",
+          "de": "Button-Etikett",
+          "fr": "Lien du bouton"
+        }
+      }
+    ],
+    "presets": [
+      {
+        "name": {
+          "en": "Hero First",
+          "de": "Foto mit überlegtem Text",
+          "fr": "Image avec superposition de texte"
+        },
+        "category": {
+          "en": "Image",
+          "de": "Foto",
+          "fr": "Image"
+        }
+      }
+    ]
+  }
+{% endschema %}

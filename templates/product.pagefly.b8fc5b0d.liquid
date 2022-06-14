@@ -1,0 +1,170 @@
+<link rel="stylesheet" href="{{ 'pagefly.b8fc5b0d.css' | asset_url }}">
+		 <style>a.bundle { 	background-color: #D67F8C; 	color: white; 	padding: 1em 1.5em; 	text-decoration: none; 	text-transform: uppercase; } a.addmulti { 	background-color: #fb90af; 	color: white; 	padding: 1em 1.5em; 	text-decoration: none; 	text-transform: uppercase; } a.active { 	background-color: #555; } a.bundle:hover { 	background-color: #555; } a.bundle:active { 	background-color: black; } .selected { 	border: solid 10px #000; }</style> <script>
+	window.__pageflyProducts = window.__pageflyProducts || {};
+	{% unless product.id == null %}window.__pageflyProducts["{{product.id}}"] = {
+		id: {{ product.id | json }},
+		handle: {{ product.handle | json }},
+		title: {{ product.title | json }},
+		type: {{ product.type | json }},
+		url: {{ product.url | json }},
+		vendor: {{ product.vendor | json }},
+		variants: {{ product.variants | json }},
+		options: {{ product.options | json }},
+		media: {{ product.media | json }},
+		has_only_default_variant: {{ product.has_only_default_variant | json }},
+		options_with_values: {{ product.options_with_values | json }},
+		selected_variant: {{ product.selected_variant | json }},
+		selected_or_first_available_variant: {{ product.selected_or_first_available_variant | json }},
+		tags: {{ product.tags | json }},
+		template_suffix: {{ product.template_suffix | json }},
+		featured_image: {{ product.featured_image | json }},
+		featured_media: {{ product.featured_media | json }},
+		images: {{ product.images | json }}
+	};{% endunless %}
+	</script>{% if collection_171511971939 == null %}{%- assign collection_171511971939 = collections["bodyguard-upsells"] -%}{% endif %}<script>
+	window.__pageflyCollections = window.__pageflyCollections || {};
+	window.__pageflyCollections["171511971939"] = {{collection_171511971939 | json }};
+	</script><div style="opacity:0" class="sc-dwqbIM lgnhdE __pf" id="__pf"><div data-pf-type="Body" class="sc-eggNIi JiLrb pf-aca1"><div data-pf-type="Layout" class="sc-jcVebW hrCIoP pf-fe49"><div data-pf-type="Section" class="sc-jeGSBP iRgiNB pf-19fe"><div style="--cw:1170px" class="sc-iNqMTl hFrbFX"><div class="sc-jgHCyG eZqcrI pf-44d8 pf-r pf-r-eh" style="--s-xs:15px;--s-lg:0px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-b844"><div data-product-id="{{ product.id }}" data-pf-type="ProductBox" class="sc-jXktwP hdiogm pf-e473">{% if product != null %}{% form "product", product, data-productid: product.id, class: "pf-product-form" %}<div class="sc-jgHCyG eZqcrI pf-220c pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-b108"><div data-pf-type="Custom.HTML" class="sc-iJuUWI fTbwUB pf-3f72"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/shopify-cartjs/1.0.1/rivets-cart.min.js"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-B9BoFFAuBaCfqw6lxWBZrhg/z4NkwqdBci+E+Sc2XlK/Rz25RYn8Fetb+Aw5irxa" crossorigin="anonymous"></div></div></div></div>{% endform %}{% endif %}</div></div></div></div><div class="sc-jgHCyG eZqcrI pf-4f08 pf-r pf-r-eh" style="--s-xs:15px;--s-sm:0px;--s-md:15px;--s-lg:0px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-b44f"><div data-product-id="{{ product.id }}" data-pf-type="ProductBox" class="sc-jXktwP hdiogm pf-c438">{% if product != null %}{% form "product", product, data-productid: product.id, class: "pf-product-form" %}<div class="sc-jgHCyG eZqcrI pf-fc73 pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-sm:6;--c-lg:6"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-8f81"><div data-product-id="{{ product.id }}" data-pf-type="ProductImage" class="sc-irlOZD jUdyne pf-076e">{% assign images = product.images %}<div style="--g-lg:10px;--l-lg:5;--w-xs:0;--w-lg:" class="sc-iIEYCM lpvDVv pf-r-dg"><div data-pf-type="MasterImage" style="order:0;--ratio:100%" class="sc-cKZHah bxyrwM"><img src="{{ product.featured_image | img_url: "x529.25", scale: 2 }}" alt="{{ product.featured_image.alt }}" loading="eager" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}"/>{% assign _product = product %}<div data-pf-type="ProductImagePagination" class="sc-eWvPJL hgQjmC pf-md-hide pf-lg-hide">{% for i in (1..images.size) %}<span></span>{% endfor %}</div></div><div class="sc-dwcuIR jktQCG pf-hide pf-sm-hide pf-md-hide "><div data-pf-type="ProductImageList" class="sc-jtHMlw jaQVoM pf-r-dg">
+								{% assign pf_all = "" %}
+								{% assign pf_laptop = "" %}
+								{% assign pf_tablet = "" %}
+								{% assign pf_mobile = "" %}
+								{% for i in (0..images.size) limit:images.size %}
+								{% assign image = images[i] %}
+								{% if true %}
+								{% if i > 4 %}
+								{% assign pf_all = "pf-lg-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_laptop = "pf-md-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_tablet = "pf-sm-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_mobile = "pf-hide" %}
+								{% endif %}
+								{% endif %}
+							<div class="sc-eltcbb iORAaW pf-2eea {{pf_all}} {{pf_laptop}} {{pf_tablet}} {{pf_mobile}}" data-img-id="{{ image.id }}" data-pf-type="ImageItem"><img loading="eager" src="{{ image.src | img_url: "master" }}" alt="{{ image.alt }}" draggable="false"/></div>{% endfor %}</div>{% if true %}<div data-pf-nav="prev" class="sc-kUbhmq jEqguw"><i class="pfa pfa-angle-left"></i></div><div data-pf-nav="next" class="sc-kUbhmq jEqguw"><i class="pfa pfa-angle-right"></i></div>{% endif %}</div></div></div></div></div><div class="pf-c" style="--c-xs:12;--c-sm:6;--c-lg:6"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-5c87"><h3 data-product-type="title" data-product-id="{{ product.id }}" data-pf-type="ProductTitle" class="sc-gkdzZj cmAEMu pf-d3ac">{{ product.title }}</h3><div data-pf-type="Custom.HTML" class="sc-iJuUWI fTbwUB pf-4d42"><div data-oke-reviews-product-listing-rating>
+ {{ product.metafields.okendo.ProductListingSnippet }}
+</div>
+</div><div data-product-type="price" data-product-id="{{ product.id }}" data-pf-type="ProductPrice" class="sc-fWPcDo cgpajZ pf-d568">{{ product.variants[0].price | money }}</div><div data-show-button="true" data-more="" data-less="" data-product-type="content" data-product-id="{{ product.id }}" data-pf-type="ProductDescription" class="sc-fWPcDo cgpajZ pf-1744">{{ product.content }}</div><div data-pf-type="Block" class="sc-iBaPrD gdARiY pf-818e"><div data-product-id="{{ product.id }}" size="40" data-pf-type="ProductQuantity" class="sc-kmASHI aygjh pf-8784"><button data-quantity-action="decrease" disabled="" type="button" data-pf-type="QuantityButton" class="pf-f0c5" store="[object Object]">-</button><input type="number" value="1" min="1" max="{{ product.selected_or_first_available_variant.inventory_quantity }}" data-hidespinner="true" name="quantity" data-pf-type="QuantityField" class="pf-c5ba" store="[object Object]"/><button data-quantity-action="increase" type="button" data-pf-type="QuantityButton" class="pf-ba4d" store="[object Object]">+</button></div><button data-product-id="{{ product.id }}" data-checkout="same" data-soldout="Sold out" data-adding="Adding..." data-added="Thank you!" type="button" data-pf-type="ProductATC" class="sc-Fyfyc kpvTMt pf-15f7"><span>Add To Cart</span></button></div></div></div></div>{% endform %}{% endif %}</div><div class="sc-jgHCyG eZqcrI pf-b1ed pf-r pf-c-cm" style="--s-xs:15px;--s-lg:0px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-2eb1"><h3 data-pf-type="Heading" class="sc-lmoMRL giuwNB pf-66ad"><span data-pf-type="Text" class="sc-kIeTtH cnxSGb pf-4a7b"><a name="tutorials">TUTORIALS</a><a></a></span></h3><p class="sc-lcujXC epPudT pf-26a3" data-pf-type="Paragraph"><span data-pf-type="Text" class="sc-kIeTtH cnxSGb pf-3b3d">Use our easy to follow videos to learn how to do gel manicures in a snap.</span></p></div></div></div><div data-pf-type="Block" class="sc-iBaPrD gdARiY pf-ba75"><div data-pf-type="Youtube" class="sc-dacFzL fIUiIW pf-13ba"><div style="position:relative;padding-bottom:56.25%"><iframe class="pf-ifr" src="https://www.youtube.com/embed/zj3zbxJO-Ao?autoplay=0&loop=0&mute=0&controls=0&enablejsapi=1" frameBorder="0" allowfullscreen="" width="100%" height="100%" allow="autoplay" title="yt-video"></iframe></div></div><div class="sc-jgHCyG eZqcrI pf-fe28 pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-42fe"><div data-pf-type="Custom.HTML" class="sc-iJuUWI fTbwUB pf-4242"><div data-oke-reviews-widget
+   data-oke-reviews-product-id="shopify-{{ product.id }}">
+   {{ product.metafields.okendo.ProductReviewsWidgetSnippet }}
+</div>
+</div></div></div></div><h3 data-pf-type="Heading" class="sc-lmoMRL giuwNB pf-53a5"><span data-pf-type="Text" class="sc-kIeTtH cnxSGb pf-9151"><a name="tutorials">ESSENTIALS</a><a></a></span></h3></div></div></div><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-4b95"><div class="sc-gsBrbv bjQOGp pf-0282 pf-r pf-r-ew" style="--s-xs:15px;--ew-xs:2;--ew-md:4;--ew-lg:3" data-pf-type="ProductList">{% assign collection_171511971939 = collections["bodyguard-upsells"] %}<!-- -->{% assign defaultProduct = product %}<!-- -->{% paginate collection_171511971939.products by 41 %}<!-- -->{% for product in collection_171511971939.products %}<div class="pf-c"><div data-product-id="{{ product.id }}" data-pf-type="ProductBox" class="sc-jXktwP hdiogm pf-d85b">{% if product != null %}{% form "product", product, data-productid: product.id, class: "pf-product-form" %}<div class="sc-jgHCyG eZqcrI pf-91bf pf-r pf-r-eh" style="--s-xs:15px;--s-lg:0px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-9c1a"><div data-product-id="{{ product.id }}" data-pf-type="ProductImage" class="sc-irlOZD jUdyne pf-6aaa">{% assign images = product.images %}<div style="--w-xs:0" class="sc-iIEYCM fDlVTa pf-r-dg"><div data-href="{{ product.url }}" data-pf-type="MasterImage" style="order:0;--ratio:100%" class="sc-cKZHah bxyrwM"><img src="{{ product.featured_image | img_url: "xNaN", scale: 2 }}" alt="{{ product.featured_image.alt }}" loading="eager" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}"/>{% assign _product = product %}<div data-pf-type="ProductImagePagination" class="sc-eWvPJL hgQjmC pf-md-hide pf-lg-hide">{% for i in (1..images.size) %}<span></span>{% endfor %}</div></div><div class="sc-dwcuIR jktQCG pf-hide pf-sm-hide pf-md-hide pf-lg-hide"><div data-pf-type="ProductImageList" class="sc-jtHMlw jaQVoM pf-r-dg">
+								{% assign pf_all = "" %}
+								{% assign pf_laptop = "" %}
+								{% assign pf_tablet = "" %}
+								{% assign pf_mobile = "" %}
+								{% for i in (0..images.size) limit:images.size %}
+								{% assign image = images[i] %}
+								{% if true %}
+								{% if i > 4 %}
+								{% assign pf_all = "pf-lg-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_laptop = "pf-md-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_tablet = "pf-sm-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_mobile = "pf-hide" %}
+								{% endif %}
+								{% endif %}
+							<div class="sc-eltcbb iORAaW pf-7318 {{pf_all}} {{pf_laptop}} {{pf_tablet}} {{pf_mobile}}" data-img-id="{{ image.id }}" data-pf-type="ImageItem"><img loading="eager" src="{{ image.src | img_url: "master" }}" alt="{{ image.alt }}" draggable="false"/></div>{% endfor %}</div>{% if true %}<div data-pf-nav="prev" class="sc-kUbhmq jEqguw"><i class="pfa pfa-angle-left"></i></div><div data-pf-nav="next" class="sc-kUbhmq jEqguw"><i class="pfa pfa-angle-right"></i></div>{% endif %}</div></div></div><h3 data-product-type="title" data-product-id="{{ product.id }}" data-href="{{ product.url }}" data-pf-type="ProductTitle" class="sc-gkdzZj cmAEMu pf-a8ad">{{ product.title }}</h3><div data-product-type="price" data-product-id="{{ product.id }}" data-pf-type="ProductPrice" class="sc-fWPcDo cgpajZ pf-02e8">{{ product.variants[0].price | money }}</div><button data-product-id="{{ product.id }}" data-checkout="same" data-soldout="Sold out" data-adding="Adding..." data-added="Thank you!" type="button" data-pf-type="ProductATC" class="sc-Fyfyc kpvTMt pf-603b"><span>Add To Cart</span></button></div></div></div>{% endform %}{% endif %}</div><script>
+				window.__pageflyProducts = window.__pageflyProducts || {};
+				window.__pageflyProducts["{{product.id}}"] = {
+					id: {{product.id | json }},
+					handle: {{product.handle | json }},
+					title: {{product.title | json }},
+					type: {{product.type | json }},
+					url: {{product.url | json }},
+					vendor: {{product.vendor | json }},
+					variants: {{product.variants | json }},
+					options: {{product.options | json }},
+					media: {{product.media | json }},
+					has_only_default_variant: {{product.has_only_default_variant | json }},
+					options_with_values: {{product.options_with_values | json }},
+					selected_variant: {{product.selected_variant | json }},
+					selected_or_first_available_variant: {{product.selected_or_first_available_variant | json }},
+					tags: {{product.tags | json }},
+					template_suffix: {{product.template_suffix | json }},
+					featured_image: {{product.featured_image | json }},
+					featured_media: {{product.featured_media | json }},
+					images: {{product.images | json }}
+				};</script></div>{% endfor %}<!-- -->{% endpaginate %}<!-- -->{% assign product = defaultProduct %}</div></div></div></div></div></div></div></div></div><script>window.__pagefly_setting__={"baseURL":"https://apps.pagefly.io","analyticsURL":"https://analytics.pagefly.io","isBackend":false,"cdnURL":"https://cdn.pagefly.io","pageflyVersion":"3.0.16","shopDomain":"orlybeauty.myshopify.com","elementData":{"076e":{"listPosition":2,"limit":{"all":5,"laptop":5,"tablet":5,"mobile":5},"spacing":{"all":"10px","laptop":"10px","tablet":"10px","mobile":"10px"},"listLayout":1,"hoverAction":0,"onHover":0,"clickAction":0,"imageSource":"featured","_type":"ProductImage"},"da7b":{"applyCondition":false,"collectionSource":"all","collectionIds":[],"tags":"","_type":"ProductBadge"},"6aaa":{"listPosition":2,"limit":{"all":5,"laptop":5,"tablet":5,"mobile":5},"spacing":{"all":"10px","laptop":"10px","tablet":"10px","mobile":"10px"},"listLayout":1,"hoverAction":2,"onHover":0,"clickAction":1,"imageSource":"featured","_type":"ProductImage"},"fb08":{"applyCondition":false,"collectionSource":"all","collectionIds":[],"tags":"","_type":"ProductBadge"}},"pageTitle":"GELFX Bodyguard Intermediate Level 2 Bundle PDP","pageType":"product","pageId":"b8fc5b0d-62ac-4138-a1d9-404130518bab","lazyLoad":false,"forceByPassGoogleLightHouse":false,"imageLazyLoad":false,"nativeImageLazyLoad":true,"useThemeJQ":false,"fontLink":"https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Montserrat:wght@400&display=swap","trackingIDs":[{"elementId":"180c076e-15f7-429d-8f81-818e5c87fc73","elementType":"ProductATC","elementName":"ProductATC"},{"elementId":"db3b8971-6aaa-403b-9c1a-91bfd85b0282","elementType":"ProductImage","elementName":"ProductImage"},{"elementId":"7318fb08-a8ad-42e8-9b3b-89716aaa603b","elementType":"ProductTitle","elementName":"ProductTitle"},{"elementId":"89716aaa-603b-4c1a-91bf-d85b02824b95","elementType":"ProductATC","elementName":"ProductATC"}],"shopifyProxyPath":"/a/pf_preview"};window.__pagefly_setting__.moneyFormat={{shop.money_format|json}};</script><script src="https://cdn.pagefly.io/pagefly/3.0.16/core/helper.js" defer></script><script>
+function parseCart(products){
+var json = [];
+var toSplit = products.split(',');
+var count = {};
+
+
+  for (var i = 0; i < toSplit.length; i++) {
+  if (toSplit[i] != null && toSplit[i] != '') {
+	   var p = toSplit[i];
+       count[p] = count[p]+1 || 1; // Increment counter for each value
+  }
+}
+ 
+  var uniqueProducts = toSplit.filter(function(item, i, toSplit) {
+        return i == toSplit.indexOf(item);
+    });
+  
+for (var i = 0; i < uniqueProducts.length; i++) {
+  if (uniqueProducts[i] != null && uniqueProducts[i] != '') {
+   var p = uniqueProducts[i];
+  json.push({"id":p, "quantity":count[p]});
+  }
+}
+  console.log("Number to add:"+products)
+  return json;
+} 
+
+$( document ).ready(function() {
+ $(".code").show();
+  jQuery(function() {
+        CartJS.init({{ cart | json }}, {
+            "dataAPI": false,
+            "requestBodyClass": "loading"
+        });
+    });
+
+$('.bundle').click(function() {
+	
+	 var items =  $(this).attr('data-variant-id');
+  	 var cartography =  parseCart(items);
+	 var orig = $(this).text();
+	
+    $(this).text("Added");
+ 	 setTimeout(function() {
+   	$(this).text(orig);
+	}, 500);
+
+	 CartJS.addItems(cartography,{
+
+	 // Define a success callback to display a success message.
+            "success": function(data, textStatus, jqXHR) {			 
+			  	
+
+		
+		setTimeout(function(){
+		   $.getJSON('/cart.js', function(cart){ 
+			var result = cart.item_count;
+			 $("#CartCount span").text(result);
+
+		});
+	},300);
+            },
+
+            // Define an error callback to display an error message.
+            "error": function(jqXHR, textStatus, errorThrown) {
+                $(this).text('Couldnt Add Item');
+            }
+	   		 
+	 })
+    });
+});</script>

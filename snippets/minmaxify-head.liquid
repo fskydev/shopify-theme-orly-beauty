@@ -1,0 +1,7 @@
+{% if content_for_header contains 'shopifyorderlimits.s3.amazonaws.com' %}
+{% if shop.permanent_domain == 'orlybeauty.myshopify.com' %}
+<script src="https://shopifyorderlimits.s3.amazonaws.com/limits/orlybeauty.myshopify.com?v=82b&r=20210901205352&shop=orlybeauty.myshopify.com"></script>
+{% endif %}
+{% else %}
+<script type="text/javascript">console.error("MinMaxify is deactivated for this website. Please don't forget to remove minmaxify-head.liquid still being referenced by theme.liquid")</script>
+{% endif %}

@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="{{ 'pagefly.557ad747.css' | asset_url }}">
+		  <script>
+	window.__pageflyProducts = window.__pageflyProducts || {};
+	{% unless product.id == null %}window.__pageflyProducts["{{product.id}}"] = {
+		id: {{ product.id | json }},
+		handle: {{ product.handle | json }},
+		title: {{ product.title | json }},
+		type: {{ product.type | json }},
+		url: {{ product.url | json }},
+		vendor: {{ product.vendor | json }},
+		variants: {{ product.variants | json }},
+		options: {{ product.options | json }},
+		media: {{ product.media | json }},
+		has_only_default_variant: {{ product.has_only_default_variant | json }},
+		options_with_values: {{ product.options_with_values | json }},
+		selected_variant: {{ product.selected_variant | json }},
+		selected_or_first_available_variant: {{ product.selected_or_first_available_variant | json }},
+		tags: {{ product.tags | json }},
+		template_suffix: {{ product.template_suffix | json }},
+		featured_image: {{ product.featured_image | json }},
+		featured_media: {{ product.featured_media | json }},
+		images: {{ product.images | json }}
+	};{% endunless %}
+	</script>{% if collection_261607686243 == null %}{%- assign collection_261607686243 = collections["mani-pedi-duos"] -%}{% endif %}<script>
+	window.__pageflyCollections = window.__pageflyCollections || {};
+	window.__pageflyCollections["261607686243"] = {{collection_261607686243 | json }};
+	</script><div style="opacity:0" class="sc-iJCRrE bojiJp __pf" id="__pf"><div data-pf-type="Body" class="sc-gSYDnn jcqGXt pf-1_"><div data-pf-type="Layout" class="sc-Arkif eJDRKz pf-2_"><div data-pf-type="Section" class="sc-hhIiOg iwisNA pf-3_"><div style="--cw:1170px" class="sc-oeezt OJJCp"><div class="sc-hHEiqL ccTnQh pf-4_ pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-laZMeE ljWfRO pf-5_"><div class="sc-hHEiqL ccTnQh pf-6_ pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-laZMeE ljWfRO pf-9_"><img src="https://cdn.shopify.com/s/files/1/0015/0185/5843/t/13/assets/pf-ceab9f11--ManiPediPageflyLogo.gif?v=1622674394" srcSet="https://cdn.shopify.com/s/files/1/0015/0185/5843/t/13/assets/pf-ceab9f11--ManiPediPageflyLogo.gif?v=1622674394 1536w" sizes="(min-width: 1536px) 1536px, (min-width: 1024px) and (max-width: 1535px) 1280px, (min-width: 640px) and (max-width: 1023px) 768px, 320px" data-pf-type="Image" class="sc-iBzEeX glZmJR pf-10_"/><p class="sc-fbIWvP fkBHIM pf-11_" data-pf-type="Paragraph"><span data-pf-type="Text" class="sc-daBunf eQUdeu pf-13_"><b>Sandal season is upon us. <br><br>Shop curated lacquer duos and have perfectly polished manis and pedis all summer long.<br><br>Get two polishes for only $14.25.&nbsp;</b><br><br><i>Sale ends 6/9/21 at 11:59pm PST.<br>Not applicable with any other offer or promo code.</i></span></p></div></div></div></div></div></div><div class="sc-hHEiqL ccTnQh pf-14_ pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-laZMeE ljWfRO pf-15_"><h3 data-pf-type="Heading" class="sc-ciSkZP hNMEMQ pf-16_"><span data-pf-type="Text" class="sc-daBunf eQUdeu pf-18_">DUOS</span></h3></div></div></div><div class="sc-hHEiqL ccTnQh pf-19_ pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-laZMeE ljWfRO pf-20_"><div class="sc-fyjqAk jDIFKr pf-21_ pf-r pf-r-ew" style="--s-xs:15px;--ew-xs:1;--ew-sm:2;--ew-md:4;--ew-lg:3" data-pf-type="ProductList">{% assign collection_261607686243 = collections["mani-pedi-duos"] %}<!-- -->{% assign defaultProduct = product %}<!-- -->{% paginate collection_261607686243.products by 12 %}<!-- -->{% for product in collection_261607686243.products %}<div class="pf-c"><div data-product-id="{{ product.id }}" data-pf-type="ProductBox" class="sc-gkCoMD enpFfZ pf-22_">{% if product != null %}{% form "product", product, data-productid: product.id, class: "pf-product-form" %}<div class="sc-hHEiqL ccTnQh pf-23_ pf-r pf-r-eh" style="--s-xs:0px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-laZMeE ljWfRO pf-24_"><div data-product-id="{{ product.id }}" data-pf-type="ProductImage" class="sc-kizEQm irzWzB pf-25_">{% assign images = product.images %}<div style="--w-xs:0" class="sc-gJpXkD bJTfBG pf-r-dg"><div data-pf-type="MasterImage" style="order:0;--ratio:100%" class="sc-dkuGKe dIqww"><img src="{{ product.featured_image | img_url: "x270", scale: 2 }}" alt="{{ product.featured_image.alt }}" loading="eager" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}"/>{% assign _product = product %}<div data-pf-type="ProductImagePagination" class="sc-cKRKFl kSUooD pf-hide pf-sm-hide pf-md-hide pf-lg-hide">{% for i in (1..images.size) %}<span></span>{% endfor %}</div></div><div class="sc-gstuGz tcgHY pf-hide pf-sm-hide pf-md-hide pf-lg-hide"><div data-pf-type="ProductImageList" class="sc-amkrK gdJPMO pf-r-dg">
+								{% assign pf_all = "" %}
+								{% assign pf_laptop = "" %}
+								{% assign pf_tablet = "" %}
+								{% assign pf_mobile = "" %}
+								{% for i in (0..images.size) limit:images.size %}
+								{% assign image = images[i] %}
+								{% if true %}
+								{% if i > 4 %}
+								{% assign pf_all = "pf-lg-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_laptop = "pf-md-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_tablet = "pf-sm-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_mobile = "pf-hide" %}
+								{% endif %}
+								{% endif %}
+							<div class="sc-kmIPcE htFMXJ pf-26_ {{pf_all}} {{pf_laptop}} {{pf_tablet}} {{pf_mobile}}" data-img-id="{{ image.id }}" data-pf-type="ImageItem"><img loading="eager" src="{{ image.src | img_url: "master" }}" alt="{{ image.alt }}" draggable="false"/></div>{% endfor %}</div>{% if true %}<div data-pf-nav="prev" class="sc-iIgjPs krBuaG"><i class="pfa pfa-angle-left"></i></div><div data-pf-nav="next" class="sc-iIgjPs krBuaG"><i class="pfa pfa-angle-right"></i></div>{% endif %}</div></div></div><h3 data-product-type="title" data-product-id="{{ product.id }}" data-href="{{ product.url }}" data-pf-type="ProductTitle" class="sc-kTCsyW gxdqsh pf-28_">{{ product.title }}</h3><div data-product-type="compare_at_price" data-product-id="{{ product.id }}" data-pf-type="ProductPrice" class="sc-iGkqmO ckwDLe pf-29_">{{ product.variants[0].compare_at_price | money }}</div><div data-product-type="price" data-product-id="{{ product.id }}" data-pf-type="ProductPrice" class="sc-iGkqmO ckwDLe pf-30_">{{ product.variants[0].price | money }}</div><button data-product-id="{{ product.id }}" data-checkout="same" data-soldout="Sold out" data-adding="Adding..." data-added="Thank you!" type="button" data-pf-type="ProductATC" class="sc-gzcbmu jNYWPO pf-31_"><span>Add To Cart</span></button></div></div></div>{% endform %}{% endif %}</div><script>
+				window.__pageflyProducts = window.__pageflyProducts || {};
+				window.__pageflyProducts["{{product.id}}"] = {
+					id: {{product.id | json }},
+					handle: {{product.handle | json }},
+					title: {{product.title | json }},
+					type: {{product.type | json }},
+					url: {{product.url | json }},
+					vendor: {{product.vendor | json }},
+					variants: {{product.variants | json }},
+					options: {{product.options | json }},
+					media: {{product.media | json }},
+					has_only_default_variant: {{product.has_only_default_variant | json }},
+					options_with_values: {{product.options_with_values | json }},
+					selected_variant: {{product.selected_variant | json }},
+					selected_or_first_available_variant: {{product.selected_or_first_available_variant | json }},
+					tags: {{product.tags | json }},
+					template_suffix: {{product.template_suffix | json }},
+					featured_image: {{product.featured_image | json }},
+					featured_media: {{product.featured_media | json }},
+					images: {{product.images | json }}
+				};</script></div>{% endfor %}<!-- -->{% endpaginate %}<!-- -->{% assign product = defaultProduct %}</div></div></div></div></div></div></div></div></div><script>window.__pagefly_setting__={"baseURL":"https://apps.pagefly.io","analyticsURL":"https://analytics.pagefly.io","isBackend":false,"cdnURL":"https://cdn.pagefly.io","pageflyVersion":"3.3.4","shopDomain":"orlybeauty.myshopify.com","elementData":{"pf-25_":{"listPosition":2,"limit":{"all":5,"laptop":5,"tablet":5,"mobile":5},"spacing":{"all":"10px","laptop":"10px","tablet":"10px","mobile":"10px"},"listLayout":1,"hoverAction":2,"onHover":0,"clickAction":0,"imageSource":"featured","id":"30757506-259d-443c-b289-b608a51c1721","_type":"ProductImage"},"pf-27_":{"applyCondition":false,"collectionSource":"all","collectionIds":[],"tags":"","id":"7506259d-643c-4289-b608-a51c17219a3d","_type":"ProductBadge"}},"pageTitle":"Mani / Pedi Duos","pageType":"page","pageId":"557ad747-38a5-4950-b196-3b3da6f8eac6","lazyLoad":false,"forceByPassGoogleLightHouse":false,"imageLazyLoad":false,"nativeImageLazyLoad":true,"useThemeJQ":false,"fontLink":"https://fonts.googleapis.com/css2?family=Average+Sans:wght@400&family=Lato:wght@400&display=swap","trackingIDs":[{"elementIndex":28,"elementId":"06259d64-3cb2-49b6-88a5-1c17219a3dfe","elementType":"ProductTitle","elementName":"ProductTitle"},{"elementIndex":31,"elementId":"9d643cb2-89b6-48a5-9c17-219a3dfe0ff9","elementType":"ProductATC","elementName":"ProductATC"}],"shopifyProxyPath":"/a/pf_preview"};window.__pagefly_setting__.moneyFormat={{shop.money_format|json}};</script><script src="https://cdn.pagefly.io/pagefly/3.3.4/core/helper.js" defer></script>

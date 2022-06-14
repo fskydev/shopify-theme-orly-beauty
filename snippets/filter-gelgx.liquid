@@ -1,0 +1,81 @@
+  <div class="left_sidebar">
+      <div class="category-nav-header">
+      	<a class="header-item close-catenav"><img src="//cdn.shopify.com/s/files/1/0077/5874/1562/t/1/assets/m-back-icon.png"/></a>
+        <span>Filters</span>
+      </div>
+      
+
+  <div class="category-nav">
+    <div class="filtr">
+ <ul>
+ {% assign tags = "Category Accessories & Tools,Category GELFX Kits,Category Essentials,Category Cleansers & Removers,Category Glaze Coats,Category Treatments,Category Merchandising,Category Displays,Category Files,Category Shade Shifter,Category Perfect Pair,Category Easy Off Promo,Category Nails Magazine Facebook Live" | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}       
+{% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+     {% if collection.all_tags contains tag %}
+     <h3>Category</h3>
+   {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+      {% for tag in tags %}
+      {% if current_tags contains tag %}
+
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'Category'}}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'Category' }}</a></li>
+      {% endif %}
+      {% endfor %}
+     
+       
+</ul>  
+
+  </div>     
+          <div class="filtr">
+            <div class="coll-hand" style="display:none;">{{collection.handle}}</div>
+
+          <ul>
+
+     <h3>By Color</h3>
+
+     {% for tag in collection.all_tags %}  
+     {% if tag contains 'Colors' %}
+   	 {% if current_tags contains tag%}
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'Colors'| append: 's'}}</a></li>
+      {% else%} 
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'Colors'| append: 's'}}</a></li>
+      {% endif %}
+   	 {%endif%}
+      {% endfor %}
+     
+       
+</ul> 
+
+  </div>
+   
+   
+        
+    
+
+<div class="filtr">
+ <ul>
+
+     <h3>By Types</h3>
+
+     {% for tag in collection.all_tags %}  
+     {% if tag contains 'Types' %}
+   	 {% if current_tags contains tag%}
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'Types'| append: 's'}}</a></li>
+      {% else%} 
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'Types'| append: 's'}}</a></li>
+      {% endif %}
+   	 {%endif%}
+      {% endfor %}
+     
+       
+</ul> 
+
+  </div>
+           
+      </div>  
+    </div>   

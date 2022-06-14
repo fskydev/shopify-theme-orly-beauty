@@ -1,0 +1,127 @@
+{% include 'breadcrumbs' %}
+<div class="page-width">
+  <div class="grid">
+	
+    <div class="grid__item">
+      <div class="form-message form-message--success hide" id="ResetSuccess">
+        {{ 'customer.recover_password.success' | t }}
+      </div>
+      
+      
+      
+      
+      <div id="CustomerLoginForm" class="form-vertical">
+        <h1>Always Professional.</h1>
+        <div class="lgin_form">
+          {% form 'customer_login' %}
+            <p>Customer Login Here</p>
+            {%- if form.errors -%}
+              <div class="form-message form-message--error">
+                {{ form.errors | default_errors }}
+              </div>
+            {%- endif -%}
+
+            <label for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
+            <input type="email" name="customer[email]" id="CustomerEmail" class="{% if form.errors contains 'email' %} input--error{% endif %}" autocorrect="off" autocapitalize="off" autofocus>
+
+            {% if form.password_needed %}
+              <label for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
+              <input type="password" value="" name="customer[password]" id="CustomerPassword" class="{% if form.errors contains 'password' %} input--error{% endif %}">
+            {% endif %}
+
+            <div class="submit-login">
+              <div class="login_btn">
+                  <input type="submit" class="btn" value="{{ 'customer.login.sign_in' | t }}">
+              </div> 
+              {% if form.password_needed %}
+              <div class="recover_password"><a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></div>
+              {% endif %}
+            </div>
+
+          {% endform %}
+          <div class="login-signup">
+              <p>No account?</p>
+              <div class="btn">{{ 'layout.customer.create_account' | t | customer_register_link }}</div>
+              <p>Get instant access. </br> Must be a licensed salon professional or salon owner with business license.</p>
+          </div> 
+    	</div>
+    
+    	<div class="login_pro">
+    <div class="pro_left">
+      <h3>Go Pro!</h3>
+      <p>Become a verified salon or nail professional and purchase ORLY products for your business.</p>
+      <h6>Benefits include:</h6>
+      
+      <ul>
+        <li>Salon Pricing</li>
+        <li>Professional-only products including GELFX, EPIX</li>
+        <li>Early access to ORLY'S Latest launches, collections.</li>
+      </ul>  
+    </div> 
+    <div class="pro_right">
+      <img src="{{ 'PROPage.png' | asset_url }}"/>
+    </div>  
+  </div> 
+    
+    
+      </div>
+  	
+  		 
+
+      <div id="RecoverPasswordForm" class="hide">
+
+        <div class="reset_password">
+          <h2>{{ 'customer.recover_password.title' | t }}</h2>
+          <p>{{ 'customer.recover_password.subtext' | t }}</p>
+        </div>
+
+        <div class="form-vertical">
+          {% form 'recover_customer_password' %}
+
+            {%- if form.errors -%}
+              <div class="form-message form-message--error">
+                {{ form.errors | default_errors }}
+              </div>
+            {%- endif -%}
+
+            {% comment %}
+              Add a hidden span to indicate the form was submitted succesfully.
+            {% endcomment %}
+            {% if form.posted_successfully? %}
+              <span class="hide reset-password-success"></span>
+            {% endif %}
+
+            <label for="RecoverEmail">{{ 'customer.recover_password.email' | t }}</label>
+            <input type="email" value="" name="email" id="RecoverEmail" class="input-full"autocorrect="off" autocapitalize="off">
+
+            <div class="forget_button">
+              <button type="button" id="HideRecoverPasswordLink" class="text-link"><small>« </small>{{ 'customer.recover_password.cancel' | t }}</button>
+            
+                <input type="submit" class="btn" value="{{ 'customer.recover_password.submit' | t }}">
+              
+
+              </div>
+          {% endform %}
+        </div>
+
+      </div>
+
+      {% comment %}
+        If accounts are set as optional, the following will be shown as an option
+        during checkout, not on the default /login page.
+      {% endcomment %}
+      {% if shop.checkout.guest_login %}
+        <div class="text-center">
+          {% form 'guest_login' %}
+            <input type="submit" class="btn" value="{{ 'customer.login.guest_continue' | t }}">
+          {% endform %}
+          
+          <h2>{{ 'customer.login.guest_title' | t }}</h2>
+
+          
+        </div>
+      {% endif %}
+    </div> 
+
+</div>
+</div>

@@ -1,0 +1,1058 @@
+{
+  "current": {
+    "color_text": "#3d4246",
+    "color_body_text": "#69727b",
+    "color_sale_text": "#557b97",
+    "color_borders": "#e8e9eb",
+    "color_button": "#557b97",
+    "color_button_text": "#fff",
+    "color_small_button": "#fff",
+    "color_small_button_text": "#3d4246",
+    "color_text_field": "#fff",
+    "color_text_field_text": "#000",
+    "color_image_overlay_text": "#fff",
+    "color_image_overlay": "#3d4246",
+    "image_overlay_opacity": 25,
+    "color_body_bg": "#fff",
+    "type_header_family": "Google_Work+Sans_600_sans",
+    "type_header_base_size": 26,
+    "type_base_family": "Google_Work+Sans_400_sans",
+    "type_base_size": 16,
+    "type_bold_product_titles": false,
+    "share_image": "",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "favicon": "shopify:\/\/shop_images\/favicon-32x32.png",
+    "cart_type": "drawer",
+    "cart_notes_enable": false,
+    "neon_earth_image": "",
+    "neon_earth_logo": "",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/orly-logo-v.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#197bbd",
+    "checkout_button_color": "#197bbd",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "align_logo": "center",
+          "content": "Get Color Pass",
+          "logo": "shopify:\/\/shop_images\/orly-logo-v.png",
+          "logo_max_width": 145,
+          "main_linklist": "main-menu",
+          "message": false,
+          "home_page_only": false,
+          "message_text": "20% Off Sitewide! Code: TAKE20",
+          "message_link": "http:\/\/orlybeauty.com",
+          "color_bg": "#e9b9ae",
+          "color_text": "#ffffff"
+        }
+      },
+      "featured-collections": {
+        "type": "collection",
+        "disabled": true,
+        "settings": {
+          "title": "Featured collection",
+          "collection": "frontpage",
+          "grid": 3,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_linklist": "shop-footer",
+          "footer_linklist_two": "professionals",
+          "footer_linklist_three": "company",
+          "footer_linklist_four": "connect",
+          "footer_newsletter_enable": false,
+          "show_payment_icons": false
+        }
+      },
+      "1526380124595": {
+        "type": "hero-first",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/LandingPage_1440x660_110e1c55-c639-46b7-a103-6ad9c78c6842.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/LandingPage_Mobile_960x800_0a619176-4b87-4646-b68d-f5d40ba46bf5.jpg",
+          "alignment": "center",
+          "title": "🍂 Fall Classics 🍂",
+          "text": "Cozy up to shades meant to pair with changing leaves, warming fireplaces, comfy clothes, and of course pumpkin spice everything.",
+          "hero_size": "medium",
+          "text_size": "medium",
+          "button_label": "SHOP NOW",
+          "button_link": "https:\/\/orlybeauty.com\/pages\/fall-nail-color"
+        }
+      },
+      "1526540661979": {
+        "type": "hero-first",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/home-page-feature-horiz-1.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/home-page-feature-vert-1.jpg",
+          "alignment": "center",
+          "title": "Vegan | 12-Free Nail Lacquer",
+          "text": "<p>400+ on-trend and classic shades<br> ORLY never tests on animals<\/p>",
+          "hero_size": "medium",
+          "text_size": "medium",
+          "button_label": "Nail Lacquers",
+          "button_link": "shopify:\/\/collections\/nail-color"
+        }
+      },
+      "1526548437551": {
+        "type": "feature-row-column-right",
+        "disabled": true,
+        "settings": {
+          "image_right": "shopify:\/\/shop_images\/m-banded-for-pro.jpg",
+          "layout_right": "left",
+          "title_right": "<h1>NEW Genius Brush + Gripper Cap <br class=\"mobile\">\n<\/h1>",
+          "text_right": "<p>\nOur 600 bristle brush delivers precise, easy application <br>with a new shape that fans\nout to fit the cuticle,<br> delivering a smooth, even, beautiful finish. <br>The patented Gripper Cap has a sleek ergonomic design<br> for easy opening and a soft grip for the professional in you!\n<\/p>",
+          "button_label_right": ""
+        }
+      },
+      "1526548498002": {
+        "type": "feature-row-column",
+        "disabled": true,
+        "settings": {
+          "image_left": "shopify:\/\/shop_images\/m-banded-nail-treatments.jpg",
+          "layout_bottom": "left",
+          "title_bottom": "<h1>The #1 Choice of Salons <br>Worldwide<\/h1>",
+          "text_bottom": "<p>\nThe Pros will tell you: great manicures start with<br>\nBonder rubberized basecoat - just one <br>\nof many award-winning treatments from ORLY.\n<\/p>",
+          "button_label_bottom": "Shop Treatments",
+          "button_link_bottom": "shopify:\/\/collections\/nail-treatments"
+        }
+      },
+      "1526561934581": {
+        "type": "hero-first",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Holiday-Gifting_Homepage-Rev.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/Holiday-Gifting_Mobile_51046839-3560-4875-a3f9-3ca0839ea110.jpg",
+          "alignment": "center",
+          "title": "30% Off Site Wide! No code required.",
+          "text": "Up to 50% Off Select Items! Discounts applied at checkout.",
+          "hero_size": "medium",
+          "text_size": "medium",
+          "button_label": "Shop Now",
+          "button_link": "https:\/\/orlybeauty.com\/pages\/holiday-gifting"
+        }
+      },
+      "1526564234245": {
+        "type": "hero-first",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/made-with-love-desktop.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/made-with-love_1.jpg",
+          "alignment": "center",
+          "title": "Made with ♥ in L.A.",
+          "text": "<p>Developed + Manufactured at our HQ in Los Angeles, CA since 1975.<\/p>",
+          "hero_size": "medium",
+          "text_size": "medium",
+          "button_label": "Take a Tour",
+          "button_link": "shopify:\/\/pages\/take-a-tour"
+        }
+      },
+      "1526620556765": {
+        "type": "feature-row-column",
+        "disabled": true,
+        "settings": {
+          "image_left": "shopify:\/\/shop_images\/m-banded-gelfx.jpg",
+          "image_logo_first": "shopify:\/\/shop_images\/gelfx-logo.png",
+          "layout_bottom": "left",
+          "title_bottom": "<h1>Outshine The Competition<\/h1>",
+          "text_bottom": "<p>The GelFX Vitamin-Infused System offers best-in-class gel<br>\nsystem with unprecedented shine and wearability that<br>\ndelivers up to 21 days.<br><\/p>",
+          "button_label_bottom": "Become an ORLY Salon",
+          "button_link_bottom": "shopify:\/\/pages\/welcome"
+        }
+      },
+      "1526620601299": {
+        "type": "feature-row-column-right",
+        "disabled": true,
+        "settings": {
+          "image_right": "shopify:\/\/shop_images\/m-epix-home.jpg",
+          "image_logo_second": "shopify:\/\/shop_images\/epix-logo-hybrid.png",
+          "layout_right": "left",
+          "title_right": "<h1>Fast Dry, High Shine, No Lamps<\/h1>",
+          "text_right": "<p>Dries under 8 minutes and cures in natural light.<br> \nIt's color that wears like a gel but removes like a polish.<\/p>",
+          "button_label_right": "Shop EPIX Hybrid Gel System",
+          "button_link_right": "shopify:\/\/collections\/epix"
+        }
+      },
+      "1526623552180": {
+        "type": "hero-first",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/ATU_Homepage.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/ATU_Mobile.jpg",
+          "alignment": "center",
+          "title": "6 New One-Step Shades For Snuggle Season",
+          "text": "",
+          "hero_size": "medium",
+          "text_size": "medium",
+          "button_label": "Shop Now",
+          "button_link": "shopify:\/\/pages\/all-tangled-up-breathable-fall-holiday-nail-color"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 7,
+          "show_collection_featured": true,
+          "collection_featired": "",
+          "collection_side_logo": "",
+          "show_vendor": false,
+          "sort_enable": false,
+          "tags_enable": false
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical",
+          "grid": 3
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "image_size": "medium",
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_zoom": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "pro-heading": "Go PRO!",
+          "pro-heading-description": "<p>Benefits include:<\/p>\n<ul>\n    <li>Salon Pricing - 50% off MSRP<\/li>\n<li>Professional-only products including GELFX, EPIX<\/li>\n<li>Early access to ORLY'S Latest launches, collections<\/li>\n<\/ul>\n<br>\n<p>Are you a licensed professional? <\/p><div class=\"button\">\n<a href=\"#\" class=\"com--beauty-pro\" data-beauty-pro=\"auth\"><span data-node=\"label\">Unlock PRO Pricing<\/span><\/a>\n<\/div><p><\/p>\n<p>Are You A Salon Owner? \n<\/p><div class=\"button\">\n<a href=\"https:\/\/pro.orlybeauty.com\/accounts\/sign_up\" class=\"com--beauty-pro\">Sign up for Wholesale<\/a>\n<\/div>",
+          "Button-heading1": "",
+          "banner_call": ""
+        }
+      },
+      "related-template": {
+        "type": "related-template",
+        "settings": {
+          "show_related_products": true,
+          "related_title": "Related Products",
+          "related_grid_num": "3",
+          "related_grid_row": "2"
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_notes_enable": false
+        }
+      },
+      "newsletter-page": {
+        "type": "newsletter-page",
+        "settings": {
+          "section_title": "Sign up for news, how-tos, and special offers",
+          "subheading": "Sign up for our newsletter and we'll let you know about new product launches and special offers. <br>  Don’t worry, your information will NOT be shared with third parties.",
+          "show_background": false
+        }
+      },
+      "special-collection": {
+        "type": "special-collection",
+        "blocks": {
+          "1565022470565": {
+            "type": "text_block",
+            "settings": {
+              "page_handle": "dreamscape",
+              "collection_featired": "shopify:\/\/shop_images\/1400x220_banner_right_9ef81706-6c28-4e6d-b435-41aa1cf095db.jpg",
+              "collection_side_logo": "shopify:\/\/shop_images\/1400x220_banner_left_9b3d5174-dc03-4e56-b2c2-c4ce74a9c84e.jpg"
+            }
+          },
+          "1550542288263": {
+            "type": "text_block",
+            "settings": {
+              "page_handle": "euphoria",
+              "collection_featired": "shopify:\/\/shop_images\/1400x220_banner_right.jpg",
+              "collection_side_logo": "shopify:\/\/shop_images\/1400x220_banner_left.jpg"
+            }
+          },
+          "1550542485339": {
+            "type": "text_block",
+            "settings": {
+              "page_handle": "darlings-of-defiance",
+              "collection_featired": "shopify:\/\/shop_images\/HeaderImage_1400x220_C2.jpg",
+              "collection_side_logo": "shopify:\/\/shop_images\/LogoImage_1400x220_C2_2.jpg"
+            }
+          },
+          "1550556042275": {
+            "type": "text_block",
+            "settings": {
+              "page_handle": "pastel-city",
+              "collection_featired": "shopify:\/\/shop_images\/HeaderImage_1400x220_C2.jpg",
+              "collection_side_logo": "shopify:\/\/shop_images\/LogoImage_1400x220_C2_2.jpg"
+            }
+          },
+          "1550556163472": {
+            "type": "text_block",
+            "settings": {
+              "page_handle": "radical-optimism",
+              "collection_featired": "shopify:\/\/shop_images\/radical-banner.jpg",
+              "collection_side_logo": "shopify:\/\/shop_images\/radical_logo.jpg"
+            }
+          },
+          "1550559637896": {
+            "type": "text_block",
+            "settings": {
+              "page_handle": "deep-wonder",
+              "collection_featired": "shopify:\/\/shop_images\/dw-banner.jpg",
+              "collection_side_logo": "shopify:\/\/shop_images\/dw-logo.jpg"
+            }
+          },
+          "1550711712534": {
+            "type": "text_block",
+            "settings": {
+              "page_handle": "the-new-neutral",
+              "collection_featired": "shopify:\/\/shop_images\/Header_2_1400x220-Recovered.jpg",
+              "collection_side_logo": "shopify:\/\/shop_images\/Header_1_1400x220-Recovered.jpg"
+            }
+          },
+          "1572562143433": {
+            "type": "text_block",
+            "settings": {
+              "page_handle": "arctic-frost",
+              "collection_featired": "shopify:\/\/shop_images\/Arctic-Frost_Header_Right_1400x220_bf769095-5d86-4aa0-b181-36607c5b9ff3.jpg",
+              "collection_side_logo": "shopify:\/\/shop_images\/Arctic-Frost_Header_Left_923x220_677bab2a-09ca-47e1-bebc-b9c684d30f2f.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1565022470565",
+          "1550542288263",
+          "1550542485339",
+          "1550556042275",
+          "1550556163472",
+          "1550559637896",
+          "1550711712534",
+          "1572562143433"
+        ],
+        "settings": {
+          "title": "",
+          "layout": "grid",
+          "grid": 3,
+          "rows": 3
+        }
+      },
+      "collection-template-nail-color": {
+        "type": "collection-template-nail-color",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 11,
+          "show_collection_featured": true,
+          "collection_featired": "shopify:\/\/shop_images\/1400x220_banner_right_1.jpg",
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true,
+          "Nail_text": "",
+          "lala_text": "<h1>La La Land Spring 2017 Collection<\/h1>\n<br>\n<p>People flock from around the country and around the world, to be in L.A. and make their wildest dreams come true. Here you can be who you want to be and anything is possible. Some may think our heads are in the clouds, but we know this is where we are meant to be.<\/p>",
+          "sunset_text": "<h1>Sunset Strip Holiday 2016 Collection<\/h1>\n<br>\n<p>On the mile-and-a-half stretch of Sunset Boulevard that extends from Hollywood to Beverly Hills deals are made. Stars are born. Over-sized billboards blink in sync with over-sized egos as tourists and wannabes crowd into some of L.A.’s most storied nightclubs. The Sunset Strip is where you go to catch a glimpse into the private lives of the rich and famous.<\/p>",
+          "mulho_text": "<h1>Mulholland Fall 2016 Collection<\/h1>\n<br>\n<p>Whether you’re tearing up the curves on the infamously treacherous stretch of asphalt known as The Snake or partying all night long in the multi-million dollar mansions that dot the hillside along L.A.’s most scenic roadway, Mulholland Drive is a beautifully, disorienting drive that crosses back and forth between stunning reality and the fiction of fame.<\/p>",
+          "pch_text": "<h1>PCH Summer 2016 Collection<\/h1>\n<br>\n<p>For the ultimate top-down scenic drive, head to the ribbon of highway that hugs L.A.’s breathtaking coastline. PCH meanders through the seaside cliffs and tiny beach towns that pop up every few miles along the Pacific Coast Highway.<\/p>",
+          "Permanent_text": "<br>\n<p>By keeping hot on the heels of the latest trends, our talented team of color experts deliver the bright ideas, hot colors and bold textures our fans love. Color is the foundation of everything we do. ORLY’s Permanent Color Collection has something for everyone. <\/p>"
+        }
+      },
+      "collection-template-logo": {
+        "type": "collection-template-logo",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 7,
+          "collection_video": "https:\/\/player.vimeo.com\/video\/255780501?autoplay=1&amp;app_id=122963",
+          "show_collection_video": true,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "collection-template-treatment-color": {
+        "type": "collection-template-treatment-color",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 13,
+          "show_collection_video": true,
+          "show_collection_image1": true,
+          "collection_video1": "https:\/\/player.vimeo.com\/video\/175963986?app_id=122963",
+          "collection_thumbnil1": "",
+          "show_collection_video2": true,
+          "show_collection_image2": true,
+          "collection_video2": "https:\/\/player.vimeo.com\/video\/255780501?app_id=122963",
+          "collection_thumbnil2": "",
+          "show_collection_featured": true,
+          "collection_featired": "shopify:\/\/shop_images\/sheer-banner.jpg",
+          "collection_side_logo": "",
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true,
+          "treatment_text": "<h1>The Leader in Professional Nail Treatments<\/h1>\n \n<p>From Award-Winning  Basecoats and Topcoats<\/p>\n<p>To Strengtheners and Cuticle Care,<\/p>\n<p>treat yourself right with ORLY. <\/p>",
+          "topcoats_text": "<h1>Got Matte or Go Glossy<\/h1> \n<p>ORLY topcoats provide a superior finish and lasting protection against cracking and chipping for beautiful, long lasting manicures and pedicures.<\/p>",
+          "Quick-Dry_text": "<h1>High Shine in No Time!<\/h1> \n<p>Dry nail lacquer to a high-shine finish in minutes with ORLY’s quick dry nail care treatments. Great for worry-free nails in a hurry.<\/p>",
+          "Cuticle-Care_text": "<h1>Care For Your Cuticles<\/h1>\n<p>Nails grow best when cuticles are hydrated and healthy. Include ORLY cuticle care treatments in every manicure and pedicure service to promote stronger, healthier nail growth. <\/p>",
+          "Strengtheners_text": "<h1>Get Strong Healthy Looking Nails<\/h1>  \n<p>Give weak and brittle nails the nutrition they need to grow faster, longer and stronger. Incorporate ORLY strengtheners into your salon services and recommend them for your client’s at-home nail care regimens.<\/p>",
+          "Maintenance_text": "<h1>Maintain Your Manicure<\/h1>\n<p>ORLY offers targeted solutions that are specifically designed to meet unique nail care needs. <\/p>",
+          "Specialty_text": "<br>   \n<p>Perfect the look of natural nails these unique products from ORLY.  <\/p>"
+        }
+      },
+      "special-collection-breathable-treatment-color": {
+        "type": "special-collection-breathable-treatment-color",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 8,
+          "show_collection_video": true,
+          "show_collection_image1": true,
+          "collection_video1": "https:\/\/player.vimeo.com\/video\/175963986?app_id=122963",
+          "collection_thumbnil1": "shopify:\/\/shop_images\/breathable-video-bg.jpg",
+          "show_collection_video2": true,
+          "show_collection_image2": true,
+          "collection_video2": "https:\/\/player.vimeo.com\/video\/175963986?app_id=122963",
+          "collection_thumbnil2": "shopify:\/\/shop_images\/breathable-video-bg.jpg",
+          "show_collection_featured": false,
+          "collection_featired": "",
+          "collection_side_logo": "",
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "product-template-lacquer-kits": {
+        "type": "product-template-lacquer-kits",
+        "settings": {
+          "image_size": "medium",
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_zoom": true,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "lacquer-heading": "Love ORLY? We love you too!",
+          "lacquer-heading1": "<p>You could have gotten this 6 Pix for up to (51% off MSRP) if you had COLOR PASS! <\/p>\n<p>How it Works:<\/p>\n<ul>\n    <li>Get 4 collections a year, delivered to your door. <\/li>\n    <li> Early Access - Get your first collection up to a month before everyone else! <\/li>\n     <li>Receive exclusive bonus gifts. <\/li>\n<\/ul>",
+          "Button-heading1": "",
+          "banner_call": ""
+        }
+      },
+      "collection-template-french-manicure": {
+        "type": "collection-template-french-manicure",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 4,
+          "show_collection_featured": true,
+          "collection_featired": "shopify:\/\/shop_images\/french-main.png",
+          "collection_side_logo": "shopify:\/\/shop_images\/french-logo-ext.png",
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "collection-template-epix": {
+        "type": "collection-template-epix",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 11,
+          "show_collection_featured": true,
+          "collection_featired": "shopify:\/\/shop_images\/epix-main.png",
+          "collection_side_logo": "shopify:\/\/shop_images\/epix_logo.png",
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true,
+          "epix_text": "<h1>Wears like a gel. Removes like a polish.<\/h1>\n<br>\n<p>2-Step hybrid gel system.<\/p>\n<p>Apply a color and a sealcoat.<\/p>\n<p>Fast dry, long-wearing, high-shine, and no lamps. <\/p>"
+        }
+      },
+      "collection-template-manicure-essentials": {
+        "type": "collection-template-manicure-essentials",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 8,
+          "show_collection_featured": true,
+          "collection_featired": "shopify:\/\/shop_images\/sheer-banner.jpg",
+          "collection_side_logo": "",
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "collection-template-hands-body-feet": {
+        "type": "collection-template-hands-body-feet",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 6,
+          "show_collection_featured": true,
+          "collection_featired": "",
+          "collection_side_logo": "",
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "collection-template-gelfx": {
+        "type": "collection-template-gelfx",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 11,
+          "show_collection_featured": true,
+          "collection_featired": "shopify:\/\/shop_images\/gelfxbanner.png",
+          "collection_side_logo": "shopify:\/\/shop_images\/gelfx-logo_e159d932-7f1a-40d6-bea7-a150b2bcc6a9.png",
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true,
+          "gelfx_text": "<h1>The Original Vitamin-Infused Gel Manicure System<\/h1>\n<br>\n<p>Chip-free wear &amp; brilliant shine up to 21 days.<\/p>\n<p>Antioxidants Vitamin A &amp; E promote healthy nails.<\/p>\n<p>Pro-Vitamin B5 protects nail structure.<\/p>"
+        }
+      },
+      "product-template-epix-product-page": {
+        "type": "product-template-epix-product-page",
+        "settings": {
+          "image_size": "medium",
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_zoom": true,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "epix_product": "",
+          "video_epix": "https:\/\/www.youtube.com\/embed\/uPsOOjS_nyA?vq=hd720",
+          "Epix-heading1": "You Will Need This",
+          "Video-heading1": "Tutorials"
+        }
+      },
+      "product-template-epix-video-product-page": {
+        "type": "product-template-epix-video-product-page",
+        "settings": {
+          "image_size": "medium",
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_zoom": true,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "gels-headinga": "Go Pro!",
+          "gels-heading1a": "<p>Become a verified salon or nail professional and purchase ORLY products for your business. <\/p>\n<p>Benefits include:<\/p>\n<ul>\n    <li>Salon Pricing<\/li>\n<li>Professional-only products including GELFX, EPIX<\/li>\n<li>Early access to ORLY'S Latest launches, collections<\/li>\n<\/ul>",
+          "Button-heading1a": "",
+          "banner_calla": "",
+          "video_epixa": "https:\/\/www.youtube.com\/embed\/lyVCZ1MfyUQ?vq=hd720",
+          "Video-heading1a": "Tutorials"
+        }
+      },
+      "1542842505804": {
+        "type": "hero-first",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Desert-Muse_Homepage2.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/Desert-Muse_Mobile.jpg",
+          "alignment": "top",
+          "title": "Our Fall Collection Has Arrived!",
+          "text": "",
+          "hero_size": "large",
+          "text_size": "medium",
+          "button_label": "Shop Now",
+          "button_link": "https:\/\/orlybeauty.com\/pages\/desert-muse-fall-2020-nail-color-collection-cruelty-free-vegan"
+        }
+      },
+      "1542842816658": {
+        "type": "hero-first",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Mini-Kit_Homepage-nocuticle.gif",
+          "mobile_image": "shopify:\/\/shop_images\/Mini-Kit_Mobile-nocuticle.gif",
+          "alignment": "center",
+          "title": "Mini Kits Are Here!",
+          "text": "Perfect for holiday gifting.",
+          "hero_size": "medium",
+          "text_size": "medium",
+          "button_label": "Learn More",
+          "button_link": "shopify:\/\/pages\/mini-kits-2020"
+        }
+      },
+      "color-pass-feature": {
+        "type": "color-pass-feature",
+        "settings": {
+        }
+      },
+      "hero-first": {
+        "type": "hero-first",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/color_spill_desktop_5ccb2842-bcff-4a28-9b6e-10af48ba5928.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/color_spill_mobile.jpg",
+          "image_logo1": "",
+          "alignment": "top",
+          "title": "ORLY Color Pass",
+          "text": "<p>Early Access to Next 4 ORLY Lacquer Collections\n<br>Delivered to Your Door. <br>\n$270+ worth of color and bonuses for $119 <br>\n+ FREE SHIPPING<\/p>",
+          "hero_size": "small",
+          "text_size": "medium",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "feature-row": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/radical-box.jpg",
+          "layout": "left",
+          "title": "Spring Box Now Shipping!",
+          "text": "<p><\/p>\n<p><\/p>\n<p>Sign up today and be one of the first to rock&nbsp;<br>2019 Spring Colors<\/p>\n<p><\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "feature-columns": {
+        "type": "feature-columns",
+        "blocks": {
+          "1550990639505": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/WEB481752-A2CD9BD7-7A85-E019-DA2E-B311E225C657.jpg",
+              "title": "Winter Box Now Shipping!",
+              "text": "<p><strong>Sign up today and&nbsp;receive the&nbsp;Winter 2019 Box first!<\/strong><\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1550990701215": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/colorpass_box_edit1.jpg",
+              "title": "A Year of ORLY color ONLY $119 (Over 50% Off)",
+              "text": "<p><strong>Whether you're a die-hard ORLY fan&nbsp;or&nbsp;just want on-trend professional quality lacquer,&nbsp;Color Pass is for you.<\/strong><\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1550990639505",
+          "1550990701215"
+        ],
+        "settings": {
+          "title": "",
+          "align_text": "center"
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "blog_show_author": false,
+          "blog_show_date": true,
+          "show_share_buttons": false
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "layout": "grid",
+          "blog_show_author": false,
+          "blog_show_date": true
+        }
+      },
+      "1551391620062": {
+        "type": "hero-first",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Metropolis_Homepage_65e85037-ad5f-474e-b29d-08e4230830c2.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/Metropolis_Mobile.jpg",
+          "alignment": "center",
+          "title": "You're Invited To METROPOLIS",
+          "text": "Our Holiday Collection is here.",
+          "hero_size": "medium",
+          "text_size": "medium",
+          "button_label": "",
+          "button_link": "https:\/\/orlybeauty.com\/pages\/metropolis-holiday-2020-nail-color-collection-cruelty-free-vegan"
+        }
+      },
+      "builder-in-a-bottle": {
+        "type": "builder-in-a-bottle",
+        "settings": {
+          "title": "",
+          "layout": "grid",
+          "grid": 4,
+          "rows": 2
+        }
+      },
+      "product-template-giftcard": {
+        "type": "product-template-giftcard",
+        "settings": {
+          "image_size": "medium",
+          "show_quantity_selector": false,
+          "show_variant_labels": false,
+          "show_vendor": false,
+          "enable_zoom": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "pro-heading": "",
+          "pro-heading-description": "",
+          "Button-heading1": ""
+        }
+      },
+      "banner": {
+        "type": "banner",
+        "settings": {
+        }
+      },
+      "pagefly-home": {
+        "type": "pagefly-home",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+      "1526561934581",
+      "1551391620062",
+      "1542842816658",
+      "1526623552180",
+      "1542842505804",
+      "1526380124595",
+      "1526540661979",
+      "1526548498002",
+      "1526548437551",
+      "featured-collections",
+      "1526620556765",
+      "1526620601299",
+      "1526564234245"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "color_text": "#3d4246",
+      "color_body_text": "#69727b",
+      "color_sale_text": "#557B97",
+      "color_borders": "#e8e9eb",
+      "color_button": "#557B97",
+      "color_button_text": "#fff",
+      "color_small_button": "#fff",
+      "color_small_button_text": "#3d4246",
+      "color_text_field": "#fff",
+      "color_text_field_text": "#000",
+      "color_image_overlay_text": "#fff",
+      "color_image_overlay": "#3d4246",
+      "image_overlay_opacity": 25,
+      "color_body_bg": "#fff",
+      "type_header_family": "Google_Work+Sans_600_sans",
+      "type_header_base_size": 26,
+      "type_base_family": "Google_Work+Sans_400_sans",
+      "type_base_size": 16,
+      "type_bold_product_titles": false,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+              }
+            },
+            "slideshow-1": {
+              "type": "image",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "slideshow-1"
+          ],
+          "settings": {
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "footer_linklist_two": ""
+          }
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "feature-row",
+        "slideshow"
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#6d6d6d",
+      "color_sale_text": "#DA2F0C",
+      "color_borders": "#e4e4e4",
+      "color_button": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "color_small_button": "#eaeaea",
+      "color_small_button_text": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": 30,
+      "color_body_bg": "#f8f8f8",
+      "type_header_family": "Google_Muli_600_sans",
+      "type_header_base_size": 26,
+      "type_base_family": "Google_Muli_600_sans",
+      "type_base_size": 18,
+      "type_bold_product_titles": true,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "align_logo": "left",
+            "logo": "",
+            "logo_max_width": 135,
+            "main_linklist": "main-menu",
+            "message": true,
+            "color_bg": "#162950",
+            "color_text": "#ffffff"
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "alignment": "center",
+            "hero_size": "x-large",
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            },
+            "1492095993817": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
+          "settings": {
+            "autoplay": true,
+            "autoplay_speed": 6,
+            "slideshow_height": "medium",
+            "text_size": "medium"
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "grid": 3,
+            "rows": 1,
+            "show_vendor": true,
+            "show_view_all": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "footer_linklist": "main-menu",
+            "footer_linklist_two": "footer",
+            "footer_newsletter_enable": true,
+            "show_payment_icons": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "image_size": "medium",
+            "show_quantity_selector": false,
+            "show_variant_labels": true,
+            "show_vendor": false,
+            "enable_zoom": true,
+            "show_share_buttons": true
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "layout": "grid",
+            "grid": 2,
+            "rows": 2,
+            "show_vendor": false,
+            "sort_enable": true,
+            "tags_enable": true
+          }
+        },
+        "1492033809691": {
+          "type": "map",
+          "settings": {
+          }
+        },
+        "1492033877875": {
+          "type": "quotes",
+          "blocks": {
+            "1492033877875-0": {
+              "type": "quote",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "1492033877875-0"
+          ],
+          "settings": {
+          }
+        },
+        "1492033924902": {
+          "type": "custom-content",
+          "blocks": {
+            "1492033924902-0": {
+              "type": "text",
+              "settings": {
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492033924902-0"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "1492096252560": {
+          "type": "collection-list",
+          "blocks": {
+            "1492096252560-0": {
+              "type": "featured_collection",
+              "settings": {
+              }
+            },
+            "1492096252560-1": {
+              "type": "featured_collection",
+              "settings": {
+              }
+            },
+            "1492096252560-2": {
+              "type": "featured_collection",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ],
+          "settings": {
+            "grid": 3
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "layout": "grid",
+            "blog_show_author": true,
+            "blog_show_date": false
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "cart-template": {
+          "type": "cart-template",
+          "settings": {
+            "cart_notes_enable": false
+          }
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ]
+    }
+  }
+}

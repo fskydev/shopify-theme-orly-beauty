@@ -1,0 +1,97 @@
+<!doctype html>
+<!--[if IE 9]> <html class="ie9 no-js" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="{{ shop.locale }}"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.color_button }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {% if settings.favicon != blank %}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+  {% endif %}
+
+  {%- assign formatted_initial_value = gift_card.initial_value | money_without_trailing_zeros: gift_card.currency -%}
+  {%- assign formatted_initial_value_stripped = formatted_initial_value | strip_html -%}
+  <title>{{ 'gift_cards.issued.title_html' | t: value: formatted_initial_value_stripped, shop: shop.name }}</title>
+
+  <meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">
+
+  {% include 'google-fonts' %}
+  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'gift-card.scss.css' | asset_url | stylesheet_tag }}
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer="defer"></script><!--<![endif]-->
+  <!--[if lte IE 9]><script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}"></script><![endif]-->
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+  <!--[if lte IE 9]><script src="{{ 'vendor.js' | asset_url }}"></script><![endif]-->
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'gift-card.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+  <!--[if lte IE 9]><script src="{{ 'gift-card.js' | asset_url }}"></script><![endif]-->
+
+  <script>
+    var theme = {
+      strings: {
+        qrImageAlt: {{ 'gift_cards.issued.qr_image_alt' | t | json }}
+      }
+    };
+  </script>
+
+  {{ content_for_header }}
+<!-- Algolia head -->
+  <script type="text/template" id="template_algolia_money_format">{% include 'algolia_money_format' %}</script>
+  <script type="text/template" id="template_algolia_autocomplete">{% include 'algolia_autocomplete.hogan' %}</script>
+  <script type="text/template" id="template_algolia_autocomplete.css">{% include 'algolia_autocomplete.css.hogan' %}</script>
+  <script type="text/template" id="template_algolia_autocomplete_pages_empty">{% include 'algolia_autocomplete_pages_empty.hogan' %}</script>
+  <script type="text/template" id="template_algolia_autocomplete_page">{% include 'algolia_autocomplete_page.hogan' %}</script>
+  <script type="text/template" id="template_algolia_autocomplete_collection">{% include 'algolia_autocomplete_collection.hogan' %}</script>
+  <script type="text/template" id="template_algolia_autocomplete_collections_empty">{% include 'algolia_autocomplete_collections_empty.hogan' %}</script>
+  <script type="text/template" id="template_algolia_autocomplete_article">{% include 'algolia_autocomplete_article.hogan' %}</script>
+  <script type="text/template" id="template_algolia_autocomplete_articles_empty">{% include 'algolia_autocomplete_articles_empty.hogan' %}</script>
+  <script type="text/template" id="template_algolia_autocomplete_product">{% include 'algolia_autocomplete_product.hogan' %}</script>
+  <script type="text/template" id="template_algolia_autocomplete_products_empty">{% include 'algolia_autocomplete_products_empty.hogan' %}</script>
+  <script type="text/template" id="template_algolia_autocomplete_footer">{% include 'algolia_autocomplete_footer.hogan' %}</script>
+  <script type="text/template" id="template_algolia_instant_search">{% include 'algolia_instant_search.hogan' %}</script>
+  <script type="text/template" id="template_algolia_instant_search.css">{% include 'algolia_instant_search.css.hogan' %}</script>
+  <script type="text/template" id="template_algolia_instant_search_stats">{% include 'algolia_instant_search_stats.hogan' %}</script>
+  <script type="text/template" id="template_algolia_instant_search_facet_item">{% include 'algolia_instant_search_facet_item.hogan' %}</script>
+  <script type="text/template" id="template_algolia_instant_search_current_refined_values_item">{% include 'algolia_instant_search_current_refined_values_item.hogan' %}</script>
+  <script type="text/template" id="template_algolia_instant_search_product">{% include 'algolia_instant_search_product.hogan' %}</script>
+  <script type="text/template" id="template_algolia_instant_search_no_result">{% include 'algolia_instant_search_no_result.hogan' %}</script>
+  {{ '//cdn.jsdelivr.net/fontawesome/4.4.0/css/font-awesome.min.css' | stylesheet_tag }}
+  {{ '//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css' | stylesheet_tag }}
+  {{ '//cdn.polyfill.io/v2/polyfill.min.js' | script_tag }}
+  {{ '//cdn.jsdelivr.net/lodash/3.7.0/lodash.min.js' | script_tag }}
+  {{ '//cdn.jsdelivr.net/jquery/2/jquery.min.js' | script_tag }}
+  {{ '//cdn.jsdelivr.net/hogan.js/3/hogan.min.js' | script_tag }}
+  {{ '//cdn.jsdelivr.net/autocomplete.js/0.24.2/autocomplete.jquery.min.js' | script_tag }}
+  {{ '//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js' | script_tag }}
+  {{ '//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js' | script_tag }}
+  {{ 'algolia_config.js' | asset_url | script_tag }}
+  {{ 'algolia_init.js' | asset_url | script_tag }}
+  {{ 'algolia_analytics.js' | asset_url | script_tag }}
+  {{ 'algolia_translations.js' | asset_url | script_tag }}
+  {{ 'algolia_helpers.js' | asset_url | script_tag }}
+  {{ 'algolia_autocomplete.js' | asset_url | script_tag }}
+  {{ 'algolia_facets.js' | asset_url | script_tag }}
+  {{ 'algolia_sort_orders.js' | asset_url | script_tag }}
+  {{ 'algolia_instant_search.js' | asset_url | script_tag }}
+<!-- /Algolia head -->
+
+
+  
+
+  {% render 'shogun-head' %}
+</head>
+
+<body class="template-giftcard">
+  {{ content_for_layout }}
+  <ul class="visually-hidden" aria-hidden="true">
+    <li id="a11y-new-window-message">{{ 'general.accessibility.link_messages.new_window' | t }}</li>
+    <li id="a11y-external-message">{{ 'general.accessibility.link_messages.external' | t }}</li>
+    <li id="a11y-new-window-external-message">{{ 'general.accessibility.link_messages.new_window_and_external' | t }}</li>
+  </ul>
+</body>
+</html>

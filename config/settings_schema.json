@@ -1,0 +1,982 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Debut",
+    "theme_author": "Shopify",
+    "theme_version": "3.1.1",
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/using-themes\/themes-by-shopify\/debut",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
+  },
+  {
+    "name": {
+      "en": "Colors",
+      "de": "Farben",
+      "fr": "Couleurs"
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": {
+          "en": "Text and buttons",
+          "de": "Text und Buttons",
+          "fr": "Texte et boutons"
+        }
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": {
+          "en": "Headings and links",
+          "de": "Titel und Links",
+          "fr": "En-têtes et liens"
+        },
+        "default": "#3d4246"
+      },
+      {
+        "type": "color",
+        "id": "color_body_text",
+        "label": {
+          "en": "Body text",
+          "de": "Body-Text",
+          "fr": "Corps du texte"
+        },
+        "default": "#69727b"
+      },
+      {
+        "type": "color",
+        "id": "color_sale_text",
+        "label": {
+          "en": "Sale text",
+          "de": "Verkaufstext",
+          "fr": "Texte de vente"
+        },
+        "default": "#557B97"
+      },
+      {
+        "type": "color",
+        "id": "color_borders",
+        "label": {
+          "en": "Borders and lines",
+          "de": "Rahmen und Linien",
+          "fr": "Bordures et lignes"
+        },
+        "default": "#e8e9eb"
+      },
+      {
+        "type": "color",
+        "id": "color_button",
+        "label": {
+          "en": "Buttons",
+          "de": "Buttons",
+          "fr": "Boutons"
+        },
+        "default": "#557B97"
+      },
+      {
+        "type": "color",
+        "id": "color_button_text",
+        "label": {
+          "en": "Button text",
+          "de": "Button-Text",
+          "fr": "Texte des boutons"
+        },
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "color_small_button",
+        "label": {
+          "en": "Small buttons",
+          "de": "Kleine Buttons",
+          "fr": "Petits boutons"
+        },
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "color_small_button_text",
+        "label": {
+          "en": "Small button text",
+          "de": "Text auf kleinen Buttons",
+          "fr": "Texte des petits boutons"
+        },
+        "default": "#3d4246"
+      },
+      {
+        "type": "color",
+        "id": "color_text_field",
+        "label": {
+          "en": "Text fields",
+          "de": "Textfeld",
+          "fr": "Couleur de fond des champs de texte"
+        },
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "color_text_field_text",
+        "label": {
+          "en": "Text field text",
+          "de": "Text auf Textfeld",
+          "fr": "Couleur du texte des champs de texte"
+        },
+        "default": "#000"
+      },
+      {
+        "type": "header",
+        "content": {
+          "en": "Image overlays",
+          "de": "Text auf Fotos",
+          "fr": "Superposition d'image"
+        }
+      },
+      {
+        "type": "color",
+        "id": "color_image_overlay_text",
+        "label": {
+          "en": "Text",
+          "de": "Textfarbe",
+          "fr": "Couleur du texte"
+        },
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "color_image_overlay",
+        "label": {
+          "en": "Background",
+          "de": "Schriftfarbe",
+          "fr": "Couleur de fond"
+        },
+        "default": "#3d4246"
+      },
+      {
+        "type": "range",
+        "id": "image_overlay_opacity",
+        "label": {
+          "en": "Opacity",
+          "de": "Opazität",
+          "fr": "Opacité"
+        },
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": {
+          "en": "%",
+          "de": "%",
+          "fr": " %"
+        },
+        "default": 25
+      },
+      {
+        "type": "header",
+        "content": {
+          "en": "Background",
+          "de": "Schriftfarbe",
+          "fr": "Arrière-plan"
+        }
+      },
+      {
+        "type": "color",
+        "id": "color_body_bg",
+        "label": {
+          "en": "Background",
+          "de": "Schriftfarbe",
+          "fr": "Couleur de fond"
+        },
+        "default": "#fff"
+      }
+    ]
+  },
+  {
+    "name": {
+      "en": "Typography",
+      "de": "Typographie",
+      "fr": "Typographie"
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": {
+          "en": "Headings and buttons",
+          "de": "Titel und Buttons",
+          "fr": "En-têtes et boutons"
+        }
+      },
+      {
+        "type": "select",
+        "id": "type_header_family",
+        "label": {
+          "en": "Font",
+          "de": "Schriftart",
+          "fr": "Police"
+        },
+        "default": "Google_Work+Sans_600_sans",
+        "options": [
+          {
+            "value": "'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, 'AppleGothic', sans-serif",
+            "label": "Avant Garde",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "'Gill Sans', 'Gill Sans MT', Calibri, sans-serif",
+            "label": "Gill Sans",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+            "label": "Helvetica Neue",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Arial, 'Helvetica Neue', Helvetica, sans-serif",
+            "label": "Arial",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif",
+            "label": "Candara",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Geneva, Tahoma, Verdana, sans-serif",
+            "label": "Geneva",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Google_Droid+Sans_400_sans",
+            "label": "Droid Sans",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Droid+Sans_700_sans",
+            "label": "Droid Sans Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Lato_400_sans",
+            "label": "Lato",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Lato_700_sans",
+            "label": "Lato Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Montserrat_400_sans",
+            "label": "Montserrat",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Montserrat_700_sans",
+            "label": "Montserrat Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Muli_600_sans",
+            "label": "Muli",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Open+Sans_400_sans",
+            "label": "Open Sans",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Open+Sans_700_sans",
+            "label": "Open Sans Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Oswald_400_sans",
+            "label": "Oswald",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_PT+Sans_400_sans",
+            "label": "PT Sans",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_PT+Sans_700_sans",
+            "label": "PT Sans Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Roboto_400_sans",
+            "label": "Roboto",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Roboto_700_sans",
+            "label": "Roboto Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Source+Sans+Pro_400_sans",
+            "label": "Source Sans Pro",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Source+Sans+Pro_700_sans",
+            "label": "Source Sans Pro Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Ubuntu_400_sans",
+            "label": "Ubuntu",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Ubuntu_700_sans",
+            "label": "Ubuntu Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Work+Sans_400_sans",
+            "label": "Work Sans",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Work+Sans_600_sans",
+            "label": "Work Sans Semi-Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif",
+            "label": "Big Caslon",
+            "group": "Serif"
+          },
+          {
+            "value": "'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif",
+            "label": "Calisto MT",
+            "group": "Serif"
+          },
+          {
+            "value": "Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif",
+            "label": "Baskerville",
+            "group": "Serif"
+          },
+          {
+            "value": "Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif",
+            "label": "Garamond",
+            "group": "Serif"
+          },
+          {
+            "value": "TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif",
+            "label": "Times New Roman",
+            "group": "Serif"
+          },
+          {
+            "value": "Google_Arvo_400_serif",
+            "label": "Arvo",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Arvo_700_serif",
+            "label": "Arvo Bold",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Crimson+Text_400_serif",
+            "label": "Crimson Text",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Crimson+Text_700_serif",
+            "label": "Crimson Text Bold",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Droid+Serif_400_serif",
+            "label": "Droid Serif",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Droid+Serif_700_serif",
+            "label": "Droid Serif Bold",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Lora_400_serif",
+            "label": "Lora",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Lora_700_serif",
+            "label": "Lora Bold",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Old+Standard+TT_400_serif",
+            "label": "Old Standard",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Old+Standard+TT_700_serif",
+            "label": "Old Standard Bold",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_PT+Serif_400_serif",
+            "label": "PT Serif",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_PT+Serif_700_serif",
+            "label": "PT Serif Bold",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Vollkorn_400_serif",
+            "label": "Vollkorn",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Vollkorn_700_serif",
+            "label": "Vollkorn Bold",
+            "group": "Serif | Google Web Fonts"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "type_header_base_size",
+        "label": {
+          "en": "Heading base size",
+          "de": "Titelgröße",
+          "fr": "Dimensions de base de l'en-tête"
+        },
+        "default": 26,
+        "min": 20,
+        "max": 36,
+        "step": 1,
+        "unit": {
+          "en": "px",
+          "de": "px",
+          "fr": " px"
+        }
+      },
+      {
+        "type": "header",
+        "content": {
+          "en": "Body text",
+          "de": "Body-Text",
+          "fr": "Corps du texte"
+        }
+      },
+      {
+        "type": "select",
+        "id": "type_base_family",
+        "label": {
+          "en": "Font",
+          "de": "Schriftart",
+          "fr": "Police"
+        },
+        "default": "Google_Work+Sans_400_sans",
+        "options": [
+          {
+            "value": "'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, 'AppleGothic', sans-serif",
+            "label": "Avant Garde",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "'Gill Sans', 'Gill Sans MT', Calibri, sans-serif",
+            "label": "Gill Sans",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+            "label": "Helvetica Neue",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Arial, 'Helvetica Neue', Helvetica, sans-serif",
+            "label": "Arial",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif",
+            "label": "Candara",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Geneva, Tahoma, Verdana, sans-serif",
+            "label": "Geneva",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Google_Droid+Sans_400_sans",
+            "label": "Droid Sans",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Droid+Sans_700_sans",
+            "label": "Droid Sans Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Lato_400_sans",
+            "label": "Lato",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Lato_700_sans",
+            "label": "Lato Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Montserrat_400_sans",
+            "label": "Montserrat",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Montserrat_700_sans",
+            "label": "Montserrat Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Muli_600_sans",
+            "label": "Muli",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Open+Sans_400_sans",
+            "label": "Open Sans",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Open+Sans_700_sans",
+            "label": "Open Sans Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_PT+Sans_400_sans",
+            "label": "PT Sans",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_PT+Sans_700_sans",
+            "label": "PT Sans Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Roboto_400_sans",
+            "label": "Roboto",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Roboto_700_sans",
+            "label": "Roboto Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Source+Sans+Pro_400_sans",
+            "label": "Source Sans Pro",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Source+Sans+Pro_700_sans",
+            "label": "Source Sans Pro Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Ubuntu_400_sans",
+            "label": "Ubuntu",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Ubuntu_700_sans",
+            "label": "Ubuntu Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Work+Sans_400_sans",
+            "label": "Work Sans",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Work+Sans_500_sans",
+            "label": "Work Sans Semi-Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif",
+            "label": "Big Caslon",
+            "group": "Serif"
+          },
+          {
+            "value": "'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif",
+            "label": "Calisto MT",
+            "group": "Serif"
+          },
+          {
+            "value": "Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif",
+            "label": "Baskerville",
+            "group": "Serif"
+          },
+          {
+            "value": "Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif",
+            "label": "Garamond",
+            "group": "Serif"
+          },
+          {
+            "value": "Georgia, 'Hoefler Text', 'Times New Roman', serif",
+            "label": "Georgia",
+            "group": "Serif"
+          },
+          {
+            "value": "TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif",
+            "label": "Times New Roman",
+            "group": "Serif"
+          },
+          {
+            "value": "Google_Arapey_400_serif",
+            "label": "Arapey",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Arvo_400_serif",
+            "label": "Arvo",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Arvo_700_serif",
+            "label": "Arvo Bold",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Crimson+Text_400_serif",
+            "label": "Crimson Text",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Crimson+Text_700_serif",
+            "label": "Crimson Text Bold",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Droid+Serif_400_serif",
+            "label": "Droid Serif",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Droid+Serif_700_serif",
+            "label": "Droid Serif Bold",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Lora_400_serif",
+            "label": "Lora",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Lora_700_serif",
+            "label": "Lora Bold",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_PT+Serif_400_serif",
+            "label": "PT Serif",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_PT+Serif_700_serif",
+            "label": "PT Serif Bold",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Vollkorn_400_serif",
+            "label": "Vollkorn",
+            "group": "Serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Vollkorn_700_serif",
+            "label": "Vollkorn Bold",
+            "group": "Serif | Google Web Fonts"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "type_base_size",
+        "label": {
+          "en": "Base size",
+          "de": "Größe",
+          "fr": "Dimensions de base"
+        },
+        "default": 16,
+        "min": 14,
+        "max": 20,
+        "step": 1,
+        "unit": {
+          "en": "px",
+          "de": "px",
+          "fr": " px"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "type_bold_product_titles",
+        "label": {
+          "en": "Bold product titles",
+          "de": "Produkttitel in fett",
+          "fr": "Titres de produits en gras"
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "en": "Social media",
+      "de": "Social Media",
+      "fr": "Médias sociaux"
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": {
+          "en": "Social sharing image",
+          "de": "Social-Media-Button",
+          "fr": "Image de partage social"
+        }
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": {
+          "en": "Image",
+          "de": "Foto",
+          "fr": "Image"
+        },
+        "info": {
+          "en": "Shown when sharing a link on social media. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/troubleshooting\/showing-social-media-thumbnail-images\/) about image thumbnails.",
+          "de": "Wird gezeigt, wenn ein Link sozial geteilt wird. [Mehr erfahren](https:\/\/help.shopify.com\/manual\/using-themes\/troubleshooting\/showing-social-media-thumbnail-images\/)",
+          "fr": "Affichée lors du partage d'un lien sur les réseaux sociaux. [En savoir plus](https:\/\/help.shopify.com\/manual\/using-themes\/troubleshooting\/showing-social-media-thumbnail-images\/)."
+        }
+      },
+      {
+        "type": "header",
+        "content": {
+          "en": "Social sharing options",
+          "de": "Teilen auf Social Media",
+          "fr": "Options de partage sur les médias sociaux"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": {
+          "en": "Share on Facebook",
+          "de": "Teilen auf Facebook",
+          "fr": "Partager sur Facebook"
+        },
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": {
+          "en": "Tweet on Twitter",
+          "de": "Tweet auf Twitter",
+          "fr": "Tweeter sur Twitter"
+        },
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": {
+          "en": "Pin on Pinterest",
+          "de": "Pin auf Pinterest",
+          "fr": "Épingler sur Pinterest"
+        },
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": {
+          "en": "Social accounts",
+          "de": "Social Media",
+          "fr": "Médias sociaux"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": {
+          "en": "Twitter",
+          "de": "Twitter",
+          "fr": "Twitter"
+        },
+        "info": {
+          "en": "https:\/\/twitter.com\/shopify",
+          "de": "https:\/\/twitter.com\/shopify",
+          "fr": "https:\/\/twitter.com\/shopify"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": {
+          "en": "Facebook",
+          "de": "Facebook",
+          "fr": "Facebook"
+        },
+        "info": {
+          "en": "https:\/\/facebook.com\/shopify",
+          "de": "https:\/\/facebook.com\/shopify",
+          "fr": "https:\/\/facebook.com\/shopify"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": {
+          "en": "Pinterest",
+          "de": "Pinterest",
+          "fr": "Pinterest"
+        },
+        "info": {
+          "en": "https:\/\/pinterest.com\/shopify",
+          "de": "https:\/\/pinterest.com\/shopify",
+          "fr": "https:\/\/pinterest.com\/shopify"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": {
+          "en": "Instagram",
+          "de": "Instagram",
+          "fr": "Instagram"
+        },
+        "info": {
+          "en": "http:\/\/instagram.com\/shopify",
+          "de": "http:\/\/instagram.com\/shopify",
+          "fr": "http:\/\/instagram.com\/shopify"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": {
+          "en": "Tumblr",
+          "de": "Tumblr",
+          "fr": "Tumblr"
+        },
+        "info": {
+          "en": "http:\/\/shopify.tumblr.com",
+          "de": "http:\/\/shopify.tumblr.com",
+          "fr": "http:\/\/shopify.tumblr.com"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat_link",
+        "label": {
+          "en": "Snapchat",
+          "de": "Snapchat",
+          "fr": "Snapchat"
+        },
+        "info": {
+          "en": "https:\/\/www.snapchat.com\/add\/shopify",
+          "de": "https:\/\/www.snapchat.com\/add\/shopify",
+          "fr": "https:\/\/www.snapchat.com\/add\/shopify"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": {
+          "en": "YouTube",
+          "de": "YouTube",
+          "fr": "YouTube"
+        },
+        "info": {
+          "en": "https:\/\/www.youtube.com\/shopify",
+          "de": "https:\/\/www.youtube.com\/shopify",
+          "fr": "https:\/\/www.youtube.com\/shopify"
+        }
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": {
+          "en": "Vimeo",
+          "de": "Vimeo",
+          "fr": "Vimeo"
+        },
+        "info": {
+          "en": "https:\/\/vimeo.com\/shopify",
+          "de": "https:\/\/vimeo.com\/shopify",
+          "fr": "https:\/\/vimeo.com\/shopify"
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "en": "Favicon",
+      "de": "Favicon",
+      "fr": "Favicon"
+    },
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": {
+          "en": "Favicon image",
+          "de": "Favicon-Foto",
+          "fr": "Image favicon"
+        },
+        "info": {
+          "en": "Will be scaled down to 32 x 32px",
+          "de": "Wird in der Größe 32 x 32 px angezeigt",
+          "fr": "L'image sera réduite à 32 x 32 px"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Cart type",
+        "options": [
+          {
+            "value": "page",
+            "label": "Page"
+          },
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable order notes"
+      }
+    ]
+  },
+  {
+    "name": "Product banners-logo",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "neon_earth_image",
+        "label": "Neon-Earth Banner"
+      },
+      {
+        "type": "image_picker",
+        "id": "neon_earth_logo",
+        "label": "Neon-Earth Logo"
+      }
+    ]
+  }
+]

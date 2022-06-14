@@ -1,0 +1,42 @@
+  <div class="left_sidebar">
+      <div class="category-nav-header">
+      	<a class="header-item close-catenav"><img src="//cdn.shopify.com/s/files/1/0077/5874/1562/t/1/assets/m-back-icon.png"/></a>
+        <span>Filters</span>
+      </div>
+      
+	  <div class="category-nav">
+          <div class="filtr">
+            <div class="coll-hand" style="display:none;">{{collection.handle}}</div>
+ 
+
+
+       <div class="filtr">
+  <ul>
+    {% assign tags = 'French Kits Products,French Kits Colors'  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+
+   {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+     {% if collection.all_tags contains tag %}
+        <h3>French Kits</h3>
+     {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+
+      {% for tag in tags %}
+      {% if current_tags contains tag %}
+   
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'French Kits' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'French Kits' }}</a></li>
+      {% endif %}
+      {% endfor %}      
+</ul>  
+
+  </div> 
+        
+        
+      </div>  
+    </div>
+    </div>   

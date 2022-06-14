@@ -1,0 +1,276 @@
+<link rel="stylesheet" href="{{ 'pagefly.0207fc56.css' | asset_url }}">
+		 <style>ol li { } a { 	text-decoration: underline; 	font-weight: bold; } li { } .product-form__cart-submit { 	background-color: #e89cae; 	color: #fff; 	width: 100%; 	font-size: 14px; 	border-radius: 2px; 	padding-top: 12px; 	padding-bottom: 12px; 	text-transform: uppercase; 	letter-spacing: 3px; 	font-family: Lato; 	font-weight: 700; } .product-form__item.product-form__item--submit {   margin-bottom: 5px; }</style> <script>
+	window.__pageflyProducts = window.__pageflyProducts || {};
+	{% unless product.id == null %}window.__pageflyProducts["{{product.id}}"] = {
+		id: {{ product.id | json }},
+		handle: {{ product.handle | json }},
+		title: {{ product.title | json }},
+		type: {{ product.type | json }},
+		url: {{ product.url | json }},
+		vendor: {{ product.vendor | json }},
+		variants: {{ product.variants | json }},
+		options: {{ product.options | json }},
+		media: {{ product.media | json }},
+		has_only_default_variant: {{ product.has_only_default_variant | json }},
+		options_with_values: {{ product.options_with_values | json }},
+		selected_variant: {{ product.selected_variant | json }},
+		selected_or_first_available_variant: {{ product.selected_or_first_available_variant | json }},
+		tags: {{ product.tags | json }},
+		template_suffix: {{ product.template_suffix | json }},
+		featured_image: {{ product.featured_image | json }},
+		featured_media: {{ product.featured_media | json }},
+		images: {{ product.images | json }}
+	};{% endunless %}
+	</script>{% if collection_172059459683 == null %}{%- assign collection_172059459683 = collections["holiday-gifting-bundle-1"] -%}{% endif %}<script>
+	window.__pageflyCollections = window.__pageflyCollections || {};
+	window.__pageflyCollections["172059459683"] = {{collection_172059459683 | json }};
+	</script><div style="opacity:0" class="sc-dwqbIM lgnhdE __pf" id="__pf"><div data-pf-type="Body" class="sc-eggNIi JiLrb pf-b075"><div data-pf-type="Layout" class="sc-jcVebW hrCIoP pf-797d"><div data-pf-type="ProductPreview" class="sc-cbDGPM eTEuVf pf-b2a7"><!-- Copyright FeedArmy 2020 Version 2.37 -->
+{% assign fa_current_variant = product.selected_or_first_available_variant %}
+{%- assign fa_variant_count = product.variants | size -%}
+{%- assign fa_count = 0 -%}
+<script type="application/ld+json" data-creator_name="FeedArmy">
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": "{{ product.title | strip_html | escape }}",
+  "url": "{{ shop.url }}{{ product.url }}",
+  {%- if product.variants.first.sku != blank -%}
+    "sku": "{{ product.variants.first.sku }}",
+  {%- else -%}
+    "sku": "{{ product.variants.first.id }}",
+  {%- endif -%}
+  {%- if product.variants.first.barcode.size == 12 -%}
+    "gtin12": {{ product.variants.first.barcode }},
+  {%- endif -%}
+  {%- if product.variants.first.barcode.size == 13 -%}
+    "gtin13": {{ product.variants.first.barcode }},
+  {%- endif -%}
+  {%- if product.variants.first.barcode.size == 14 -%}
+    "gtin14": {{ product.variants.first.barcode }},
+  {%- endif -%}
+    "productID": "{{ product.id }}",
+  "brand": {
+    "@type": "Product",
+    "name": "{{ product.vendor | escape }}"
+    {% if product.metafields.okendo.summaryData.reviewCount > 0 %}
+  ,"aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ product.metafields.okendo.summaryData.reviewAverageValue }}",
+    "ratingCount": "{{ product.metafields.okendo.summaryData.reviewCount }}"
+  }
+{% elsif product.metafields.okendo.ReviewCount > 0 %}
+  ,"aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ product.metafields.okendo.ReviewAverageValue }}",
+    "ratingCount": "{{ product.metafields.okendo.ReviewCount }}"
+  }
+{% endif %}
+  },
+  "description": {{ product.description | strip_html | json }},
+  "image": "https:{{ product.featured_image.src | img_url: 'grande' }}",
+  {%- if product.variants -%}
+  {%- assign fa_count = fa_count | plus: 1 -%}
+    "offers": {% if product.variants.size > 1 %}[{% endif %}
+      {
+        "@type" : "Offer",
+        "priceCurrency": "{{ cart.currency.iso_code }}",
+        "price": "{{ fa_current_variant.price | money_without_currency  | strip_html | remove: ',' }}",
+        "itemCondition" : "http://schema.org/NewCondition",
+        "availability" : "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+        "url" : "{{ shop.url }}{{ fa_current_variant.url }}",
+            {%- if fa_current_variant.image -%}
+              {% assign variant_image_size = fa_current_variant.image.width | append: 'x' %}
+              "image": "https:{{ fa_current_variant.image.src | img_url: variant_image_size }}",
+            {%- else -%}
+              "image": "https:{{ product.featured_image.src | img_url: 'grande' }}",
+            {%- endif -%}
+            {%- if fa_current_variant.title != 'Default Title' -%}
+              "name" : "{{ product.title | strip_html | escape }} - {{ fa_current_variant.title | escape }}",
+            {%- else -%}
+              "name" : "{{ product.title | strip_html | escape }}",
+            {%- endif -%}
+            {% if fa_current_variant.barcode.size == 12 %}
+              "gtin12": {{ fa_current_variant.barcode }},
+            {%- endif -%}
+            {%- if fa_current_variant.barcode.size == 13 -%}
+              "gtin13": {{ fa_current_variant.barcode }},
+            {%- endif -%}
+            {%- if fa_current_variant.barcode.size == 14 -%}
+              "gtin14": {{ fa_current_variant.barcode }},
+            {%- endif -%}
+            {%- if fa_current_variant.sku != blank -%}
+              "sku": "{{ fa_current_variant.sku }}",
+            {%- else -%}
+              "sku": "{{ fa_current_variant.id }}",
+            {%- endif -%}
+            {%- if product.description != blank -%}
+            "description" : {{ product.description | strip_html | json }},
+            {%- endif -%}
+          "priceValidUntil": "{{ 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' | uri_encode | replace:'+','%20' }}"
+      }
+	  {%- if product.variants.size != 1 -%},{%- endif -%}
+      {%- for variant in product.variants -%}
+      {%- if variant != product.selected_or_first_available_variant -%}
+      {%- assign fa_count = fa_count | plus: 1 -%}
+        {
+          "@type" : "Offer",
+          "priceCurrency": "{{ cart.currency.iso_code }}",
+          "price": "{{ variant.price | money_without_currency  | strip_html | remove: ',' }}",
+          "itemCondition" : "http://schema.org/NewCondition",
+          "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+          "url" : "{{ shop.url }}{{ variant.url }}",
+              {%- if variant.image -%}
+                {% assign variant_image_size = variant.image.width | append: 'x' %}
+                "image": "http:{{ variant.image.src | img_url: variant_image_size }}",
+              {%- else -%}
+                "image": "https:{{ product.featured_image.src | img_url: 'grande' }}",
+              {%- endif -%}
+              {%- if variant.title != 'Default Title' -%}
+                "name" : "{{ product.title | strip_html | escape }} - {{ variant.title | escape }}",
+              {%- else -%}
+                "name" : "{{ product.title | strip_html | escape }}",
+              {%- endif -%}
+              {%- if variant.barcode.size == 12 -%}
+                "gtin12": {{ variant.barcode }},
+              {%- endif -%}
+              {%- if variant.barcode.size == 13 -%}
+                "gtin13": {{ variant.barcode }},
+              {%- endif -%}
+              {%- if variant.barcode.size == 14 -%}
+                "gtin14": {{ variant.barcode }},
+              {%- endif -%}
+              {%- if variant.sku != blank -%}
+                "sku": "{{ variant.sku }}",
+              {%- else -%}
+                "sku": "{{ variant.id }}",
+              {%- endif -%}
+              {%- if product.description != blank -%}
+              "description" : {{ product.description | strip_html | json }},
+              {%- endif -%}
+              "priceValidUntil": "{{ 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' | uri_encode | replace:'+','%20' }}"
+          }
+          {%- if fa_count < fa_variant_count -%}
+         	{%- unless forloop.last -%},{%- endunless -%}
+          {%- endif -%}
+          {%- endif -%}
+      {%- endfor -%}
+    {%- if product.variants.size > 1 -%}],
+      "additionalProperty": [{
+        "@type": "PropertyValue",
+        "propertyID": "item_group_id",
+        "value": "{{ product.id }}"
+      }]
+      {%- endif -%}
+  {%- endif -%}
+}
+</script>
+
+
+<script type='text/javascript' data-beauty>
+                        ;(function() {
+                            if (meta && meta['product']) {
+                                meta['product']['tags'] = {{ product.tags | json }}
+                            }
+                        } ());
+                    </script>
+                    <script data-beauty type='text/javascript'>
+  {%- assign BPTag_Only = "beauty pro only" -%}
+  {%- assign BPTag_Discount = "beauty pro pricing" -%}
+  ;(function() {
+  	if (meta && meta['product']) {
+      meta['product']['tags'] = {{ product.tags | json }}
+    }
+
+    {%- assign tags = product.tags | join: ", " | downcase | split: ", " -%}
+    {%- if tags contains BPTag_Only or tags contains BPTag_Discount -%}
+      var style = document.createElement('style');
+      style.type = 'text/css';
+      style.innerText = 'form[action="/cart/add"] [type="submit"] { display: none; }';
+
+      var head = document.querySelector('head');
+      head.appendChild(style);  
+
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOMContentLoaded!!!');
+        var step = 0;
+        var it = setInterval(function() {
+          step = step + 1;
+          if (step >= 1.5e2 || window.BListConfig) {
+            head.removeChild(style);
+            clearInterval(it);
+          }
+        }, 1e1);
+      });
+    {%- endif -%}
+  } ());
+   
+</script>
+                    
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+
+{% section 'product-template' %}
+
+{% section 'related-template' %}
+
+
+
+<script>
+  // Override default values of shop.strings for each template.
+  // Alternate product templates can change values of
+  // add to cart button, sold out, and unavailable states here.
+  theme.productStrings = {
+    addToCart: {{ 'products.product.add_to_cart' | t | json }},
+    soldOut: {{ 'products.product.sold_out' | t | json }},
+    unavailable: {{ 'products.product.unavailable' | t | json }}
+  }
+</script>
+
+
+</div><div data-pf-type="Section" class="sc-jeGSBP iRgiNB pf-9b79"><div style="--cw:1170px" class="sc-iNqMTl hFrbFX"><div class="sc-jgHCyG eZqcrI pf-239b pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-4f23"><h3 data-pf-type="Heading" class="sc-lmoMRL giuwNB pf-0170"><span data-pf-type="Text" class="sc-kIeTtH cnxSGb pf-ceba">HOLIDAY BUNDLES</span></h3><div class="sc-gsBrbv bjQOGp pf-544f pf-r pf-r-ew" style="--s-xs:15px;--ew-xs:2;--ew-md:4" data-pf-type="ProductList">{% assign collection_172059459683 = collections["holiday-gifting-bundle-1"] %}<!-- -->{% assign defaultProduct = product %}<!-- -->{% paginate collection_172059459683.products by 20 %}<!-- -->{% for product in collection_172059459683.products %}<div class="pf-c"><div data-product-id="{{ product.id }}" data-pf-type="ProductBox" class="sc-jXktwP hdiogm pf-5b83">{% if product != null %}{% form "product", product, data-productid: product.id, class: "pf-product-form" %}<div class="sc-jgHCyG eZqcrI pf-7a80 pf-r pf-r-eh" style="--s-xs:15px;--s-lg:0px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-5fbb"><div data-product-id="{{ product.id }}" data-pf-type="ProductImage" class="sc-irlOZD jUdyne pf-fc59">{% assign images = product.images %}<div style="--g-xs:10px;--l-xs:5;--w-xs:;--w-md:0" class="sc-iIEYCM iYnuOK pf-r-dg"><div data-href="{{ product.url }}" data-pf-type="MasterImage" style="order:0;--ratio:100%" class="sc-cKZHah bxyrwM"><img src="{{ product.featured_image | img_url: "x196.875", scale: 2 }}" alt="{{ product.featured_image.alt }}" loading="eager" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}"/>{% assign _product = product %}<div data-pf-type="ProductImagePagination" class="sc-eWvPJL hgQjmC pf-md-hide pf-lg-hide">{% for i in (1..images.size) %}<span></span>{% endfor %}</div></div><div class="sc-dwcuIR jktQCG   pf-md-hide pf-lg-hide"><div data-pf-type="ProductImageList" class="sc-jtHMlw jaQVoM pf-r-dg">
+								{% assign pf_all = "" %}
+								{% assign pf_laptop = "" %}
+								{% assign pf_tablet = "" %}
+								{% assign pf_mobile = "" %}
+								{% for i in (0..images.size) limit:images.size %}
+								{% assign image = images[i] %}
+								{% if true %}
+								{% if i > 4 %}
+								{% assign pf_all = "pf-lg-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_laptop = "pf-md-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_tablet = "pf-sm-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_mobile = "pf-hide" %}
+								{% endif %}
+								{% endif %}
+							<div class="sc-eltcbb iORAaW pf-f8c9 {{pf_all}} {{pf_laptop}} {{pf_tablet}} {{pf_mobile}}" data-img-id="{{ image.id }}" data-pf-type="ImageItem"><img loading="eager" src="{{ image.src | img_url: "master" }}" alt="{{ image.alt }}" draggable="false"/></div>{% endfor %}</div>{% if true %}<div data-pf-nav="prev" class="sc-kUbhmq jEqguw"><i class="pfa pfa-angle-left"></i></div><div data-pf-nav="next" class="sc-kUbhmq jEqguw"><i class="pfa pfa-angle-right"></i></div>{% endif %}</div></div></div><h3 data-product-type="title" data-product-id="{{ product.id }}" data-href="{{ product.url }}" data-pf-type="ProductTitle" class="sc-gkdzZj cmAEMu pf-ba68">{{ product.title }}</h3><div data-pf-type="Custom.HTML" class="sc-iJuUWI fTbwUB pf-abc6"><div data-oke-reviews-product-listing-rating>
+ {{ product.metafields.okendo.ProductListingSnippet }}
+</div>
+</div><div data-product-type="price" data-product-id="{{ product.id }}" data-pf-type="ProductPrice" class="sc-fWPcDo cgpajZ pf-c219">{{ product.variants[0].price | money }}</div><button data-product-id="{{ product.id }}" data-checkout="same" data-soldout="Sold out" data-adding="Adding..." data-added="Thank you!" type="button" data-pf-type="ProductATC" class="sc-Fyfyc kpvTMt pf-b8ec"><span>Add To Cart</span></button></div></div></div>{% endform %}{% endif %}</div><script>
+				window.__pageflyProducts = window.__pageflyProducts || {};
+				window.__pageflyProducts["{{product.id}}"] = {
+					id: {{product.id | json }},
+					handle: {{product.handle | json }},
+					title: {{product.title | json }},
+					type: {{product.type | json }},
+					url: {{product.url | json }},
+					vendor: {{product.vendor | json }},
+					variants: {{product.variants | json }},
+					options: {{product.options | json }},
+					media: {{product.media | json }},
+					has_only_default_variant: {{product.has_only_default_variant | json }},
+					options_with_values: {{product.options_with_values | json }},
+					selected_variant: {{product.selected_variant | json }},
+					selected_or_first_available_variant: {{product.selected_or_first_available_variant | json }},
+					tags: {{product.tags | json }},
+					template_suffix: {{product.template_suffix | json }},
+					featured_image: {{product.featured_image | json }},
+					featured_media: {{product.featured_media | json }},
+					images: {{product.images | json }}
+				};</script></div>{% endfor %}<!-- -->{% endpaginate %}<!-- -->{% assign product = defaultProduct %}</div></div></div></div></div></div></div></div></div><script>window.__pagefly_setting__={"baseURL":"https://apps.pagefly.io","analyticsURL":"https://analytics.pagefly.io","isBackend":false,"cdnURL":"https://cdn.pagefly.io","pageflyVersion":"3.0.16","shopDomain":"orlybeauty.myshopify.com","elementData":{"fc59":{"listPosition":2,"limit":{"all":5,"laptop":5,"tablet":5,"mobile":5},"height":"200px","spacing":{"all":"10px","laptop":"10px","tablet":"10px","mobile":"10px"},"listLayout":1,"hoverAction":1,"onHover":0,"clickAction":1,"imageSource":"featured","_type":"ProductImage"},"c9ab":{"applyCondition":false,"collectionSource":"all","collectionIds":[],"tags":"","_type":"ProductBadge"}},"pageTitle":"ORLY Gift Card Product Detail ","pageType":"product","pageId":"0207fc56-0ab0-4593-a2ba-3dc401ed4dd8","lazyLoad":false,"forceByPassGoogleLightHouse":false,"imageLazyLoad":false,"nativeImageLazyLoad":true,"useThemeJQ":false,"fontLink":"https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap","trackingIDs":[{"elementId":"ceba0170-fc59-4a68-8219-b19eb8ec5fbb","elementType":"ProductImage","elementName":"ProductImage"},{"elementId":"0170fc59-ba68-4219-b19e-b8ec5fbb7a80","elementType":"ProductTitle","elementName":"ProductTitle"},{"elementId":"c219b19e-b8ec-4fbb-ba80-5b83544f239b","elementType":"ProductATC","elementName":"ProductATC"}],"shopifyProxyPath":"/a/pf_preview"};window.__pagefly_setting__.moneyFormat={{shop.money_format|json}};</script><script src="https://cdn.pagefly.io/pagefly/3.0.16/core/helper.js" defer></script>

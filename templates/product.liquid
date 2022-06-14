@@ -1,0 +1,231 @@
+<!-- Copyright FeedArmy 2020 Version 2.37 -->
+{% assign fa_current_variant = product.selected_or_first_available_variant %}
+{%- assign fa_variant_count = product.variants | size -%}
+{%- assign fa_count = 0 -%}
+<script type="application/ld+json" data-creator_name="FeedArmy">
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": "{{ product.title | strip_html | escape }}",
+  "url": "{{ shop.url }}{{ product.url }}",
+  {%- if product.variants.first.sku != blank -%}
+    "sku": "{{ product.variants.first.sku }}",
+  {%- else -%}
+    "sku": "{{ product.variants.first.id }}",
+  {%- endif -%}
+  {%- if product.variants.first.barcode.size == 12 -%}
+    "gtin12": {{ product.variants.first.barcode }},
+  {%- endif -%}
+  {%- if product.variants.first.barcode.size == 13 -%}
+    "gtin13": {{ product.variants.first.barcode }},
+  {%- endif -%}
+  {%- if product.variants.first.barcode.size == 14 -%}
+    "gtin14": {{ product.variants.first.barcode }},
+  {%- endif -%}
+    "productID": "{{ product.id }}",
+  "brand": {
+    "@type": "Product",
+    "name": "{{ product.vendor | escape }}"
+    {% if product.metafields.okendo.summaryData.reviewCount > 0 %}
+  ,"aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ product.metafields.okendo.summaryData.reviewAverageValue }}",
+    "ratingCount": "{{ product.metafields.okendo.summaryData.reviewCount }}"
+  }
+{% elsif product.metafields.okendo.ReviewCount > 0 %}
+  ,"aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ product.metafields.okendo.ReviewAverageValue }}",
+    "ratingCount": "{{ product.metafields.okendo.ReviewCount }}"
+  }
+{% endif %}
+  },
+  "description": {{ product.description | strip_html | json }},
+  "image": "https:{{ product.featured_image.src | img_url: 'grande' }}",
+  {%- if product.variants -%}
+  {%- assign fa_count = fa_count | plus: 1 -%}
+    "offers": {% if product.variants.size > 1 %}[{% endif %}
+      {
+        "@type" : "Offer",
+        "priceCurrency": "{{ cart.currency.iso_code }}",
+        "price": "{{ fa_current_variant.price | money_without_currency  | strip_html | remove: ',' }}",
+        "itemCondition" : "http://schema.org/NewCondition",
+        "availability" : "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+        "url" : "{{ shop.url }}{{ fa_current_variant.url }}",
+            {%- if fa_current_variant.image -%}
+              {% assign variant_image_size = fa_current_variant.image.width | append: 'x' %}
+              "image": "https:{{ fa_current_variant.image.src | img_url: variant_image_size }}",
+            {%- else -%}
+              "image": "https:{{ product.featured_image.src | img_url: 'grande' }}",
+            {%- endif -%}
+            {%- if fa_current_variant.title != 'Default Title' -%}
+              "name" : "{{ product.title | strip_html | escape }} - {{ fa_current_variant.title | escape }}",
+            {%- else -%}
+              "name" : "{{ product.title | strip_html | escape }}",
+            {%- endif -%}
+            {% if fa_current_variant.barcode.size == 12 %}
+              "gtin12": {{ fa_current_variant.barcode }},
+            {%- endif -%}
+            {%- if fa_current_variant.barcode.size == 13 -%}
+              "gtin13": {{ fa_current_variant.barcode }},
+            {%- endif -%}
+            {%- if fa_current_variant.barcode.size == 14 -%}
+              "gtin14": {{ fa_current_variant.barcode }},
+            {%- endif -%}
+            {%- if fa_current_variant.sku != blank -%}
+              "sku": "{{ fa_current_variant.sku }}",
+            {%- else -%}
+              "sku": "{{ fa_current_variant.id }}",
+            {%- endif -%}
+            {%- if product.description != blank -%}
+            "description" : {{ product.description | strip_html | json }},
+            {%- endif -%}
+          "priceValidUntil": "{{ 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' | uri_encode | replace:'+','%20' }}"
+      }
+	  {%- if product.variants.size != 1 -%},{%- endif -%}
+      {%- for variant in product.variants -%}
+      {%- if variant != product.selected_or_first_available_variant -%}
+      {%- assign fa_count = fa_count | plus: 1 -%}
+        {
+          "@type" : "Offer",
+          "priceCurrency": "{{ cart.currency.iso_code }}",
+          "price": "{{ variant.price | money_without_currency  | strip_html | remove: ',' }}",
+          "itemCondition" : "http://schema.org/NewCondition",
+          "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+          "url" : "{{ shop.url }}{{ variant.url }}",
+              {%- if variant.image -%}
+                {% assign variant_image_size = variant.image.width | append: 'x' %}
+                "image": "http:{{ variant.image.src | img_url: variant_image_size }}",
+              {%- else -%}
+                "image": "https:{{ product.featured_image.src | img_url: 'grande' }}",
+              {%- endif -%}
+              {%- if variant.title != 'Default Title' -%}
+                "name" : "{{ product.title | strip_html | escape }} - {{ variant.title | escape }}",
+              {%- else -%}
+                "name" : "{{ product.title | strip_html | escape }}",
+              {%- endif -%}
+              {%- if variant.barcode.size == 12 -%}
+                "gtin12": {{ variant.barcode }},
+              {%- endif -%}
+              {%- if variant.barcode.size == 13 -%}
+                "gtin13": {{ variant.barcode }},
+              {%- endif -%}
+              {%- if variant.barcode.size == 14 -%}
+                "gtin14": {{ variant.barcode }},
+              {%- endif -%}
+              {%- if variant.sku != blank -%}
+                "sku": "{{ variant.sku }}",
+              {%- else -%}
+                "sku": "{{ variant.id }}",
+              {%- endif -%}
+              {%- if product.description != blank -%}
+              "description" : {{ product.description | strip_html | json }},
+              {%- endif -%}
+              "priceValidUntil": "{{ 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' | uri_encode | replace:'+','%20' }}"
+          }
+          {%- if fa_count < fa_variant_count -%}
+         	{%- unless forloop.last -%},{%- endunless -%}
+          {%- endif -%}
+          {%- endif -%}
+      {%- endfor -%}
+    {%- if product.variants.size > 1 -%}],
+      "additionalProperty": [{
+        "@type": "PropertyValue",
+        "propertyID": "item_group_id",
+        "value": "{{ product.id }}"
+      }]
+      {%- endif -%}
+  {%- endif -%}
+}
+</script>
+
+
+<script type='text/javascript' data-beauty>
+                        ;(function() {
+                            if (meta && meta['product']) {
+                                meta['product']['tags'] = {{ product.tags | json }}
+                            }
+                        } ());
+                    </script>
+                    <script data-beauty type='text/javascript'>
+  {%- assign BPTag_Only = "beauty pro only" -%}
+  {%- assign BPTag_Discount = "beauty pro pricing" -%}
+  ;(function() {
+  	if (meta && meta['product']) {
+      meta['product']['tags'] = {{ product.tags | json }}
+    }
+
+    {%- assign tags = product.tags | join: ", " | downcase | split: ", " -%}
+    {%- if tags contains BPTag_Only or tags contains BPTag_Discount -%}
+      var style = document.createElement('style');
+      style.type = 'text/css';
+      style.innerText = 'form[action="/cart/add"] [type="submit"] { display: none; }';
+
+      var head = document.querySelector('head');
+      head.appendChild(style);  
+
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOMContentLoaded!!!');
+        var step = 0;
+        var it = setInterval(function() {
+          step = step + 1;
+          if (step >= 1.5e2 || window.BListConfig) {
+            head.removeChild(style);
+            clearInterval(it);
+          }
+        }, 1e1);
+      });
+    {%- endif -%}
+  } ());
+   
+</script>
+                    
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+
+{% section 'product-template' %}
+
+{% section 'related-template' %}
+
+
+
+<script>
+  // Override default values of shop.strings for each template.
+  // Alternate product templates can change values of
+  // add to cart button, sold out, and unavailable states here.
+  theme.productStrings = {
+    addToCart: {{ 'products.product.add_to_cart' | t | json }},
+    soldOut: {{ 'products.product.sold_out' | t | json }},
+    unavailable: {{ 'products.product.unavailable' | t | json }}
+  }
+</script>
+<script type="text/javascript">
+  var _learnq = _learnq || [];
+
+  var item = {
+    Name: {{ product.title|json }},
+    ProductID: {{ product.id|json }},
+    Categories: {{ product.collections|map:'title'|json }},
+    ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+    URL: "{{ shop.secure_url }}{{ product.url }}",
+    Brand: {{ product.vendor|json }},
+    Price: {{ product.price|money|json }},
+    CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+  };
+
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+  }]);
+</script>
+

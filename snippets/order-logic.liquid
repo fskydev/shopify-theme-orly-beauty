@@ -1,0 +1,99 @@
+<script>
+DEBUG_KEY = "__olDebug";
+
+if (typeof olCreateCookie == 'undefined') {
+    var olCreateCookie = function (name, value, days) {
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            var expires = "; expires=" + date.toGMTString();
+        }
+        else var expires = "";
+        document.cookie = name + "=" + JSON.stringify(value) + expires + "; path=/; SameSite=None; Secure";
+    };
+}
+
+if (typeof olReadCookie == 'undefined') {
+    var olReadCookie = function (name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        // the cookie is being created, there is a problem with the following logic matching the name
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return JSON.parse(c.substring(nameEQ.length, c.length));
+        }
+        return;
+    };
+}
+
+if (typeof getOlCacheBuster == 'undefined') {
+    var getOlCacheBuster = function() {
+        if ( typeof getOlCacheBuster.olCacheBuster == 'undefined') {
+            scriptsArray = Array.prototype.slice.call(document.getElementsByTagName("script"));
+            scriptsArray = scriptsArray.concat(Array.prototype.slice.call(document.getElementsByTagName("noscript")));
+            for (var i=0; i<scriptsArray.length; i++) {
+                cacheBusterArray = scriptsArray[i].innerHTML.match(/orderlogicapp.com\\\/embedded_js\\\/production_base.js\?(\d+)/);
+                if (cacheBusterArray == null) {
+                    cacheBusterString = scriptsArray[i].getAttribute('src');
+                    if (cacheBusterString != null) {
+                        cacheBusterArray = cacheBusterString.match(/orderlogicapp.com\/embedded_js\/production_base.js\?(\d+)/);
+                    }
+                }
+                if (cacheBusterArray != null) {
+                    getOlCacheBuster.olCacheBuster = cacheBusterArray[1];
+                    break;
+                }
+            }
+        }
+        return getOlCacheBuster.olCacheBuster;
+    }
+}
+
+if (typeof ol_hostname == 'undefined') {
+    var ol_hostname = 'www.orderlogicapp.com';
+    var ol_debug = olReadCookie(DEBUG_KEY);
+    if (window.location.search.replace("?", "").substring(0, 7) == 'olDebug') {
+        ol_debug = window.location.search.replace("?olDebug=", "");
+        if (ol_debug == 'false') ol_debug = false;
+        olCreateCookie(DEBUG_KEY, ol_debug, null);
+    }
+}
+
+var ol_cachebuster = getOlCacheBuster();
+if (( typeof ol_cachebuster != 'undefined') || (ol_debug)) {
+    if (typeof ol_script == 'undefined') {
+        var ol_script = document.createElement('script');
+        ol_script.type = 'text/javascript';
+        ol_script.async = true;
+        ol_script.src = "https://" + (ol_debug ? 'dev.orderlogicapp.com' : ol_hostname) + "/embedded_js/store.js?" + ol_cachebuster;
+        document.head.appendChild(ol_script);
+    }
+}
+
+{% assign ol_products = cart.items | map: "product" %}
+
+olProductData = { {% for ol_product in ol_products %}
+    {{ ol_product.id }} : {
+        tags: [
+          {% for product_tag in ol_product.tags %}
+              "{{ product_tag | escape }}",
+          {% endfor %}
+        ],
+        variant_count:  {{ ol_product.variants.size }}
+    },
+    {% endfor %}
+}
+
+{% if product %}
+olProductDataDcb = {
+  productId: {{ product.id }},
+  handle: "{{ product.handle }}",
+  tags: [
+    {% for product_tag in product.tags %}
+        "{{ product_tag | escape }}",
+    {% endfor %}
+  ]
+}
+{% endif %}
+</script>

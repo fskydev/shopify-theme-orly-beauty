@@ -1,0 +1,124 @@
+<link rel="stylesheet" href="{{ 'pagefly.30b911ad.css' | asset_url }}">
+		  <script>
+	window.__pageflyProducts = window.__pageflyProducts || {};
+	{% unless product.id == null %}window.__pageflyProducts["{{product.id}}"] = {
+		id: {{ product.id | json }},
+		handle: {{ product.handle | json }},
+		title: {{ product.title | json }},
+		type: {{ product.type | json }},
+		url: {{ product.url | json }},
+		vendor: {{ product.vendor | json }},
+		variants: {{ product.variants | json }},
+		options: {{ product.options | json }},
+		media: {{ product.media | json }},
+		has_only_default_variant: {{ product.has_only_default_variant | json }},
+		options_with_values: {{ product.options_with_values | json }},
+		selected_variant: {{ product.selected_variant | json }},
+		selected_or_first_available_variant: {{ product.selected_or_first_available_variant | json }},
+		tags: {{ product.tags | json }},
+		template_suffix: {{ product.template_suffix | json }},
+		featured_image: {{ product.featured_image | json }},
+		featured_media: {{ product.featured_media | json }},
+		images: {{ product.images | json }}
+	};{% endunless %}
+	</script>{% if collection_158772199523 == null %}{%- assign collection_158772199523 = collections["feel-the-beat-nail-lacquers"] -%}{% endif %}<script>
+	window.__pageflyCollections = window.__pageflyCollections || {};
+	window.__pageflyCollections["158772199523"] = {{collection_158772199523 | json }};
+	</script><div style="opacity:0" class="sc-dwqbIM lgnhdE __pf" id="__pf"><div data-pf-type="Body" class="sc-eggNIi JiLrb pf-914f"><div data-pf-type="Layout" class="sc-jcVebW hrCIoP pf-75b1"><div data-pf-type="Section" class="sc-jeGSBP iRgiNB pf-ece3"><div style="--cw:1170px" class="sc-iNqMTl hFrbFX"><div class="sc-jgHCyG eZqcrI pf-b266 pf-r pf-r-eh  pf-lg-hide pf-md-hide pf-sm-hide" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-555a"><div data-product-id="{{ product.id }}" data-pf-type="ProductBox" class="sc-jXktwP hdiogm pf-7d8d  pf-lg-hide pf-md-hide pf-sm-hide">{% if product != null %}{% form "product", product, data-productid: product.id, class: "pf-product-form" %}<div data-product-id="{{ product.id }}" data-pf-type="ProductImage" class="sc-irlOZD jUdyne pf-897a">{% assign images = product.images %}<div style="--g-xs:10px;--l-xs:5;--w-xs:;--w-md:0" class="sc-iIEYCM iYnuOK pf-r-dg"><div data-pf-type="MasterImage" style="order:0;--ratio:100%" class="sc-cKZHah bxyrwM"><img src="{{ product.featured_image | img_url: "x322.141", scale: 2 }}" alt="{{ product.featured_image.alt }}" loading="eager" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}"/>{% assign _product = product %}<div data-pf-type="ProductImagePagination" class="sc-eWvPJL hgQjmC pf-md-hide pf-lg-hide">{% for i in (1..images.size) %}<span></span>{% endfor %}</div></div><div class="sc-dwcuIR jktQCG   pf-md-hide pf-lg-hide"><div data-pf-type="ProductImageList" class="sc-jtHMlw jaQVoM pf-r-dg">
+								{% assign pf_all = "" %}
+								{% assign pf_laptop = "" %}
+								{% assign pf_tablet = "" %}
+								{% assign pf_mobile = "" %}
+								{% for i in (0..images.size) limit:images.size %}
+								{% assign image = images[i] %}
+								{% if true %}
+								{% if i > 4 %}
+								{% assign pf_all = "pf-lg-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_laptop = "pf-md-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_tablet = "pf-sm-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_mobile = "pf-hide" %}
+								{% endif %}
+								{% endif %}
+							<div class="sc-eltcbb iORAaW pf-3d4a {{pf_all}} {{pf_laptop}} {{pf_tablet}} {{pf_mobile}}" data-img-id="{{ image.id }}" data-pf-type="ImageItem"><img loading="eager" src="{{ image.src | img_url: "master" }}" alt="{{ image.alt }}" draggable="false"/></div>{% endfor %}</div>{% if true %}<div data-pf-nav="prev" class="sc-kUbhmq jEqguw"><i class="pfa pfa-angle-left"></i></div><div data-pf-nav="next" class="sc-kUbhmq jEqguw"><i class="pfa pfa-angle-right"></i></div>{% endif %}</div></div></div><h3 data-product-type="title" data-product-id="{{ product.id }}" data-pf-type="ProductTitle" class="sc-gkdzZj cmAEMu pf-85a1">{{ product.title }}</h3><div class="sc-jgHCyG eZqcrI pf-a3b8 pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-00a3"><div data-pf-type="Custom.HTML" class="sc-iJuUWI fTbwUB pf-f200"><div data-oke-reviews-product-listing-rating>
+ {{ product.metafields.okendo.ProductListingSnippet }}
+</div>
+</div></div></div></div><div data-product-type="price" data-product-id="{{ product.id }}" data-pf-type="ProductPrice" class="sc-fWPcDo cgpajZ pf-9cc7">{{ product.variants[0].price | money }}</div><div data-show-button="true" data-more="" data-less="" data-product-type="content" data-product-id="{{ product.id }}" data-pf-type="ProductDescription" class="sc-fWPcDo cgpajZ pf-cb4d">{{ product.content }}</div><div data-pf-type="Block" class="sc-iBaPrD gdARiY pf-7861"><div data-product-id="{{ product.id }}" size="40" data-pf-type="ProductQuantity" class="sc-kmASHI aygjh pf-37e5"><input type="number" value="1" min="1" max="{{ product.selected_or_first_available_variant.inventory_quantity }}" data-hidespinner="false" name="quantity" data-pf-type="QuantityField" class="pf-47fb" store="[object Object]"/></div><button data-product-id="{{ product.id }}" data-checkout="same" data-soldout="Sold out" data-adding="Adding..." data-added="Thank you!" type="button" data-pf-type="ProductATC" class="sc-Fyfyc kpvTMt pf-847f"><span>Add To Cart</span></button></div>{% endform %}{% endif %}</div></div></div></div></div></div><div data-pf-type="Section" class="sc-jeGSBP iRgiNB pf-65cb  pf-hide"><div style="--cw:1170px" class="sc-iNqMTl hFrbFX"><div class="sc-jgHCyG eZqcrI pf-f75f pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-135b"><div data-product-id="{{ product.id }}" data-pf-type="ProductBox" class="sc-jXktwP hdiogm pf-2d15">{% if product != null %}{% form "product", product, data-productid: product.id, class: "pf-product-form" %}<div class="sc-jgHCyG eZqcrI pf-b90b pf-r pf-r-eh  pf-hide" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-sm:6;--c-lg:6"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-eeac"><div data-product-id="{{ product.id }}" data-pf-type="ProductImage" class="sc-irlOZD jUdyne pf-5506">{% assign images = product.images %}<div style="--g-xs:10px;--l-xs:5;--w-xs:13.043478260869565%" class="sc-iIEYCM fWnsPL pf-r-dg"><div data-pf-type="MasterImage" style="order:0;--ratio:100%" class="sc-cKZHah bxyrwM"><img src="{{ product.featured_image | img_url: "xNaN", scale: 2 }}" alt="{{ product.featured_image.alt }}" loading="eager" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}"/>{% assign _product = product %}<div data-pf-type="ProductImagePagination" class="sc-eWvPJL hgQjmC pf-md-hide pf-lg-hide">{% for i in (1..images.size) %}<span></span>{% endfor %}</div></div><div class="sc-dwcuIR jktQCG    "><div data-pf-type="ProductImageList" class="sc-jtHMlw jaQVoM pf-r-dg">
+								{% assign pf_all = "" %}
+								{% assign pf_laptop = "" %}
+								{% assign pf_tablet = "" %}
+								{% assign pf_mobile = "" %}
+								{% for i in (0..images.size) limit:images.size %}
+								{% assign image = images[i] %}
+								{% if true %}
+								{% if i > 4 %}
+								{% assign pf_all = "pf-lg-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_laptop = "pf-md-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_tablet = "pf-sm-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_mobile = "pf-hide" %}
+								{% endif %}
+								{% endif %}
+							<div class="sc-eltcbb iORAaW pf-8ca7 {{pf_all}} {{pf_laptop}} {{pf_tablet}} {{pf_mobile}}" data-img-id="{{ image.id }}" data-pf-type="ImageItem"><img loading="eager" src="{{ image.src | img_url: "master" }}" alt="{{ image.alt }}" draggable="false"/></div>{% endfor %}</div>{% if true %}<div data-pf-nav="prev" class="sc-kUbhmq jEqguw"><i class="pfa pfa-angle-left"></i></div><div data-pf-nav="next" class="sc-kUbhmq jEqguw"><i class="pfa pfa-angle-right"></i></div>{% endif %}</div></div></div></div></div><div class="pf-c" style="--c-xs:12;--c-sm:6;--c-lg:6"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-c379"><h3 data-product-type="title" data-product-id="{{ product.id }}" data-pf-type="ProductTitle" class="sc-gkdzZj cmAEMu pf-8ba9">{{ product.title }}</h3><div data-pf-type="Custom.HTML" class="sc-iJuUWI fTbwUB pf-cbb0"><div data-oke-reviews-product-listing-rating>
+ {{ product.metafields.okendo.ProductListingSnippet }}
+</div>
+</div><div data-product-type="price" data-product-id="{{ product.id }}" data-pf-type="ProductPrice" class="sc-fWPcDo cgpajZ pf-1859">{{ product.variants[0].price | money }}</div><div data-show-button="true" data-more="" data-less="" data-product-type="content" data-product-id="{{ product.id }}" data-pf-type="ProductDescription" class="sc-fWPcDo cgpajZ pf-2f23">{{ product.content }}</div><div data-product-id="{{ product.id }}" size="32" data-pf-type="ProductQuantity" class="sc-kmASHI jddqVV pf-a5da"><input type="number" value="1" min="1" max="{{ product.selected_or_first_available_variant.inventory_quantity }}" data-hidespinner="false" name="quantity" data-pf-type="QuantityField" class="pf-3e2a" store="[object Object]"/></div><button data-product-id="{{ product.id }}" data-checkout="same" data-soldout="Sold out" data-adding="Adding..." data-added="Thank you!" type="button" data-pf-type="ProductATC" class="sc-Fyfyc kpvTMt pf-1c29"><span>Add To Cart</span></button></div></div></div>{% endform %}{% endif %}</div></div></div></div></div></div><div data-pf-type="Section" class="sc-jeGSBP iRgiNB pf-54f2"><div style="--cw:1170px" class="sc-iNqMTl hFrbFX"><div class="sc-jgHCyG eZqcrI pf-cf54 pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-bacf"><div data-pf-type="Custom.HTML" class="sc-iJuUWI fTbwUB pf-0cba"><div data-oke-reviews-widget
+   data-oke-reviews-product-id="shopify-{{ product.id }}">
+   {{ product.metafields.okendo.ProductReviewsWidgetSnippet }}
+</div>
+</div></div></div></div></div></div><div data-pf-type="Section" class="sc-jeGSBP iRgiNB pf-ef59"><div style="--cw:1170px" class="sc-iNqMTl hFrbFX"><div class="sc-jgHCyG eZqcrI pf-90b8 pf-r pf-r-eh" style="--s-xs:15px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-7d22"><div class="sc-gsBrbv bjQOGp pf-d0da pf-r pf-r-ew" style="--s-xs:15px;--ew-xs:2;--ew-md:4;--ew-lg:3" data-pf-type="ProductList">{% assign collection_158772199523 = collections["feel-the-beat-nail-lacquers"] %}<!-- -->{% assign defaultProduct = product %}<!-- -->{% paginate collection_158772199523.products by 6 %}<!-- -->{% for product in collection_158772199523.products %}<div class="pf-c"><div data-product-id="{{ product.id }}" data-pf-type="ProductBox" class="sc-jXktwP hdiogm pf-f7c5">{% if product != null %}{% form "product", product, data-productid: product.id, class: "pf-product-form" %}<div class="sc-jgHCyG eZqcrI pf-1741 pf-r pf-r-eh" style="--s-xs:15px;--s-lg:0px" data-pf-type="Row"><div class="pf-c" style="--c-xs:12;--c-lg:12"><div data-pf-type="Column" class="sc-cTkwdZ fFvlhF pf-a974"><div data-product-id="{{ product.id }}" data-pf-type="ProductImage" class="sc-irlOZD jUdyne pf-253b">{% assign images = product.images %}<div style="--g-xs:10px;--l-xs:5;--w-xs:;--w-md:0" class="sc-iIEYCM iYnuOK pf-r-dg"><div data-href="{{ product.url }}" data-pf-type="MasterImage" style="order:0;--ratio:100%" class="sc-cKZHah bxyrwM"><img src="{{ product.featured_image | img_url: "x147.812", scale: 2 }}" alt="{{ product.featured_image.alt }}" loading="eager" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}"/>{% assign _product = product %}<div data-pf-type="ProductImagePagination" class="sc-eWvPJL hgQjmC pf-md-hide pf-lg-hide">{% for i in (1..images.size) %}<span></span>{% endfor %}</div></div><div class="sc-dwcuIR jktQCG   pf-md-hide pf-lg-hide"><div data-pf-type="ProductImageList" class="sc-jtHMlw jaQVoM pf-r-dg">
+								{% assign pf_all = "" %}
+								{% assign pf_laptop = "" %}
+								{% assign pf_tablet = "" %}
+								{% assign pf_mobile = "" %}
+								{% for i in (0..images.size) limit:images.size %}
+								{% assign image = images[i] %}
+								{% if true %}
+								{% if i > 4 %}
+								{% assign pf_all = "pf-lg-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_laptop = "pf-md-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_tablet = "pf-sm-hide" %}
+								{% endif %}
+								{% if i > 4 %}
+								{% assign pf_mobile = "pf-hide" %}
+								{% endif %}
+								{% endif %}
+							<div class="sc-eltcbb iORAaW pf-0f9e {{pf_all}} {{pf_laptop}} {{pf_tablet}} {{pf_mobile}}" data-img-id="{{ image.id }}" data-pf-type="ImageItem"><img loading="eager" src="{{ image.src | img_url: "master" }}" alt="{{ image.alt }}" draggable="false"/></div>{% endfor %}</div>{% if true %}<div data-pf-nav="prev" class="sc-kUbhmq jEqguw"><i class="pfa pfa-angle-left"></i></div><div data-pf-nav="next" class="sc-kUbhmq jEqguw"><i class="pfa pfa-angle-right"></i></div>{% endif %}</div></div></div><h3 data-product-type="title" data-product-id="{{ product.id }}" data-href="{{ product.url }}" data-pf-type="ProductTitle" class="sc-gkdzZj cmAEMu pf-403d">{{ product.title }}</h3><div data-pf-type="Custom.HTML" class="sc-iJuUWI fTbwUB pf-b00c"><div data-oke-reviews-product-listing-rating>
+ {{ product.metafields.okendo.ProductListingSnippet }}
+</div>
+</div><div data-product-type="price" data-product-id="{{ product.id }}" data-pf-type="ProductPrice" class="sc-fWPcDo cgpajZ pf-fd96">{{ product.variants[0].price | money }}</div></div></div></div>{% endform %}{% endif %}</div><script>
+				window.__pageflyProducts = window.__pageflyProducts || {};
+				window.__pageflyProducts["{{product.id}}"] = {
+					id: {{product.id | json }},
+					handle: {{product.handle | json }},
+					title: {{product.title | json }},
+					type: {{product.type | json }},
+					url: {{product.url | json }},
+					vendor: {{product.vendor | json }},
+					variants: {{product.variants | json }},
+					options: {{product.options | json }},
+					media: {{product.media | json }},
+					has_only_default_variant: {{product.has_only_default_variant | json }},
+					options_with_values: {{product.options_with_values | json }},
+					selected_variant: {{product.selected_variant | json }},
+					selected_or_first_available_variant: {{product.selected_or_first_available_variant | json }},
+					tags: {{product.tags | json }},
+					template_suffix: {{product.template_suffix | json }},
+					featured_image: {{product.featured_image | json }},
+					featured_media: {{product.featured_media | json }},
+					images: {{product.images | json }}
+				};</script></div>{% endfor %}<!-- -->{% endpaginate %}<!-- -->{% assign product = defaultProduct %}</div></div></div></div></div></div></div></div></div><script>window.__pagefly_setting__={"baseURL":"https://apps.pagefly.io","analyticsURL":"https://analytics.pagefly.io","isBackend":false,"cdnURL":"https://cdn.pagefly.io","pageflyVersion":"3.0.16","shopDomain":"orlybeauty.myshopify.com","elementData":{"5506":{"listPosition":1,"limit":{"all":5,"laptop":5,"tablet":5,"mobile":5},"spacing":{"all":"10px","laptop":"10px","tablet":"10px","mobile":"10px"},"listLayout":1,"hoverAction":1,"onHover":0,"clickAction":0,"imageSource":"variant","_type":"ProductImage"},"897a":{"listPosition":2,"limit":{"all":5,"laptop":5,"tablet":5,"mobile":5},"spacing":{"all":"10px","laptop":"10px","tablet":"10px","mobile":"10px"},"listLayout":1,"hoverAction":0,"onHover":0,"clickAction":0,"imageSource":"variant","_type":"ProductImage"},"4ab8":{"applyCondition":false,"collectionSource":"all","collectionIds":[],"tags":"","_type":"ProductBadge"},"a7ff":{"applyCondition":false,"collectionSource":"all","collectionIds":[],"tags":"","_type":"ProductBadge"},"253b":{"listPosition":2,"limit":{"all":5,"laptop":5,"tablet":5,"mobile":5},"height":"200px","spacing":{"all":"10px","laptop":"10px","tablet":"10px","mobile":"10px"},"listLayout":1,"hoverAction":1,"onHover":0,"clickAction":1,"imageSource":"featured","_type":"ProductImage"},"9ecb":{"applyCondition":false,"collectionSource":"all","collectionIds":[],"tags":"","_type":"ProductBadge"}},"pageTitle":"Feel The Beat Product Detail","pageType":"product","pageId":"30b911ad-d395-4f50-8215-c7365b0f53a7","lazyLoad":false,"forceByPassGoogleLightHouse":false,"imageLazyLoad":false,"nativeImageLazyLoad":true,"useThemeJQ":false,"fontLink":"https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Lato:wght@400&display=swap","trackingIDs":[{"elementId":"99c7fdb0-847f-476c-82e7-d5d4816accc9","elementType":"ProductATC","elementName":"ProductATC"},{"elementId":"7d97c0ca-1c29-4e40-bc56-309eba019c5d","elementType":"ProductATC","elementName":"ProductATC"},{"elementId":"c19b064d-253b-4db7-b760-1a7a125de880","elementType":"ProductImage","elementName":"ProductImage"},{"elementId":"de25a1d0-403d-46b6-a0aa-31c69393324b","elementType":"ProductTitle","elementName":"ProductTitle"}],"shopifyProxyPath":"/a/pf_preview"};window.__pagefly_setting__.moneyFormat={{shop.money_format|json}};</script><script src="https://cdn.pagefly.io/pagefly/3.0.16/core/helper.js" defer></script>

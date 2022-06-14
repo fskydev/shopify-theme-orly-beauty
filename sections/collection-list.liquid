@@ -1,0 +1,121 @@
+<div class="page-width">
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+
+  {% case section.settings.grid %}
+    {% when 2 %}
+      {%- assign grid_item_width = 'medium-up--one-half' -%}
+    {% when 3 %}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
+    {% when 4 %}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+    {% when 5 %}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
+  {% endcase %}
+
+  <div class="collection-grid">
+
+    <div class="grid grid--uniform">
+      {% for block in section.blocks limit: section.blocks.size %}
+        <div class="grid__item {{ grid_item_width }}" {{ block.shopify_attributes }}>
+          {%- assign collection = collections[block.settings.collection] -%}
+          {% include 'collection-grid-item' %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if section.blocks.size == 0 %}
+    {% include 'no-blocks' %}
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": {
+      "en": "Collection list",
+      "de": "Kategorien-Liste",
+      "fr": "Liste des collections"
+    },
+    "class": "index-section",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": {
+          "en": "Heading",
+          "de": "Titel",
+          "fr": "En-tête"
+        },
+        "default": {
+          "en": "Collection list",
+          "de": "Kategorien-Liste",
+          "fr": "Page de liste des collections"
+        }
+      },
+      {
+        "type": "range",
+        "id": "grid",
+        "label": {
+          "en": "Collections per row",
+          "de": "Kategorien per Reihe",
+          "fr": "Collections par rangée"
+        },
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "default": 3
+      }
+    ],
+    "blocks": [
+      {
+        "type": "featured_collection",
+        "name": {
+          "en": "Collection",
+          "de": "Kategorie",
+          "fr": "Collection"
+        },
+        "settings": [
+          {
+            "label": {
+              "en": "Collection",
+              "de": "Kategorie",
+              "fr": "Collection"
+            },
+            "id": "collection",
+            "type": "collection"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": {
+          "en": "Collection list",
+          "de": "Kategorien-Liste",
+          "fr": "Page de liste des collections"
+        },
+        "category": {
+          "en": "Collection",
+          "de": "Kategorie",
+          "fr": "Collection"
+        },
+        "blocks": [
+          {
+            "type": "featured_collection"
+          },
+          {
+            "type": "featured_collection"
+          },
+          {
+            "type": "featured_collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

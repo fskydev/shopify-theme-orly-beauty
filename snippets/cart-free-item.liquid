@@ -1,0 +1,44 @@
+
+          {%if cart.items %}
+            <tr class="cart__row border-bottom line{{ forloop.index }} cart-flex{% if forloop.first %} border-top{% endif %}">
+              <td class="cart__image-wrapper cart-flex-item">
+                  <img class="cart__image" src="https://cdn.shopify.com/s/files/1/0015/0185/5843/products/Mini-Non-Acetone_5a350c37-8563-41d8-830f-057905d698b9.jpg?v=1606194040" alt="freebie" width="95">
+              </td>
+              <td class="cart__meta small--text-left cart-flex-item">
+                <div class="list-view-item__title">
+                  <a href="#">
+                    FREE GIFT: Mini Gentle Lacquer Remover 
+                      <span class="medium-up--hide"><span class="visually-hidden"></span></span>
+                  </a>
+                </div>
+                
+
+                {% comment %}
+                  Optional, loop through custom product line items if available
+
+                  Line item properties come in as having two parts. The first part will be passed with the default form,
+                  but p.last is the actual custom property and may be blank. If it is, don't show it.
+
+                  For more info on line item properties, visit:
+                    - http://docs.shopify.com/support/your-store/products/how-do-I-collect-additional-information-on-the-product-page-Like-for-a-monogram-engraving-or-customization
+                {% endcomment %}
+                
+              
+                
+              </td> 
+              <td class="cart__price-wrapper cart-flex-item">
+                <span style="text-decoration: line-through">$2.50</span>
+
+                  <div class="cart-item__discount medium-up--hide">FREE</div>
+
+                <div class="cart__edit medium-up--hide">
+                    </div>
+              </td>
+              <td class="cart__update-wrapper cart-flex-item text-right">
+             
+              </td>
+              <td class="text-right small--hide">
+               
+              </td>
+            </tr>
+          {%endif%}

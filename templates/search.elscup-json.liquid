@@ -1,0 +1,5 @@
+{% layout none %}{% capture output %}
+{
+"aggregated_sales": {% if shop.metafields.elscup.aggregated_sales %}{{ shop.metafields.elscup.aggregated_sales | json }}{% else %}{}{% endif %}
+}
+{% endcapture %}{{ output | strip_newlines }}

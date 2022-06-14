@@ -1,0 +1,65 @@
+  <div class="left_sidebar">
+      <div class="category-nav-header">
+      	<a class="header-item close-catenav"><img src="//cdn.shopify.com/s/files/1/0077/5874/1562/t/1/assets/m-back-icon.png"/></a>
+        <span>Filters</span>
+      </div>
+      
+	  <div class="category-nav">
+          <div class="filtr">
+            <div class="coll-hand" style="display:none;">{{collection.handle}}</div>
+ <ul> 
+   {% assign tags = 'Collection Pedicure,Collection Rich Renewal,Collection Scrubs,Collection Cremes,Collection Basecoats,Collection Topcoats,Collection Quick Dry,Collection Cuticle Care,Collection Strengtheners,Collection Maintenance,Collection Specialty,Collection BB Crème,Collection Mini Kits,Collection Pretty in Pink,Collection Nail Repair,Collection Removers & Thinners,Collection GELFX Kits,Collection Essentials,Collection Glaze Coats,Collection Treatments,Collection Cleansers & Removers,Collection Merchandising,Collection Accessories & Tools,Collection Displays,Collection Files,Collection Shade Shifter,Collection Perfect Pair,Collection Easy Off Promo,Collection Nails Magazine Facebook Live,Collection Sealcoat,Collection NEON EARTH,Collection PASTEL CITY,Collection DARLINGS OF DEFIANCE,Collection VELVET DREAM,Collection COASTAL CRUSH,Collection LA LA LAND,Collection Sunset Strip Collection,Collection Mullholland Collection,Collection PCH Collection,Collection Permanent Collection,Collection MegaPixel FX,Collection Instant Artist,Collection ADRENALINE RUSH,Collection BAKED,Collection Birds of a Feather,Collection BLUSH,Collection Choose Your Color,Collection Cool Romance,Collection Cosmic FX,Collection Feel the Vibe,Collection Flash Glam FX,Collection Galaxy FX,Collection Halloween 2013,Collection Happy Go Lucky,Collection Holiday SoirÃ©e,Collection Hope & Freedom Fest,Collection Hot Stuff,Collection I Heart Nails,Collection IN THE MIX,Collection INFAMOUS,Collection Instant Artist,Collection Mani Minis,Collection Mash-Up,Collection Matte FX,Collection Matte Glossy Nail Art Kit,Collection Melrose Collection,Collection Pin-Up,Collection Secret Society,Collection SMOKY,Collection SPARKLE,Collection Spellbound,Collection SUGAR HIGH,Collection Surreal,Collection Epix,Collection Nail Color,Collection Nail Treatments,Collection PCH Collection' | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}            
+ 
+      {% assign count = 0 %}
+ {% for tag in tags %} 
+   
+   {% if count == 0 %}
+    {% if collection.all_tags contains tag %}
+     <h3>By Collection</h3>
+   {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+  
+     
+     {% for tag in tags %}
+      {% if current_tags contains tag %}
+       
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'Collection' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'Collection' }}</a></li>
+      {% endif %}
+      {% endfor %}    
+</ul>  
+
+  </div>      
+  <div class="filtr">
+ <ul>
+   {% assign tags = "Category Nail Repair,Category Removers & Thinners" | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+
+{% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+     {% if collection.all_tags contains tag %}
+     <h3>By Categories</h3>
+   {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+      {% for tag in tags %}
+      {% if current_tags contains tag %}
+
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'Category'}}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'Category' }}</a></li>
+      {% endif %}
+      {% endfor %}
+     
+       
+</ul>  
+
+  </div>       
+      
+      </div>  
+    </div>   

@@ -1,0 +1,210 @@
+{%- layout none -%}
+{%- unless image_size -%}
+{%- assign image_size = '219x280' -%}
+{%- endunless -%}
+  {%- if canonical_url contains 'collections/all' -%}
+        {%- assign underscore = false -%}
+  {%- else -%}
+        {%- assign underscore = true -%}
+  {%- endif -%}
+  {%- assign check_paginate = false -%}
+  {%- assign next_url = '' -%}
+  {%- if canonical_url contains 'collections' and underscore -%}
+    {%- if search.terms != blank and search.performed == true -%}
+        {%- assign search_list_handle = '' -%}
+        {%- assign collection_gl = canonical_url | split:'/collections/' | last | split:'?q=' | first -%}
+          {%- paginate search.results by search.results_count -%}
+               {%- for item in search.results -%}
+                    {%- assign product = item -%}
+                    {%- for collection in product.collections -%}
+                        {%- if collection.handle == collection_gl -%}
+                          {%- assign search_list_handle = search_list_handle | append:product.handle | append:',' -%}
+                          {%- break -%}
+                        {%- endif -%}
+                    {%- endfor -%}
+               {%- endfor -%}
+               {%- if paginate.pages > 1 and paginate.next.is_link -%}{%- assign check_paginate = true -%}{%- assign next_url = paginate.next.url -%}{%- endif -%}
+          {%- endpaginate -%}
+          {%- assign arr_search_list_handle = search_list_handle | split:',' -%} 
+        {%- if arr_search_list_handle.size == 0 and check_paginate == false -%}
+           <div class="autocomplete-suggestion" data-index="0"><div class="suggestion-title">{{ 'general.search.no_products' | t }}</div></div>
+        {%- else -%}
+             {%- for handle_product in arr_search_list_handle limit:4-%}
+                 {%- assign product = all_products[handle_product] -%}
+                 {%- assign current_variant = product.selected_or_first_available_variant -%}
+                 {%- assign image = current_variant.featured_image | default: product.featured_image -%} 
+                 <div class="autocomplete-suggestion" data-index="{{forloop.index0}}">
+                      {%- if image != blank -%}
+                         <div class="suggestion-thumb">
+                           <a href="{{ product.url | within: product.collections.first }}">
+                            {%- assign image_width = image.width | append:"x" -%}
+                            <img width="219" height="280" src="{%-include 'gl_image_format',src: image.src , size: image_size -%}" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="{{ image.alt | escape }}" 
+                            srcset="{%-include 'gl_image_format',src: image.src , size: image_size %} 219w, 
+                                   {%-include 'gl_image_format',src: image.src , size: '235x300' %} 235w, 
+                                   {%-include 'gl_image_format',src: image.src , size: '768x980' %} 768w, 
+                                   {%-include 'gl_image_format',src: image.src , size: '803x1024' %} 803w, 
+                                   {%-include 'gl_image_format',src: image.src , size: '266x340' %} 266w, 
+                                   {%-include 'gl_image_format',src: image.src , size: '219x280' %} 219w, 
+                                   {%-include 'gl_image_format',src: image.src , size: '526x671' %} 526w, 
+                                   {%-include 'gl_image_format',src: image.src , size: image_width %} {{ image.width}}w" sizes="(max-width: 219px) 100vw, 219px">
+                           </a>
+                   </div>
+                       {%- endif -%}
+                      <div class="suggestion-title"><a href="{{ product.url | within: product.collections.first }}">{{ product.title | highlight: search.terms }}</a></div>
+                      <div class="suggestion-price price">
+                         {%- if product.price_varies -%}
+                         <span class="shopify-Price-amount amount">{{ product.price_min | money }}</span> <span class="shopify-Price-amount amount">–</span> <span class="shopify-Price-amount amount">{{ product.price_max | money }}</span>
+                         {%- elsif on_sale -%}<del><span class="shopify-Price-amount amount">{{ current_variant.compare_at_price  | money }}</span></del> <ins><span class="shopify-Price-amount amount">{{ current_variant.price | money }}</span></ins>
+                         {%- else -%}
+                         <span class="shopify-Price-amount amount">{{ current_variant.price | money }}</span>
+                         {%- endif -%}
+                      </div>
+                   </div>
+              {%- endfor -%}
+              {%- if arr_search_list_handle.size > 4 -%}
+               <div class="view-all-products"><a href="{{canonical_url}}"><span>{{ 'general.search.search_ajax_results' | t :count: arr_search_list_handle.size }}</span></a></div>
+               {%- elsif check_paginate and arr_search_list_handle.size == 0 -%}
+              <script type="text/javascript">
+                jQuery( document ).ready(function( $ ) {
+                  var categories_form = $('form.has-categories-dropdown');
+                  categories_form.addClass('search-loading');
+                  $('.autocomplete-suggestions').html('').addClass('hide hidden');
+                  $.ajax({
+                    dataType: "html",
+                    type: 'GET',
+                    url: '{{next_url}}&view=category',
+                    success: function(data) {
+                    $('.autocomplete-suggestions').html(data);
+                   },
+                    error: function(data) {
+                    console.log('ajax error');
+                  },
+                    complete: function() {
+                      $('.autocomplete-suggestions').html('').removeClass('hide hidden');
+                      categories_form.removeClass('search-loading');
+                      baselThemeModule.gl_currency();
+                      process = false;
+                    },
+                });
+                });
+              </script>
+               {%- elsif check_paginate and arr_search_list_handle.size < 3 and check_paginate -%}
+                   <div class="view-all-products"><a href="{{canonical_url}}"><span>{{ 'general.search.search_ajax__no_count_results' |t}}</span></a></div>
+               {%- elsif check_paginate == false and arr_search_list_handle.size == 0 -%}
+                  <div class="view-all-products"><a href="{{canonical_url}}"><span>{{ 'general.search.search_ajax__no_count_results' |t}}</span></a></div>
+               {%- endif -%}
+        {%- endif -%}
+  {%- endif -%}
+{%- else -%}
+  {%- paginate search.results by 4 -%}
+  {%- if search.terms != blank -%}
+     {%- if search.results_count == 0 or search.performed == false -%}
+        {%- if settings.only_search_products -%}
+        <div class="autocomplete-suggestion" data-index="0"><div class="suggestion-title">{{ 'general.search.no_products' | t }}</div></div>
+        {%- else -%}
+        <div class="autocomplete-suggestion" data-index="0"><div class="suggestion-title">{{ 'general.search.no_results_html' | t: terms: search.terms }}</div></div>
+        {%- endif -%}
+     {%- else -%}
+       {%- for item in search.results -%}
+           {%- if settings.only_search_products -%}
+              {%- assign product = item -%}
+              {%- assign current_variant = product.selected_or_first_available_variant -%}
+              {%- assign image = current_variant.featured_image | default: product.featured_image -%} 
+              <div class="autocomplete-suggestion" data-index="{{forloop.index0}}">
+                 {%- if image != blank -%}
+                    <div class="suggestion-thumb">
+                       <a href="{{ product.url | within: product.collections.first }}">
+                       {%- assign image_width = image.width | append:"x" -%}
+                       <img width="219" height="280" src="{%-include 'gl_image_format',src: image.src , size: image_size -%}" class="attachment-shop_thumbnail size-shop_thumbnail sp-post-image" alt="{{ image.alt | escape }}" 
+                       srcset="{%-include 'gl_image_format',src: image.src , size: image_size %} 219w, 
+                              {%-include 'gl_image_format',src: image.src , size: '235x300' %} 235w, 
+                              {%-include 'gl_image_format',src: image.src , size: '768x980' %} 768w, 
+                              {%-include 'gl_image_format',src: image.src , size: '803x1024' %} 803w, 
+                              {%-include 'gl_image_format',src: image.src , size: '266x340' %} 266w, 
+                              {%-include 'gl_image_format',src: image.src , size: '219x280' %} 219w, 
+                              {%-include 'gl_image_format',src: image.src , size: '526x671' %} 526w, 
+                              {%-include 'gl_image_format',src: image.src , size: image_width %} {{ image.width}}w" sizes="(max-width: 219px) 100vw, 219px">
+                      </a>
+                         </div>
+                  {%- endif -%}
+                 <div class="suggestion-title"><a href="{{ product.url | within: product.collections.first }}">{{ product.title | highlight: search.terms }}</a></div>
+                 <div class="suggestion-price price">
+                    {%- if product.price_varies -%}
+                    <span class="shopify-Price-amount amount">{{ product.price_min | money }}</span> <span class="shopify-Price-amount amount">–</span> <span class="shopify-Price-amount amount">{{ product.price_max | money }}</span>
+                    {%- elsif on_sale -%}<del><span class="shopify-Price-amount amount">{{ current_variant.compare_at_price  | money }}</span></del> <ins><span class="shopify-Price-amount amount">{{ current_variant.price | money }}</span></ins>
+                    {%- else -%}
+                    <span class="shopify-Price-amount amount">  {%- if product.tags contains 'Fabric' -%}
+                                                     {{ current_variant.price | times:2 | money }} /meter{%else%} {{ current_variant.price |  money }}{%endif%} </span>
+                    {%- endif -%}
+                 </div>
+              </div> 
+           {%- else -%}
+              {%- if item.object_type == 'article' -%}
+                 <div class="autocomplete-suggestion" data-index="{{forloop.index0}}">
+                    {%- if item.image -%}
+                       <div class="suggestion-thumb">
+                          {%- assign image_width = item.image.width | append:"x" -%}
+                          <img width="219" height="280" src="{%-include 'gl_image_format',src: item.image.src , size: image_size -%}" class="attachment-shop_thumbnail size-shop_thumbnail sp-post-image" alt="{{ item.image.alt | escape }}" 
+                          srcset="{%-include 'gl_image_format',src: item.image.src , size: image_size %} 219w, 
+                                 {%-include 'gl_image_format',src: item.image.src , size: '235x300' %} 235w, 
+                                 {%-include 'gl_image_format',src: item.image.src , size: '768x980' %} 768w, 
+                                 {%-include 'gl_image_format',src: item.image.src , size: '803x1024' %} 803w, 
+                                 {%-include 'gl_image_format',src: item.image.src , size: '266x340' %} 266w, 
+                                 {%-include 'gl_image_format',src: item.image.src , size: '219x280' %} 219w, 
+                                 {%-include 'gl_image_format',src: item.image.src , size: '526x671' %} 526w, 
+                                 {%-include 'gl_image_format',src: item.image.src , size: image_width %} {{item.image.width}}w" sizes="(max-width: 219px) 100vw, 219px">
+                       </div>
+                     {%- endif -%}
+                    <div class="suggestion-title">{{ item.title | highlight: search.terms }}</div>
+                 </div>
+              {%- elsif item.object_type == 'page' -%}
+                 <div class="autocomplete-suggestion" data-index="{{forloop.index0}}">
+                    <div class="suggestion-title">{{ item.title | highlight: search.terms }}</div>
+                    <div class="suggestion-price price"><span class="shopify-Price-amount amount">{{ item.content | strip_html | truncatewords: 9 | highlight: search.terms }}</span></div>
+                 </div>
+              {%- else -%}
+                 {%- assign product = item -%}
+                 {%- assign current_variant = product.selected_or_first_available_variant -%}
+                 {%- assign image = current_variant.featured_image | default: product.featured_image -%} 
+                 <div class="autocomplete-suggestion" data-index="{{forloop.index0}}">
+                    {%- if image != blank -%}
+                       <div class="suggestion-thumb">
+                          <a href="{{ product.url | within: product.collections.first }}">
+                          {%- assign image_width = image.width | append:"x" -%}
+                          <img width="219" height="280" src="{%-include 'gl_image_format',src: image.src , size: image_size -%}" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="{{ image.alt | escape }}" 
+                          srcset="{%-include 'gl_image_format',src: image.src , size: image_size %} 219w, 
+                                 {%-include 'gl_image_format',src: image.src , size: '235x300' %} 235w, 
+                                 {%-include 'gl_image_format',src: image.src , size: '768x980' %} 768w, 
+                                 {%-include 'gl_image_format',src: image.src , size: '803x1024' %} 803w, 
+                                 {%-include 'gl_image_format',src: image.src , size: '266x340' %} 266w, 
+                                 {%-include 'gl_image_format',src: image.src , size: '219x280' %} 219w, 
+                                 {%-include 'gl_image_format',src: image.src , size: '526x671' %} 526w, 
+                                 {%-include 'gl_image_format',src: image.src , size: image_width %} {{ image.width}}w" sizes="(max-width: 219px) 100vw, 219px">
+                         </a>
+                            </div>
+                     {%- endif -%}
+                    <div class="suggestion-title"><a href="{{ product.url | within: product.collections.first }}">{{ product.title | highlight: search.terms }}</a></div>
+                    <div class="suggestion-price price">
+                       {%- if product.price_varies -%}
+                       <span class="shopify-Price-amount amount">{{ product.price_min | money }}</span> <span class="shopify-Price-amount amount">–</span> <span class="shopify-Price-amount amount">{{ product.price_max | money }}</span>
+                       {%- elsif on_sale -%}<del><span class="shopify-Price-amount amount">{{ current_variant.compare_at_price  | money }}</span></del> <ins><span class="shopify-Price-amount amount">{{ current_variant.price | money }}</span></ins>
+                       {%- else -%}
+                       <span class="shopify-Price-amount amount">{{ current_variant.price | money }}</span>
+                       {%- endif -%}
+                    </div>
+                 </div>
+              {%- endif -%}  
+           {%- endif -%}  
+       {%- endfor -%}
+       {%- if search.results_count > 4 -%}
+           {%- if settings.only_search_products -%}
+              <div class="view-all-products"><a href="/search?q={{ search.terms }}&type=product"><span>{{ 'general.search.search_ajax_results' | t :count: search.results_count }}</span></a></div>
+           {%- else -%}
+              <div class="view-all-products"><a href="/search?q={{ search.terms }}"><span>{{ 'general.search.search_ajax_results' | t :count: search.results_count }}</span></a></div>
+           {%- endif -%}
+       {%- endif -%}
+     {% endif %}
+  {%- endif -%}
+  {%- endpaginate -%}
+{%- endif -%}
+

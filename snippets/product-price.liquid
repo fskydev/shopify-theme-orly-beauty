@@ -1,0 +1,61 @@
+<!-- snippet/product-price.liquid -->
+{% if product.title %}
+  {%- assign compare_at_price = product.compare_at_price -%}
+  {%- assign price = product.price -%}
+  {%- assign price_varies = product.price_varies -%}
+  {%- assign available = product.available -%}
+{% else %}
+  {%- assign compare_at_price = 1999 -%}
+  {%- assign price = 1999 -%}
+  {%- assign price_varies = false -%}
+  {%- assign available = true -%}
+{% endif %}
+
+{%- assign money_price = price | money -%}
+
+<div class="product-price">
+  {% if compare_at_price > price %}
+
+    {% if available %}
+      <dt>
+        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
+      </dt>
+      <dd>
+        <s class="product-price__price">{{ compare_at_price | money }}</s>
+      </dd>
+      <dt>
+        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.sale_price' | t }}</span>
+      </dt>
+      <dd>
+        <span class="product-price__price product-price__sale">
+          {{ money_price }}
+          <span class="product-price__sale-label" aria-hidden="true">{{ 'products.product.on_sale' | t }}</span>
+        </span>
+      </dd>
+    {% else %}
+      <dt>
+        <span class="product-price__sold-out">{{ 'products.product.sold_out' | t }}</span>
+      </dt>
+    {% endif %}
+
+  {% else %}
+
+    {% if available %}
+      <dt>
+        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
+      </dt>
+      <dd>
+        {% if product.tags contains 'Pro Product' %}
+        <span class="product-price__price">Pro Pricing</span>
+         {%else%}
+        <span class="product-price__price">{{ money_price }}</span>
+        {%endif%}
+      </dd>
+    {% else %}
+      <dt>
+        <span class="product-price__sold-out" style="text-align:center;">{{ 'products.product.sold_out' | t }}</span>
+      </dt>
+    {% endif %}
+
+  {% endif %}
+</div>

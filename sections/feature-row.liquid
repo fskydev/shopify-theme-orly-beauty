@@ -1,0 +1,165 @@
+<div class="page-width feature-row">
+  {% capture image_layout %}
+    <div class="feature-row__item">
+      {% if section.settings.image != blank %}
+        {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
+        {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
+        {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+        {% include 'image-style' with image: section.settings.image, width: max_width, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
+        <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
+          <div style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
+            <img id="{{ img_id }}"
+                 class="feature-row__image lazyload"
+                 src="{{ section.settings.image | img_url: '200x200' }}"
+                 data-src="{{ img_url }}"
+                 data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                 data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+                 data-sizes="auto"
+                 alt="{{ section.settings.image.alt | escape }}">
+          </div>
+        </div>
+
+        <noscript>
+          {{ section.settings.image | img_url: '600x600', scale: 2 | img_tag: section.settings.image.alt, 'feature-row__image' }}
+        </noscript>
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+  {% endcapture %}
+
+  <div class="feature-row">
+    {% if section.settings.layout == 'left' %}
+      {{ image_layout }}
+    {% endif %}
+
+    <div class="feature-row__item feature-row__text feature-row__text--{{ section.settings.layout }}">
+      {% if section.settings.title != blank %}
+        <h2 class="h3">{{ section.settings.title | escape }}</h2>
+      {% endif %}
+      {% if section.settings.text != blank %}
+        <div class="rte rte-setting featured-row__subtext">{{ section.settings.text }}</div>
+      {% endif %}
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="btn">
+          {{ section.settings.button_label | escape }}
+        </a>
+      {% endif %}
+    </div>
+
+    {% if section.settings.layout == 'right' %}
+      {{ image_layout }}
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": {
+      "en": "Image with text",
+      "de": "Foto mit Text",
+      "fr": "Image avec du texte"
+    },
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": {
+          "en": "Image",
+          "de": "Foto",
+          "fr": "Image"
+        }
+      },
+    
+      {
+        "type": "select",
+        "id": "layout",
+        "label": {
+          "en": "Image alignment",
+          "de": "Fotoausrichtung",
+          "fr": "Alignement de l'image"
+        },
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": {
+              "en": "Left",
+              "de": "Links",
+              "fr": "Gauche"
+            }
+          },
+          {
+            "value": "right",
+            "label": {
+              "en": "Right",
+              "de": "Rechts",
+              "fr": "Droite"
+            }
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": {
+          "en": "Heading",
+          "de": "Titel",
+          "fr": "En-tête"
+        },
+        "default": {
+          "en": "Image with text",
+          "de": "Foto mit Text",
+          "fr": "Image avec du texte"
+        }
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": {
+          "en": "Text",
+          "de": "Text",
+          "fr": "Texte"
+        },
+        "default": {
+          "en": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+          "de": "<p>Kombinieren Sie große Schrift mit einem Foto, um einen Fokus auf Ihr ausgewähltes Produkt, die Kategorie oder einen Blogpost zu legen. Dazu Details zur Verfügbarkeit, Stil oder ein Review.</p>",
+          "fr": "<p>Ajoutez une image à un long texte pour mettre l'accent sur un produit de votre choix, une collection, ou un article de blog. Ajoutez des détails sur la disponibilité, le style, ou mettez un commentaire client en avant.</p>"
+        }
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": {
+          "en": "Button label",
+          "de": "Button-Etikett",
+          "fr": "Texte du bouton"
+        }
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": {
+          "en": "Button link",
+          "de": "Button-Link",
+          "fr": "Lien du bouton"
+        }
+      }
+    ],
+    "presets": [
+      {
+        "name": {
+          "en": "Image with text",
+          "de": "Foto mit Text",
+          "fr": "Image avec texte"
+        },
+        "category": {
+          "en": "Image",
+          "de": "Foto",
+          "fr": "Image"
+        }
+      }
+    ]
+  }
+{% endschema %}

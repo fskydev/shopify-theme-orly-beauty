@@ -1,0 +1,38 @@
+<style>
+  .countup-section {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+{% if type == 'block' %}
+{% assign countup_html = block.settings.countup_html %}
+{% else %}
+{% assign countup_html = section.settings.countup_html %}
+{% endif %}
+
+<div class="countup-section">
+  {{countup_html}}
+</div>
+
+{% schema %}
+{
+"name": "Sales CountUp widget",
+"settings": [
+{
+"type": "textarea",
+"id": "countup_html",
+"label": "CountUp widget short code"
+}
+],
+"presets": [{
+"name": "Countup widget",
+"category": "Content",
+"settings": {
+}
+}]
+}
+
+{% endschema %}

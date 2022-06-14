@@ -1,0 +1,47 @@
+<!-- Start of Afterpay assets -->
+<!-- Begin Shopify-Afterpay JavaScript Snippet (v1.0.4) -->
+<script type="text/javascript">
+  var afterpay_logo_theme = 'colour'; // 'colour', 'black' or 'white'.
+  var afterpay_product_selector = '.product-single__price.product-single__price-product-template';
+//   var afterpay_cart_static_selector = '.cart__total-amount';
+  var afterpay_min = 35;
+  var afterpay_max = 1000;
+  var afterpay_show_currency_code = false;
+  var afterpay_modal_responsive = true;
+  var afterpay_modal_open_icon = true;
+  var afterpay_hide_upper_limit = true;
+  var afterpay_shop_currency = {{ shop.currency | json }};
+  var afterpay_shop_money_format = {{ shop.money_format | json }};
+  var afterpay_shop_permanent_domain = {{ shop.permanent_domain | json }};
+  var afterpay_theme_name = {{ theme.name | json }};
+  var afterpay_product = {{ product | json }};
+  var afterpay_current_variant = {{ product.selected_or_first_available_variant | json }};
+  var afterpay_cart_total_price = {{ cart.total_price | json }};
+  var afterpay_js_snippet_version = '1.0.4';
+  var cartItems = {{ cart.items | json }};
+  var isGiftCard = (item) => item.product_type === "Gift Card";
+  if(afterpay_product && afterpay_product.type === "Gift Card") {
+    afterpay_product_selector = '';
+  }
+  if(cartItems && cartItems.some(isGiftCard)) {
+	afterpay_cart_static_selector = '';
+  }
+</script>
+<script type="text/javascript" src="https://static.afterpay.com/shopify-afterpay-javascript.js"></script>
+<!-- End Shopify-Afterpay JavaScript Snippet (v1.0.4) -->
+<style type="text/css">
+  .afterpay-logo {
+    width: 5.5em !important;
+    height: auto !important;
+  }
+  .afterpay-paragraph {
+  	font-size: 0.9em;
+	margin-bottom: 18px !important;
+  }
+  #shopify-section-cart-template .afterpay-paragraph {
+  }
+  .afterpay-link-inner, .afterpay-link { 
+    text-decoration: none; 
+  }
+</style>
+<!-- End of Afterpay assets -->

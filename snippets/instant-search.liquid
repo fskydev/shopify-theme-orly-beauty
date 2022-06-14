@@ -1,0 +1,44 @@
+<div class="product-list">
+        {% assign collection = collections.all %}				
+			<ul class="list-products">            				
+					{% for product in collection.products %}
+					<li>     
+                      <div class="pro-list-instant">
+					<a class="item" href="{{ product.url | within: collection }}">
+                      <span class="oui">OUI!</span>
+						<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape }}" width="306" height="459"/>
+                     <div class="hover-state">                        
+                      </div>
+                      </a>
+					<p class="product-info">
+                      <a href="{{ product.url | within: collection }}"><span class="pro-title-search">{{product.title | truncate: 48}}</span> <span class="product-price">{{product.price | money}}</span></a>
+					</p>
+                      </div>
+				</li>
+				{% endfor %}								
+			</ul>					
+</div>
+
+<div class="collection-list-instant">
+  <div class="list-instant">
+	<div class="coll-instant-str">
+  {% for collection in collections %}  
+      <div class="coll-instant-str-list">
+        <a href="{{ collection.url }}">
+  <div class="coll-img-instant">
+      {% if collection.image %}
+        <img src="{{ collection | img_url: '100x' }}" alt="{{ collection.image.alt }}" />
+      {% else %}
+        <img src="{{ collection.products.first | img_url: '100x' }}" alt="{{ collection.title | escape  }}" />
+      {% endif %}
+  </div>
+  <div class="coll-title-instant">
+    {{ collection.title}}
+  </div>
+        </a>
+      </div>
+    
+{% endfor %}
+    </div>
+  </div>
+</div>

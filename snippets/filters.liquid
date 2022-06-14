@@ -1,0 +1,466 @@
+  <div class="left_sidebar">
+      <div class="category-nav-header">
+      	<a class="header-item close-catenav"><img src="//cdn.shopify.com/s/files/1/0077/5874/1562/t/1/assets/m-back-icon.png"/></a>
+        <span>Filters</span>
+      </div>
+      
+	  <div class="category-nav">
+          <div class="filtr">
+            <div class="coll-hand" style="display:none;">{{collection.handle}}</div>
+
+            <ul> 
+                {% assign count = 0 %}
+   {% assign tags = 'Collection Pedicure,Collection Rich Renewal,Collection Scrubs,Collection Cremes,Collection Basecoats,Collection Topcoats,Collection Quick Dry,Collection Cuticle Care,Collection Strengtheners,Collection Maintenance,Collection Specialty,Collection BB Crème,Collection Mini Kits,Collection Pretty in Pink,Collection Nail Repair,Collection Removers & Thinners,Collection GELFX Kits,Collection Essentials,Collection Glaze Coats,Collection Treatments,Collection Cleansers & Removers,Collection Merchandising,Collection Accessories & Tools,Collection Displays,Collection Files,Collection Shade Shifter,Collection Perfect Pair,Collection Easy Off Promo,Collection Nails Magazine Facebook Live,Collection Sealcoat,Collection NEON EARTH,Collection PASTEL CITY,Collection DARLINGS OF DEFIANCE,Collection VELVET DREAM,Collection COASTAL CRUSH,Collection LA LA LAND,Collection Sunset Strip Collection,Collection Mullholland Collection,Collection PCH Collection,Collection Permanent Collection,Collection MegaPixel FX,Collection Instant Artist,Collection ADRENALINE RUSH,Collection BAKED,Collection Birds of a Feather,Collection BLUSH,Collection Choose Your Color,Collection Cool Romance,Collection Cosmic FX,Collection Feel the Vibe,Collection Flash Glam FX,Collection Galaxy FX,Collection Halloween 2013,Collection Happy Go Lucky,Collection Holiday SoirÃ©e,Collection Hope & Freedom Fest,Collection Hot Stuff,Collection I Heart Nails,Collection IN THE MIX,Collection INFAMOUS,Collection Instant Artist,Collection Mani Minis,Collection Mash-Up,Collection Matte FX,Collection Matte Glossy Nail Art Kit,Collection Melrose Collection,Collection Pin-Up,Collection Secret Society,Collection SMOKY,Collection SPARKLE,Collection Spellbound,Collection SUGAR HIGH,Collection Surreal,Collection Epix,Collection Nail Color,Collection Nail Treatments,Collection PCH Collection' | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}            
+ 
+     
+     {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+  
+     <h3>By Collection</h3>
+       
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+              
+     {% endfor %} 
+  
+     
+     {% for tag in tags %}
+      {% if current_tags contains tag %}
+       
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'Collection' }}</a></li>
+     {%else%}
+              {% if collection.all_tags contains tag %}
+
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'Collection' }}</a></li>
+      {% endif %}
+              {% endif %}
+      {% endfor %}    
+</ul>  
+
+  </div>
+  <div class="filtr">
+
+          <ul>
+
+     <h3>By Color</h3>
+
+     {% for tag in collection.all_tags %}  
+     {% if tag contains 'Colors' %}
+   	 {% if current_tags contains tag%}
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'Colors'| append: 's'}}</a></li>
+      {% else%} 
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'Colors'| append: 's'}}</a></li>
+      {% endif %}
+   	 {%endif%}
+      {% endfor %}
+     
+       
+</ul> 
+
+  </div>
+  <div class="filtr">
+ <ul>
+
+     <h3>By Types</h3>
+
+     {% for tag in collection.all_tags %}  
+     {% if tag contains 'Types' %}
+   	 {% if current_tags contains tag%}
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'Types'| append: 's'}}</a></li>
+      {% else%} 
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'Types'| append: 's'}}</a></li>
+      {% endif %}
+   	 {%endif%}
+      {% endfor %}
+     
+       
+</ul> 
+
+  </div>
+
+     
+        
+  <div class="filtr">
+ <ul>
+   {% assign tags = "Category Accessories & Tools,Category Basecoats,Category Clean & Prep,Category Cleansers & Removers,Category Creme,Category Cuticle Care,Category Last Call For Color,Category Maintenance,Category Mother's Day,Category Nail Repair,Category Pedicure,Category Quick Dry,Category Removers & Thinners,Category Rich Renewal,Category Scrubs,Category Smart Gel,Category Specialty,Category Sugar Fix,Category Topcoats" | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+
+{% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+     {% if collection.all_tags contains tag %}
+     <h3>By Categories</h3>
+   {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+      {% for tag in tags %}
+      {% if current_tags contains tag %}
+
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'Category'}}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'Category' }}</a></li>
+      {% endif %}
+      {% endfor %}
+     
+       
+</ul>  
+
+  </div>       
+        
+        
+        
+        
+<div class="filtr">
+  <ul>
+    {% assign tags = 'French Kits Products,French Kits Colors'  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+
+   {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+     {% if collection.all_tags contains tag %}
+        <h3>French Kits</h3>
+     {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+
+      {% for tag in tags %}
+      {% if current_tags contains tag %}
+   
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'French Kits' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'French Kits' }}</a></li>
+      {% endif %}
+      {% endfor %}      
+</ul>  
+
+  </div> 
+        
+        
+        
+        
+        
+        
+         <div class="filtr">
+  <ul>
+    {% assign tags = 'French Color Colors'  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+
+   {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+      {% if collection.all_tags contains tag %}
+        <h3>French Color</h3>
+     {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+
+      {% for tag in tags %}
+      {% if current_tags contains tag %}
+   
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'French Color ' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'French Color ' }}</a></li>
+      {% endif %}
+      {% endfor %}      
+</ul>  
+
+  </div> 
+      
+        
+        <div class="filtr">
+  <ul>
+    {% assign tags = 'French Essentials Colors,French Essentials Products'  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+ 
+   {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+       {% if collection.all_tags contains tag %}
+        <h3>French Essentials</h3>
+     {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+
+     {% for tag in tags %}
+      {% if current_tags contains tag %}
+   
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'French Essentials' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'French Essentials' }}</a></li>
+      {% endif %}
+      {% endfor %}      
+</ul>  
+
+  </div>       
+        
+        
+         <div class="filtr">
+  <ul>
+    {% assign tags ='GELFX Kits,GELFX Perfect pair'  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+
+   {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+      {% if collection.all_tags contains tag %}
+        <h3>GELFX</h3>
+     {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+
+      {% for tag in tags %}
+      {% if current_tags contains tag %}
+   
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'GELFX' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'GELFX' }}</a></li>
+      {% endif %}
+      {% endfor %}      
+</ul>  
+
+  </div>       
+        
+        
+  <div class="filtr">
+  <ul>
+    {% assign tags = 'GEL SmartGels,GEL Treatments'  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+
+   {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+       {% if collection.all_tags contains tag %}
+        <h3>GEL</h3>
+     {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+
+      {% for tag in tags %}
+      {% if current_tags contains tag %}
+   
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'GEL' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'GEL' }}</a></li>
+      {% endif %}
+      {% endfor %}      
+</ul>  
+
+  </div>    
+        
+        
+          <div class="filtr">
+  <ul>
+    {% assign tags = 'LA LA LAND Displays,LA LA LAND Gels,LA LA LAND Kits,LA LA LAND Nail Lacquers'  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+
+   {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+     {% if collection.all_tags contains tag %}
+        <h3>LA LA LAND</h3>
+     {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+
+      {% for tag in tags %}
+      {% if current_tags contains tag %}
+   
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'LA LA LAND' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'LA LA LAND' }}</a></li>
+      {% endif %}
+      {% endfor %}      
+</ul>  
+
+  </div> 
+        
+           
+          <div class="filtr">
+  <ul>
+    {% assign tags = 'NEON EARTH Gels,NEON EARTH Lacquer Kits,NEON EARTH Nail Lacquers'  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+
+   {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+      {% if collection.all_tags contains tag %}
+        <h3>NEON EARTH</h3>
+     {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+
+      {% for tag in tags %}
+      {% if current_tags contains tag %}
+   
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'NEON EARTH' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'NEON EARTH' }}</a></li>
+      {% endif %}
+      {% endfor %}      
+</ul>  
+
+  </div> 
+        
+        
+<div class="filtr">
+  <ul>
+    {% assign tags = 'PASTEL CITY Gels,PASTEL CITY Lacquer Kits,PASTEL CITY Nail Lacquers'  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+
+   {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+        {% if collection.all_tags contains tag %}
+        <h3>PASTEL CITY</h3>
+    {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+
+      {% for tag in tags %}
+      {% if current_tags contains tag %}
+   
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'PASTEL CITY' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'PASTEL CITY' }}</a></li>
+      {% endif %}
+      {% endfor %}      
+</ul>  
+
+  </div> 
+        
+    <div class="filtr">
+  <ul>
+    {% assign tags = 'Removers & Thinners 16 oz Removers'  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+ 
+   {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+      {% if collection.all_tags contains tag %}
+        <h3>Removers & Thinners</h3>
+    {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+
+     {% for tag in tags %}
+      {% if current_tags contains tag %}
+   
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'PASTEL CITY' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'PASTEL CITY' }}</a></li>
+      {% endif %}
+      {% endfor %}      
+</ul>  
+
+  </div>     
+        
+       <div class="filtr">
+  <ul>
+    {% assign tags = 'SUNSET STRIP Epix,SUNSET STRIP GelFX,SUNSET STRIP Kits,SUNSET STRIP Nail Lacquers'  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+
+   {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+          {% if collection.all_tags contains tag %}
+        <h3>SUNSET STRIP</h3>
+      {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+
+      {% for tag in tags %}
+      {% if current_tags contains tag %}
+   
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'SUNSET STRIP' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'SUNSET STRIP' }}</a></li>
+      {% endif %}
+      {% endfor %}      
+</ul>  
+
+  </div>     
+             <div class="filtr">
+  <ul>
+    {% assign tags = 'Category Mini Kits'  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+
+   {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+       {% if collection.all_tags contains tag %}
+        <h3>Category Mini Kits</h3>
+       {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+
+      {% for tag in tags %}
+      {% if current_tags contains tag %}
+   
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'Category' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'Category' }}</a></li>
+      {% endif %}
+      {% endfor %}      
+</ul>  
+
+  </div>
+        
+        
+        <div class="filtr">
+  <ul>
+    {% assign tags = 'Type Creme,Type CrÃ¨me,Type Shimmer,Types Creme,Types CrÃ¨me,Types Glitter,Types Nude,Types Sheer,Types Shimmer'  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+ 
+   {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+     {% if collection.all_tags contains tag %}
+        <h3>Types</h3>
+     {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %}
+     {% endfor %} 
+
+     {% for tag in tags %}
+      {% if current_tags contains tag %}
+   
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'Types' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'Types' }}</a></li>
+      {% endif %}
+      {% endfor %}      
+</ul>  
+
+  </div>
+        
+            <div class="filtr">
+  <ul>
+    {% assign tags = 'VELVET DREAM Gels,VELVET DREAM Lacquer Kits,VELVET DREAM Nail Lacquers'  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}          
+  
+   {% assign count = 0 %}
+ {% for tag in tags %}  
+   {% if count == 0 %}
+        {% if collection.all_tags contains tag %}
+        <h3>VELVET</h3>
+      {% endif %}
+   {% assign count = count | plus : 1 %}
+   {% endif %} 
+     {% endfor %} 
+
+    {% for tag in tags %}
+      {% if current_tags contains tag %}
+   
+      <li value="{{ tag | handle }}" class="selected"><a>{{ tag | remove:'VELVET' }}</a></li>
+      {% elsif collection.all_tags contains tag %}
+      <li value="{{ tag | handle }}"><a>{{ tag | remove:'VELVET' }}</a></li>
+      {% endif %}
+      {% endfor %}      
+</ul>  
+
+  </div>
+       
+        
+        
+      </div>  
+    </div>   

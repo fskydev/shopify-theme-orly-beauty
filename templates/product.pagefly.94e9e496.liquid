@@ -1,0 +1,157 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400|Oswald:400|Roboto:400&display=swap"><link rel="stylesheet" href="https://cdn.pagefly.io/pagefly/2.11.1/css/main-style.css?t=20200529110551"><link rel="stylesheet" href="{{ 'pagefly.94e9e496.scss.css' | asset_url }}">
+		  <script>
+	window.__pageflyProducts = window.__pageflyProducts || {};
+	window.__pageflyProducts["{{product.id}}"] = {
+					id: {{product.id | json }},
+					handle: {{product.handle | json }},
+					title: {{product.title | json }},
+					type: {{product.type | json }},
+					url: {{product.url | json }},
+					vendor: {{product.vendor | json }},
+					variants: {{product.variants | json }},
+					options: {{product.options | json }},
+					media: {{product.media | json }},
+					first_available_variant: {{product.first_available_variant | json }},
+					has_only_default_variant: {{product.has_only_default_variant | json }},
+					options_with_values: {{product.options_with_values | json }},
+					selected_variant: {{product.selected_variant | json }},
+					selected_or_first_available_variant: {{product.selected_or_first_available_variant | json }},
+					tags: {{product.tags | json }},
+					template_suffix: {{product.template_suffix | json }},
+					featured_image: {{product.featured_image | json }},
+					featured_media: {{product.featured_media | json }},
+					images: {{product.images | json }}
+				};
+	</script><div class="__pf" id="__pf"><div data-pf-type="Body" class="sc-pRgDJ fzXWJx pf-b5938ccb"><div data-pf-type="Layout" class="pf-dff3b593"><div data-pf-type="ProductPreview" class="sc-pBAKv bbJvDc pf-7ad6c1d8">
+<script type='text/javascript' data-beauty>
+                        ;(function() {
+                            if (meta && meta['product']) {
+                                meta['product']['tags'] = {{ product.tags | json }}
+                            }
+                        } ());
+                    </script>
+                    <script data-beauty type='text/javascript'>
+  {%- assign BPTag_Only = "beauty pro only" -%}
+  {%- assign BPTag_Discount = "beauty pro pricing" -%}
+  ;(function() {
+  	if (meta && meta['product']) {
+      meta['product']['tags'] = {{ product.tags | json }}
+    }
+
+    {%- assign tags = product.tags | join: ", " | downcase | split: ", " -%}
+    {%- if tags contains BPTag_Only or tags contains BPTag_Discount -%}
+      var style = document.createElement('style');
+      style.type = 'text/css';
+      style.innerText = 'form[action="/cart/add"] [type="submit"] { display: none; }';
+
+      var head = document.querySelector('head');
+      head.appendChild(style);  
+
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOMContentLoaded!!!');
+        var step = 0;
+        var it = setInterval(function() {
+          step = step + 1;
+          if (step >= 1.5e2 || window.BListConfig) {
+            head.removeChild(style);
+            clearInterval(it);
+          }
+        }, 1e1);
+      });
+    {%- endif -%}
+  } ());
+   
+</script>
+                    
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+
+{% section 'product-template' %}
+
+{% section 'related-template' %}
+
+
+
+<script>
+  // Override default values of shop.strings for each template.
+  // Alternate product templates can change values of
+  // add to cart button, sold out, and unavailable states here.
+  theme.productStrings = {
+    addToCart: {{ 'products.product.add_to_cart' | t | json }},
+    soldOut: {{ 'products.product.sold_out' | t | json }},
+    unavailable: {{ 'products.product.unavailable' | t | json }}
+  }
+</script>
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": "{{ product.title }}",
+  "url": "{{ shop.url }}{{ product.url }}",
+  {% if product.featured_image %}
+    {% assign image_size = product.featured_image.width | append: 'x' %}
+    "image": [
+      "https:{{ product.featured_image.src | img_url: image_size }}"
+    ],
+  {% endif %}
+  "description": "{{ product.description | strip_html }}",
+  {% if current_variant.sku != blank %}
+    "sku": "{{ current_variant.sku }}",
+  {% endif %}
+  "brand": {
+    "@type": "Thing",
+    "name": "{{ product.vendor }}"
+  },
+  {% if product.variants %}
+    "offers": [
+      {% for variant in product.variants %}
+{% unless variant.metafields.secomapp.freegifts %}
+{% unless variant.title contains '(Freegifts)' %}
+
+        {
+          "@type" : "Offer",
+          "availability" : "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+          "price" : "{{ variant.price | divided_by: 100.00 }}",
+          "priceCurrency" : "{{ shop.currency }}",
+          "url" : "{{ shop.url }}{{ variant.url }}",
+          "itemOffered" :
+          {
+              "@type" : "Product",
+              {% if variant.image %}
+                {% assign variant_image_size = variant.image.width | append: 'x' %}
+                "image": "http:{{ variant.image.src | img_url: variant_image_size }}",
+              {% endif %}
+              {% if variant.title != blank %}
+                "name" : "{{ variant.title }}",
+              {% endif %}
+              {% if variant.sku != blank %}
+                "sku": "{{ variant.sku }}",
+              {% endif %}
+              {% if variant.weight != blank %}
+                "weight": {
+                  "@type": "QuantitativeValue",
+                  {% if variant.weight_unit != blank %}
+                    "unitCode": "{{ variant.weight_unit }}",
+                  {% endif %}
+                  "value": "{{ variant.weight | weight_with_unit: variant.weight_unit }}"
+                },
+              {% endif %}
+              "url": "{{ shop.url }}{{ variant.url }}"
+          }
+        }{% unless forloop.last %},{% endunless %}
+
+{%endunless%}
+{%endunless%}
+      {% endfor %}
+    ]
+  {% endif %}
+}
+</script>
+</div><div data-container="true" class="sc-pZopv bjKdkd pf-c2587341" data-pf-type="Section"><div class="sc-pQQXS iWCqut" style="max-width: 1170px;"><div class="sc-qPjXN eYzxUD pf-4153c258 pf-r pf-r-eh" data-pf-type="Row" style="--pf-s-lg:15px; --pf-s-md:15px; --pf-s-sm:15px; --pf-s-xs:15px;"><div class="sc-pbYdQ jklmHY pf-c pf-c-xs--12 pf-c-sm--12 pf-c-md--12 pf-c-lg--12"><div class="sc-pkUyL fTyjzF pf-226c4153" data-pf-type="Column"><div data-product-id="{{ product.id }}" data-pf-type="ProductBox" class="sc-pcjuG uJAsR pf-2a62226c"> {% form 'product', product, data-productid: product.id, class: "pf-product-form pf-form-b92a6222" %}<div class="sc-qPjXN eYzxUD pf-2eb92a62 pf-r pf-r-eh" data-pf-type="Row" style="--pf-s-lg:15px; --pf-s-md:15px; --pf-s-sm:15px; --pf-s-xs:15px;"><div class="sc-pbYdQ jklmHY pf-c pf-c-xs--12 pf-c-sm--6 pf-c-md--6 pf-c-lg--6"><div class="sc-pkUyL fTyjzF pf-535e5aac" data-pf-type="Column"><div data-product-id="{{ product.id }}" data-default-source="featured" data-pf-type="ProductImage" class="sc-qZusK fNDgSL pf-c1d895d0">{% assign img_size = product.images.size %}<div class="sc-qQZrP dRtXDN">{% if img_size > 1 %}<div class="sc-psbuI jTAHHU pf-navigation-list-image prev-arrow"><i class="fa fa-angle-left"></i></div>{% endif %}<picture height="450px" spacing="10px" data-pf-type="MasterImage" data-magnifier="false" mode="view" class="sc-pHHLp gpcTaQ" style="height: auto;"><img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt | escape }}" data-img-id="{{ product.featured_image.id }}" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}"></picture>{% if img_size > 1 %}<div spacing="10px" class="sc-psbuI jTAHHU pf-navigation-list-image next-arrow"><i class="fa fa-angle-right"></i></div>{% endif %}</div><div data-pf-type="ProductGallery" data-product-id="{{ product.id }}" height="450px" spacing="10px" class="sc-pzLIQ ikYiTH">{% if img_size > 5 %}<div class="sc-psbuI jTAHHU pf-navigation-list-image prev-arrow"><i class="fa fa-angle-left"></i></div>{% endif %}<div class="pf-p-image-small-container"><div class="pf-small-img-roll" style="padding-top: 5px; margin: -5px;">	{% for image in product.images %} <div class="sc-pjGtN lgnAIx" style="margin: 0px 5px;"><img src="{{ image.src | img_url: 'master' }}" class="pf-show-small-img" alt="{{ image.alt | escape }}" data-img-id="{{ image.id }}"></div>{% endfor %} </div></div>{% if img_size > 5 %}<div class="sc-psbuI jTAHHU pf-navigation-list-image next-arrow"><i class="fa fa-angle-right"></i></div>{% endif %}</div></div></div></div><div class="sc-pbYdQ jklmHY pf-c pf-c-xs--12 pf-c-sm--6 pf-c-md--6 pf-c-lg--6"><div class="sc-pkUyL fTyjzF pf-57912eb9" data-pf-type="Column"><h3 data-product-type="title" data-product-id="{{ product.id }}" data-pf-type="ProductText" class="sc-ptBBy kpuSv pf-95d06dc3">{{ product.title }}</h3><div data-product-type="price" data-product-id="{{ product.id }}" data-pf-type="ProductText" class="sc-oUqyN ggSnCK pf-6dc31ce3">{{ product.variants[0].price | money }}</div><div data-show-button="true" data-more="" data-less="" data-product-type="content" data-product-id="{{ product.id }}" data-pf-type="ProductText" class="sc-oUqyN ggSnCK pf-22fb2ee9">{{ product.content }}</div><div data-pf-type="Block" class="sc-oUbqx bgMQOP pf-187e5791"><a data-pf-type="Button" class="sc-pZdvY kuwSuz pf-6d2b4f5f"><span data-pf-type="Text" class="sc-ptSuy fnmilh pf-d5ce6d2b">Currently Unavailable</span></a></div></div></div></div>{% endform %}</div></div></div></div></div></div></div></div></div><script>
+					window.__pagefly_setting__={"baseURL":"https://apps.pagefly.io","analyticsURL":"https://analytics.pagefly.io","isBackend":false,"cdnURL":"https://cdn.pagefly.io","pageflyVersion":"2.11.1","shopDomain":"orlybeauty.myshopify.com","elementData":{"pf-c1d895d0":{"listPosition":"bottom","limit":5,"height":"450px","spacing":"10px","listLayout":"slider","_type":"ProductImage"}},"pageTitle":"clean prep","pageType":"product","pageId":"94e9e496-9279-42a2-a216-733f88ce4e03","lazyLoad":false,"imageLazyLoad":false,"nativeImageLazyLoad":true,"trackingIDs":[]};
+					window.__pagefly_setting__.moneyFormat = {{shop.money_format | json}}
+				</script><script src="https://cdn.pagefly.io/pagefly/2.11.1/core/helper.js?t=20200529110551" defer></script>

@@ -1,0 +1,269 @@
+{% case section.settings.grid %}
+  {% when 2 %}
+    {%- assign max_height = 530 -%}
+  {% when 3 %}
+    {%- assign max_height = 270 -%}
+  {% when 4 %}
+    {%- assign max_height = 250 -%}
+  {% when 5 %}
+    {%- assign max_height = 195 -%}
+{% endcase %}
+
+
+
+{% capture sub_name %}{{ page.handle }}-nail-lacquers{% endcapture %}
+{%- assign collection = collections[sub_name]  -%}
+  {% assign page_handle = page.handle %}
+
+{% if section.blocks.size > 0 %}
+<header class="collection-header">    
+
+	{% for block in section.blocks %}
+		<!--/ ONLY print specific page data -->
+		{% if block.settings.page_handle == page_handle %}
+			<!--/ To print content of particular page -->
+			
+  
+  
+      {% if block.settings.collection_side_logo != blank %}
+   
+         <div class="collection-hero__title-wrapper" style="background-image:url({{ block.settings.collection_side_logo | img_url:'1000x'}})">
+       
+      </div>
+       
+        {%else%}
+    
+         <div class="collection-hero__title-wrapper bgcolor-coll">  
+      
+       </div>
+    
+        {% endif %}
+      <div class="collection-hero">
+        <div class="collection-hero__image ratio-container lazyload js"
+             data-bgset="{% include 'bgset', image: block.settings.collection_featired %}"
+             data-sizes="auto"
+             data-parent-fit="cover"
+             style="background-image: url('{{ block.settings.collection_featired | img_url: '300x300' }});"></div>
+        <noscript>
+          <div class="collection-hero__image" style="background-image: url({{ block.settings.collection_featired | img_url: '2048x600', crop: 'top' }});"></div>
+        </noscript>
+      </div>        
+  </header>
+{% comment %}
+				{% assign page_content = block.settings.page_handle %}  
+	        	{{ pages[page_content].content }}
+			{% endcomment %}
+		{% endif %}
+	{% endfor %}
+
+{% endif %}
+
+  <div class="special-collection-grid main-categories">
+<div class="left_sidebar heading">
+   <h2>Lacquers</h2>
+  </div>
+  <div class="collection-right">
+  		<div id="Collection">
+      <div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+      {%- assign counter = 0  -%}
+        {% for product in collection.products %}
+        {%- assign counter = counter | plus : 1  -%}
+         {% if counter <= 6 %}
+          <div class="grid__item nail-color grid__item--{{section.id}} small--one-half medium-up--one-third">
+            {% include 'product-card-grid', max_height: max_height %}
+          </div>
+        {% endif %}
+        {% endfor %}
+       
+      </div>
+
+
+    {% if is_empty_collection %}
+      <div class="grid__item small--text-center">
+        <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
+      </div>
+    {% endif %}
+
+      </div>
+      
+
+      
+    </div>
+  </div>
+ {% capture sub_name %}{{ page.handle }}-kits{% endcapture %}
+
+{%- assign collection = collections[sub_name]  -%}
+
+  <div class="special-collection-grid main-categories">
+    
+<div class="left_sidebar heading">
+   <h2>Kits</h2>
+  </div>
+  <div class="collection-right">
+  		<div  id="Collection">
+      <div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+      {%- assign counter = 0  -%}
+        {% for product in collection.products %}
+        {%- assign counter = counter | plus : 1  -%}
+         {% if counter <= 6 %}
+          <div class="grid__item nail-color grid__item--{{section.id}} small--one-half medium-up--one-third">
+            {% include 'product-card-grid', max_height: max_height %}
+          </div>
+        {% endif %}
+        {% endfor %}
+       
+      </div>
+
+
+    {% if is_empty_collection %}
+      <div class="grid__item small--text-center">
+        <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
+      </div>
+    {% endif %}
+
+      </div>
+      
+
+      
+    </div>
+  </div>
+{% capture sub_name %}{{ page.handle }}-gels{% endcapture %}
+
+{%- assign collection = collections[sub_name]  -%}
+ <div class="special-collection-grid main-categories">
+<div class="left_sidebar heading">
+   <h2>Gels</h2>
+  </div>
+   
+  <div class="collection-right">
+    
+  		<div id="Collection">
+      <div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+      {%- assign counter = 0  -%}
+        {% for product in collection.products %}
+        {%- assign counter = counter | plus : 1  -%}
+         {% if counter <= 6 %}
+          <div class="grid__item nail-color grid__item--{{section.id}} small--one-half medium-up--one-third">
+            {% include 'product-card-grid', max_height: max_height %}
+          </div>
+        {% endif %}
+        {% endfor %}
+       
+      </div>
+
+
+    {% if is_empty_collection %}
+      <div class="grid__item small--text-center">
+        <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
+      </div>
+    {% endif %}
+
+      </div>
+      
+
+      
+    </div>
+  </div>
+
+
+
+{% schema %}
+  {
+    "name": "Collection Banners",
+    "class": "index-section",
+    "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Common Title"
+        },
+ {
+        "type": "select",
+        "id": "layout",
+        "label": {
+          "en": "Layout",
+          "de": "Layout",
+          "fr": "Mise en page"
+        },
+        "default": "grid",
+        "options": [
+          {
+            "value": "grid",
+            "label": {
+              "en": "Grid",
+              "de": "Raster",
+              "fr": "Grille"
+            }
+          },
+          {
+            "value": "list",
+            "label": {
+              "en": "List",
+              "de": "Liste",
+              "fr": "Liste"
+            }
+          }
+        ]
+      },
+
+      {
+        "type": "range",
+        "id": "grid",
+        "label": {
+          "en": "Products per row (grid only)",
+          "de": "Produkte per Reihe (nur Raster)",
+          "fr": "Produits par rangée (grille uniquement)"
+        },
+        "default": 4,
+        "min": 2,
+        "max": 5,
+        "step": 1
+      },
+      {
+        "type": "range",
+        "id": "rows",
+        "label": {
+          "en": "Rows per page (grid only)",
+          "de": "Reihen per Seite (nur Raster)",
+          "fr": "Rangées par page (grille uniquement)"
+        },
+        "default": 2,
+        "min": 2,
+        "max": 12,
+        "step": 1
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text_block",
+        "name": "Header Images",
+        "settings": [
+		  {
+            "type": "page",
+            "id": "page_handle",
+            "label": "Select a page"
+          },
+		  {
+        "type": "image_picker",
+         "id": "collection_featired", 
+        "label": "collection Image"
+      },	
+	  	
+      {
+        "type": "image_picker",
+        "id": "collection_side_logo", 
+        "label": "collection logo"
+      }
+		    
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

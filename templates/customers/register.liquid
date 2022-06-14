@@ -1,0 +1,277 @@
+{% include 'breadcrumbs' %}
+<div class="page-width">
+  <div class="grid">
+    <div class="grid__item sign_up_form">
+
+      <div class="form-vertical">
+        {% form 'create_customer' %}
+
+      
+        <div class="signup_header">
+          <h1>{{ 'customer.register.title' | t }}</h1>
+          <p>*Available for U.S. residents only.</p>
+        </div>
+        {%- if form.errors -%}
+            <div class="form-message form-message--error">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+        
+        <div class="prof_signup">
+          <h2>Professional Information</h2>
+          <div class="vertial_field">
+          	<label for="pro_type">I am ... </label>
+            <select id="pro_type" name="amcustomerattr[pro_type]">
+              <option value="">I am ...</option>
+              <option value="22">Salon Owner</option>
+              <option value="23">Manicurist</option>
+              <option value="24">Cosmetologist</option>
+              <option value="25">Barber</option>
+              <option value="78">Esthetician</option>
+              <option value="79">Student</option>
+              <option value="77">Teacher</option>
+              <option value="26">Other</option>
+            </select>
+          </div>
+          <div class="custoer">
+          <div class="vertial_field">
+            <label for="salon_name">Salon Name</label>
+			<input type="text" id="salon_name" class="{% if form.errors contains 'password' %} input--error{% endif %}" name="amcustomerattr[salon_name]" placeholder="Business Name">
+          </div>
+          <label for="AddressCompany_{{ form.id }}">{{ 'customer.addresses.company' | t }}</label>
+            <input type="text" id="AddressCompany_{{ form.id }}" name="address[company]" class="{% if form.errors contains 'password' %} input--error{% endif %}" value="{{ form.address }}" placeholder="Address">
+
+            <label for="AddressAddress1_{{ form.id }}">{{ 'customer.addresses.address1' | t }}</label>
+            <input type="text" id="AddressAddress1_{{ form.id }}" name="address[address1]" class="{% if form.errors contains 'password' %} input--error{% endif %}" value="{{ form.address1 }}" placeholder="Address Line 2">
+          </div>
+          
+          
+           <div class="salon-name-for">
+          <label for="salon-name">Salon Name</label>
+          <input id="salon-name" type="text" name="properties[_Salon Name]" placeholder="Salon Name">
+             
+           <label for="salon-address-1">Salon Address 1</label>
+           <input id="salon-address-1" type="text" name="properties[_Salon Address 1]" placeholder="Salon Address 1">
+           
+            <label for="salon-address-2">Salon Address 2</label>
+           <input id="salon-address-2" type="text" name="properties[_Salon Address 2]" placeholder="Salon Address 2">
+             
+          </div>
+          
+          <div class="your-business-name-for">
+            
+            <label for="your-business-name">Your Business Name</label>
+            <input id="your-business-name" type="text" name="properties[_Your Business Name]" placeholder="Your Business Name">
+             
+            <label for="your-address-1">Your Address 1</label>
+            <input id="your-address-1" type="text" name="properties[_Your Address 1]" placeholder="Your Address 1">
+            
+             <label for="your-address-2">Your Address 2</label>
+             <input id="your-address-2" type="text" name="properties[_Your Address 2]" placeholder="Your Address 2">
+            
+          </div>
+          
+          <div class="school-name-for">
+            
+            <label for="school-name">School Name</label>
+            <input id="school-name" type="text" name="properties[_School Name]" placeholder="School Name">
+            
+            <label for="school-address-1">School Address 1</label>
+            <input id="school-address-1" type="text" name="properties[_School Address 1]" placeholder="School Address 1">
+            
+             <label for="school-address-2">School Address 2</label>
+             <input id="school-address-2" type="text" name="properties[_School Address 2]" placeholder="School Address 2">
+            
+          </div>
+          
+          
+          
+          
+          	<label for="AddressCity_{{ form.id }}">{{ 'customer.addresses.city' | t }}</label>
+            <input type="text" id="AddressCity_{{ form.id }}" name="address[city]" class="{% if form.errors contains 'password' %} input--error{% endif %}" value="{{ form.city }}" placeholder="city">
+           
+         
+          
+            <div class="vertial_field">
+    <label for="region_id">State </label>
+    <select id="region_id" name="amcustomerattr[region_id]">
+    <option value="">State</option>
+    <option value="1">Alabama</option>
+    <option value="4">Arizona</option>
+    <option value="5">Arkansas</option>
+    <option value="12">California</option>
+    <option value="13">Colorado</option>
+    <option value="14">Connecticut</option>
+    <option value="15">Delaware</option>
+    <option value="16">District of Columbia</option>
+    <option value="18">Florida</option>
+    <option value="19">Georgia</option>
+    <option value="22">Idaho</option>
+    <option value="23">Illinois</option>
+    <option value="24">Indiana</option>
+    <option value="25">Iowa</option>
+    <option value="26">Kansas</option>
+    <option value="27">Kentucky</option>
+    <option value="28">Louisiana</option>
+    <option value="29">Maine</option>
+    <option value="31">Maryland</option>
+    <option value="32">Massachusetts</option>
+    <option value="33">Michigan</option>
+    <option value="34">Minnesota</option>
+    <option value="35">Mississippi</option>
+    <option value="36">Missouri</option>
+    <option value="37">Montana</option>
+    <option value="38">Nebraska</option>
+    <option value="39">Nevada</option>
+    <option value="40">New Hampshire</option>
+    <option value="41">New Jersey</option>
+    <option value="42">New Mexico</option>
+    <option value="43">New York</option>
+    <option value="44">North Carolina</option>
+    <option value="45">North Dakota</option>
+    <option value="47">Ohio</option>
+    <option value="48">Oklahoma</option>
+    <option value="49">Oregon</option>
+    <option value="51">Pennsylvania</option>
+    <option value="53">Rhode Island</option>
+    <option value="54">South Carolina</option>
+    <option value="55">South Dakota</option>
+    <option value="56">Tennessee</option>
+    <option value="57">Texas</option>
+    <option value="58">Utah</option>
+    <option value="59">Vermont</option>
+    <option value="61">Virginia</option>
+    <option value="62">Washington</option>
+    <option value="63">West Virginia</option>
+    <option value="64">Wisconsin</option>
+    <option value="65">Wyoming</option>
+    </select>
+</div>
+             
+            
+            <label for="AddressZip_{{ form.id }}">{{ 'customer.addresses.zip' | t }}</label>
+            <input type="text" id="AddressZip_{{ form.id }}" name="address[zip]" value="{{ form.zip }}" class="{% if form.errors contains 'password' %} input--error{% endif %}" autocapitalize="characters" placeholder="Zip Code">
+              
+         	<div class="vertial_field">
+                <label for="licensing_state">State </label>
+                <select id="licensing_state" name="amcustomerattr[licensing_state]">
+                <option value="">Licensing State </option>
+                <option value="28">Alabama</option>
+                <option value="81">Alaska</option>
+                <option value="30">Arizona</option>
+                <option value="29">Arkansas</option>
+                <option value="35">California</option>
+                <option value="34">Colorado</option>
+                <option value="33">Connecticut</option>
+                <option value="32">Delaware</option>
+                <option value="31">District of Columbia</option>
+                <option value="52">Florida</option>
+                <option value="51">Georgia</option>
+                <option value="80">Hawaii</option>
+                <option value="50">Idaho</option>
+                <option value="49">Illinois</option>
+                <option value="48">Indiana</option>
+                <option value="47">Iowa</option>
+                <option value="46">Kansas</option>
+                <option value="45">Kentucky</option>
+                <option value="44">Louisiana</option>
+                <option value="43">Maine</option>
+                <option value="42">Maryland</option>
+                <option value="41">Massachusetts</option>
+                <option value="40">Michigan</option>
+                <option value="39">Minnesota</option>
+                <option value="38">Mississippi</option>
+                <option value="37">Missouri</option>
+                <option value="36">Montana</option>
+                <option value="60">Nebraska</option>
+                <option value="59">Nevada</option>
+                <option value="58">New Hampshire</option>
+                <option value="57">New Jersey</option>
+                <option value="56">New Mexico</option>
+                <option value="55">New York</option>
+                <option value="54">North Carolina</option>
+                <option value="53">North Dakota</option>
+                <option value="76">Ohio</option>
+                <option value="75">Oklahoma</option>
+                <option value="74">Oregon</option>
+                <option value="73">Pennsylvania</option>
+                <option value="72">Rhode Island</option>
+                <option value="71">South Carolina</option>
+                <option value="70">South Dakota</option>
+                <option value="69">Tennessee</option>
+                <option value="68">Texas</option>
+                <option value="67">Utah</option>
+                <option value="66">Vermont</option>
+                <option value="65">Virginia</option>
+                <option value="64">Washington</option>
+                <option value="63">West Virginia</option>
+                <option value="62">Wisconsin</option>
+                <option value="61">Wyoming</option>
+                </select>
+            </div>
+           
+          
+          	<label for="CustomerFormlicense_num">License number</label>
+			<input type="text" id="CustomerFormlicense_num" name="customer[license_num]" placeholder="License number">
+          
+          
+          <div class="Salon">
+            <label for="salon-website">Salon Website</label>
+            <input id="salon-website" type="text" name="customer[_Salon Website]" placeholder="Salon Website">
+          </div>
+          
+          	<label for="CustomerFormca_resale_num">Sales Use Tax Number</label>
+			<input type="text" id="CustomerFormca_resale_num" name="customer[ca_resale_num]" placeholder="Sales Use Tax Number">
+           
+          <div class="sales-use-optional">
+          <label for="sales-use-tax-number-optional">Sales Use Tax Number (optional)</label>
+           <input id="sales-use-tax-number-optional" type="text" name="properties[_Sales Use Tax Number (optional)]" placeholder="Sales Use Tax Number (optional)">
+          </div>
+          	
+        </div>
+        
+        <div class="personal_signup">
+          <h2>Personal information</h2>
+          
+           <label for="FirstName">{{ 'customer.register.first_name' | t }}</label>
+          <input type="text" name="customer[first_name]" id="FirstName" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} class="{% if form.errors contains 'password' %} input--error{% endif %}" placeholder="First Name">
+
+          <label for="LastName">{{ 'customer.register.last_name' | t }}</label>
+          <input type="text" name="customer[last_name]" id="LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} placeholder="Last Name">
+
+          <label for="AddressPhone_{{ form.id }}">{{ 'customer.addresses.phone' | t }}</label> 
+          <input type="tel" class="{% if form.errors contains 'password' %} input--error{% endif %}" id="AddressPhone_{{ form.id }}" name="address[phone]" value="{{ form.phone }}" placeholder="Daytime Phone Number">
+          
+          <label for="Email">{{ 'customer.register.email' | t }}</label>
+          <input type="email" name="customer[email]" id="Email" class="{% if form.errors contains 'email' %} input--error{% endif %}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off" placeholder="Email Address">
+
+          <label for="CreatePassword">{{ 'customer.register.password' | t }}</label>
+          <input type="password" name="customer[password]" id="CreatePassword" class="{% if form.errors contains 'password' %} input--error{% endif %}" placeholder="Choose a Password">
+		
+          <label for="password_confirmation">{{ 'customer.register.password' | t }}</label>
+          <input type="password" value="" name="customer[password_confirmation]" id="customer_password_confirmation" class="{% if form.errors contains 'password' %} input--error{% endif %}" placeholder="Confirm Password" />
+          
+          <label for="CustomerFormis_agreed">I agree to ORLY's</label>
+          <input type="checkbox" id="CustomerFormis_agreed" name="customer[is_agreed]" value="is_agreed" /> <span>I agree to ORLY's</span> <a href="/pages/terms-of-use" class="terms-of-use-link">Terms of Use.</a> 
+          
+          <p>You'll have instant access to the site, but all orders placed will be pending verification of your credentials.</p>
+          
+          <div class="submit_signup">
+            <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn">
+          </div>
+          
+        </div> 
+        
+      
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .sales-use-optional, .school-name-for, .your-business-name-for, .salon-name-for, .Salon{display:none;}  
+  
+  
+</style>

@@ -1,0 +1,136 @@
+{% if current_tags != blank %}
+ 
+
+{% if current_tags contains 'Category Pedicure' %}
+<div class="bnr">
+  <header class="collection-header prod">     
+         
+         <div class="collection-hero__title-wrapper bgcolor-coll">  
+          <h1 class="collection-hero__title">Pedicure</h1>
+           <a class="open-catenav">Filters</a>
+       </div>
+    
+        
+      <div class="collection-hero">
+        <div class="collection-hero__image ratio-container lazyload js"
+             data-bgset="{% include 'bgset'%}"
+             data-sizes="auto"
+             data-parent-fit="cover"
+             style="background-image: url({{ 'hands-banner.jpg' | asset_url }});"></div>
+        <noscript>
+          <div class="collection-hero__image" style="background-image: url({{ 'hands-banner.jpg' | asset_url }});"></div>
+        </noscript>
+      </div>        
+  </header>
+</div>
+
+{% elsif current_tags contains 'Category Rich Renewal' %}
+<div class="bnr">
+  <header class="collection-header prod">     
+         
+         <div class="collection-hero__title-wrapper bgcolor-coll">  
+          <h1 class="collection-hero__title">Rich Renewal</h1>
+           <a class="open-catenav">Filters</a>
+       </div>
+    
+        
+      <div class="collection-hero">
+        <div class="collection-hero__image ratio-container lazyload js"
+             data-bgset="{% include 'bgset'%}"
+             data-sizes="auto"
+             data-parent-fit="cover"
+             style="background-image: url({{ 'hands-banner.jpg' | asset_url }});"></div>
+        <noscript>
+          <div class="collection-hero__image" style="background-image: url({{ 'hands-banner.jpg' | asset_url }});"></div>
+        </noscript>
+      </div>        
+  </header>
+</div>
+{% elsif current_tags contains 'Category Scrubs' %}
+<div class="bnr">
+  <header class="collection-header prod">     
+          
+         <div class="collection-hero__title-wrapper bgcolor-coll">  
+          <h1 class="collection-hero__title">Scrubs</h1>
+           <a class="open-catenav">Filters</a>
+       </div>
+    
+        
+      <div class="collection-hero">
+        <div class="collection-hero__image ratio-container lazyload js"
+             data-bgset="{% include 'bgset'%}"
+             data-sizes="auto"
+             data-parent-fit="cover"
+             style="background-image: url({{ 'hands-banner.jpg' | asset_url }});"></div>
+        <noscript>
+          <div class="collection-hero__image" style="background-image: url({{ 'hands-banner.jpg' | asset_url }});"></div>
+        </noscript>
+      </div>        
+  </header>
+</div>
+
+{% else %}
+ {% if section.settings.show_collection_featured %}
+  <header class="collection-header">     
+      {% if section.settings.collection_side_logo != blank %}
+   
+         <div class="collection-hero__title-wrapper" style="background-image:url({{ section.settings.collection_side_logo | img_url:'1000x'}})">
+       
+           <a class="open-catenav">Filters</a>	
+      </div>
+       
+        {%else%}
+    
+         <div class="collection-hero__title-wrapper bgcolor-coll">  
+          <h1 class="collection-hero__title">{{ collection.title }}</h1>
+           <a class="open-catenav">Filters</a>
+       </div>
+    
+        {% endif %}
+      <div class="collection-hero">
+        <div class="collection-hero__image ratio-container lazyload js"
+             data-bgset="{% include 'bgset', image: section.settings.collection_featired %}"
+             data-sizes="auto"
+             data-parent-fit="cover"
+             style="background-image: url('{{ section.settings.collection_featired | img_url: '300x300' }});"></div>
+        <noscript>
+          <div class="collection-hero__image" style="background-image: url({{ section.settings.collection_featired | img_url: '2048x600', crop: 'top' }});"></div>
+        </noscript>
+      </div>        
+  </header>
+ 
+  {% endif %}
+{% endif %}
+
+{% else %}
+{% if section.settings.show_collection_featured %}
+  <header class="collection-header">     
+      {% if section.settings.collection_side_logo != blank %}
+   
+         <div class="collection-hero__title-wrapper" style="background-image:url({{ section.settings.collection_side_logo | img_url:'1000x'}})">
+       
+           <a class="open-catenav">Filters</a>	
+      </div>
+       
+        {%else%}
+    
+         <div class="collection-hero__title-wrapper bgcolor-coll">  
+          <h1 class="collection-hero__title">{{ collection.title }}</h1>
+           <a class="open-catenav">Filters</a>
+       </div>
+    
+        {% endif %}
+      <div class="collection-hero">
+        <div class="collection-hero__image ratio-container lazyload js"
+             data-bgset="{% include 'bgset', image: section.settings.collection_featired %}"
+             data-sizes="auto"
+             data-parent-fit="cover"
+             style="background-image: url('{{ section.settings.collection_featired | img_url: '300x300' }});"></div>
+        <noscript>
+          <div class="collection-hero__image" style="background-image: url({{ section.settings.collection_featired | img_url: '2048x600', crop: 'top' }});"></div>
+        </noscript>
+      </div>        
+  </header>
+
+{% endif %}
+{% endif %}

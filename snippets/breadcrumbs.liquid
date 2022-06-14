@@ -1,0 +1,58 @@
+
+<div class="page-width">
+	<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+  
+      <a href="/" title="Home">Orly</a>
+  {% if template contains 'page' %}
+    <span class="first-cus" aria-hidden="true">&rsaquo;</span>
+    {% if current_tags %}
+      {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+      {{ collection.title | link_to: url }}
+      <span aria-hidden="true">/</span>
+      <span>{{ current_tags | join: " + " }}</span>
+    {% else %}
+      <span>{{ collection.title }}</span>
+    {% endif %}  
+    <span>{{ page.title }}</span>
+    {% if collection.url %}
+      <span class="second-cus" aria-hidden="true">/</span>
+      {{ collection.title | link_to: collection.url }}
+    {% endif %}
+    <span>{{ product.title }}</span>  
+  {% elsif template contains 'product' %}
+    {% if collection.url %}
+      <span class="second-cus" aria-hidden="true">/</span>
+      {{ collection.title | link_to: collection.url }}
+    {% endif %}
+    <span aria-hidden="true">/</span>
+    <span>{{ product.title }}</span>
+  {% elsif template contains 'collection' and collection.handle %}
+    <span class="third-cus" aria-hidden="true">/</span>
+    {% if current_tags %}
+      {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+      {{ collection.title | link_to: url }}
+      <span aria-hidden="true">/</span>
+      <span>{{ current_tags | join: " + " }}</span>
+    {% else %}
+      <span>{{ collection.title }}</span>
+    {% endif %}
+  {% elsif template == 'blog' %}
+    <span class="fourth-cus" aria-hidden="true">/</span>
+    {% if current_tags %}
+      {{ blog.title | link_to: blog.url }}
+      <span aria-hidden="true">/</span>
+      <span>{{ current_tags | join: " + " }}</span>
+    {% else %}
+    <span>{{ blog.title }}</span>
+    {% endif %}
+  {% elsif template == 'article' %}
+    <span class="fifth-cus" aria-hidden="true">/</span>
+    {{ blog.title | link_to: blog.url }}
+    <span aria-hidden="true">/</span>
+    <span>{{ article.title }}</span>
+  {% else %}
+   <span aria-hidden="true">/</span>
+   <span>{{ page_title }}</span>
+  {% endif %}
+</nav>
+</div>  

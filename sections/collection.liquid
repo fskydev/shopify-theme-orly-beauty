@@ -1,0 +1,158 @@
+<div class="page-width">
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+
+  {%- assign collection = collections[section.settings.collection] -%}
+
+  {% case section.settings.grid %}
+    {% when 2 %}
+      {%- assign max_height = 530 -%}
+      {%- assign grid_item_width = 'medium-up--one-half' -%}
+    {% when 3 %}
+      {%- assign max_height = 345 -%}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
+    {% when 4 %}
+      {%- assign max_height = 250 -%}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+    {% when 5 %}
+      {%- assign max_height = 195 -%}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
+  {% endcase %}
+
+  {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
+
+  <ul class="grid grid--uniform grid--view-items">
+    {% for product in collection.products limit: product_limit %}
+      <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+        {% include 'product-card-grid', max_height: max_height %}
+      </li>
+    {% else %}
+
+      {% for i in (1..product_limit) %}
+        <li class="grid__item .grid__item--{{section.id}} {{ grid_item_width }}">
+          <div class="grid-view-item">
+            <a href="#" class="grid-view-item__link">
+              <div class="grid-view-item__image">
+                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+              <div class="h4 grid-view-item__title">{{ 'homepage.onboarding.product_title' | t }}</div>
+              <div class="grid-view-item__meta">
+                {% include 'product-price' %}
+              </div>
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+    {% endfor %}
+  </ul>
+
+  {% if section.settings.show_view_all %}
+    <hr class="hr--invisible"></hr>
+    <div class="text-center">
+      <a href="{{ collection.url }}" class="btn" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
+        {{ 'collections.general.view_all' | t }}
+      </a>
+    </div>
+  {% endif %}
+
+</div>
+
+{% schema %}
+  {
+    "name": {
+      "en": "Featured collection",
+      "de": "Featured Kategorie",
+      "fr": "Collection vedette"
+    },
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": {
+          "en": "Heading",
+          "de": "Titel",
+          "fr": "En-tête"
+        },
+        "default": {
+          "en": "Featured collection",
+          "de": "Featured Kategorie",
+          "fr": "Collection vedette"
+        }
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": {
+          "en": "Collection",
+          "de": "Kategorie",
+          "fr": "Collection"
+        }
+      },
+      {
+        "type": "range",
+        "id": "grid",
+        "label": {
+          "en": "Products per row",
+          "de": "Produkte per Reihe",
+          "fr": "Produits par rangée"
+        },
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "rows",
+        "label": {
+          "en": "Rows",
+          "de": "Reihen",
+          "fr": "Rangées"
+        },
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "default": 2
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": {
+          "en": "Show product vendors",
+          "de": "Produkt-Lieferanten anzeigen",
+          "fr": "Afficher les vendeurs"
+        },
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_view_all",
+        "label": {
+          "en": "Show 'View all' button",
+          "de": "'Alle anzeigen' Button anzeigen",
+          "fr": "Afficher le bouton “Tout voir”"
+        },
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": {
+          "en": "Featured collection",
+          "de": "Featured Kategorie",
+          "fr": "Collection vedette"
+        },
+        "category": {
+          "en": "Collection",
+          "de": "Kategorie",
+          "fr": "Collection"
+        }
+      }
+    ]
+  }
+{% endschema %}

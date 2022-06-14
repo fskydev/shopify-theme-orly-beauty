@@ -1,0 +1,122 @@
+                    <div blist_modal_wrapper id="blist_modal_wrapper" style="display: none;">
+                            <div id="blist_modal_wrapper_inner">
+                                  <div id="blist_modal">
+
+                                    <button type="button" class="" id="blist_close_cart_modal" onclick="jQuery('#blist_modal_wrapper').fadeOut();">
+                                       x
+                                    </button>
+
+                                    <div id="blist_modal_inner">
+
+                                    <h4>Please confirm your Shipping Details</h4>
+
+                                    <form id="blist_shipping" class="com--blist-form">
+                                      <dl>
+                                        <dt>
+                                          <label for="blist_email">Email</label>
+                                        </dt>
+                                        <dd>
+                                           <input type="text" required name="email" id="blist_email"  class="customer_field" disabled placeholder="Email">
+                                        </dd>
+                                      </dl>
+
+                                      <dl>
+                                        <dt>
+                                          <label for="blist_phone">Phone</label>
+                                        </dt>
+                                        <dd>
+                                          <input type="text" name="phone" id="blist_phone" class="shipping_field" placeholder="Phone">
+                                        </dd>
+                                      </dl>
+
+                                      <dl>
+                                        <dt>
+                                          <label for="blist_first_name">First Name</label>
+                                        </dt>
+                                        <dd>
+                                          <input type="text" required name="first_name" disabled id="blist_first_name" class="shipping_field customer_field" placeholder="First Name">
+                                        </dd>
+                                      </dl>
+
+                                      <dl>
+                                        <dt>
+                                            <label for="blist_last_name">Last Name</label>
+                                        </dt>
+                                        <dd>
+                                          <input type="text" required name="last_name" disabled id="blist_last_name" class="shipping_field customer_field" placeholder="Last Name">
+                                        </dd>
+                                      </dl>
+
+                                      <dl>
+                                        <dt>
+                                            <label for="blist_address1">Address</label>
+                                        </dt>
+                                        <dd>
+                                            <input type="text" required name="address1" id="blist_address1" class="shipping_field" placeholder="Address">
+                                          <input type="text" name="address2" class="shipping_field" placeholder="Apartment, suite, etc. (optional)">
+                                        </dd>
+                                      </dl>
+
+                                      <dl>
+                                        <dt>
+                                            <label for="blist_city">City</label>
+                                        </dt>
+                                        <dd>
+                                          <input type="text" required name="city" id="blist_city" class="shipping_field" placeholder="City">
+                                        </dd>
+                                      </dl>
+
+                                      <dl>
+                                        <dt>
+                                            <label for="blist_country">Country</label>
+                                        </dt>
+                                        <dd>
+                                            <select name="country" id="blist_country" class="shipping_arg shipping_field" data-default="{{shop.address.country}}">{{ country_option_tags }}</select>
+                                        </dd>
+                                      </dl>
+
+                                      <dl id="blist_province_wrap">
+                                        <dt>
+                                            <label for="blist_province">State</label>
+                                        </dt>
+                                        <dd>
+                                          <select class="shipping_arg shipping_field" name="province" id="blist_province" ></select>
+                                        </dd>
+                                      </dl>
+
+                                      <dl>
+                                        <dt>
+                                            <label for="blist_zip">ZIP/Postal code</label>
+                                        </dt>
+                                        <dd>
+                                          <input type="text" required class="shipping_arg shipping_field" name="zip" id="blist_zip" placeholder="ZIP/Postal code">
+                                        </dd>
+                                      </dl>
+                                      <dl>
+                                        <dt><label for="blist_note">Note</label></dt>
+                                        <dd>
+                                        	<textarea id="blist_note" name="note"></textarea>
+                                        </dd>
+                                      </dl>
+                                      <dl>
+                                        <dt></dt>
+                                        <dd id="blist_shipping_rates"></dd>
+                                      </dl>
+                                    </form>
+
+                                    <div class="com--blist--buttons">
+                                      <button type="button" name="blist_checkout" class="btn btn--primary" id="blist_checkout">Checkout</button>
+                                    </div>
+                                    </div>
+                                    </div>
+                                  </div>
+                                </div> 
+
+{% comment %}
+  The contents of the cart.liquid template can be found in /sections/cart-template.liquid
+{% endcomment %}
+
+{% section 'cart-template' %}
+
+<script src="https://cdn.pagefly.io/static/assets/pf-custom-shopify-cart.min.js" defer></script>
+<script src="https://cdn.pagefly.io/static/assets/pf-custom-shopify-cart.min.js" defer></script>
