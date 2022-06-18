@@ -1,0 +1,14 @@
+{% assign tag_limit = "999" | times: 1 %}  
+
+{% comment %}
+  Collection filters
+{% endcomment %}
+{% if collection.all_tags.size > 0 and filter_style != 'none' %}
+  {% capture cat_array %}{%- render 'advanced-tag-loop' -%}{% endcapture %}
+  {% assign cat_array = cat_array | split: '|' %}  
+    {%
+      render 'product-grid-tag-groups',
+      tag_limit: tag_limit,
+      cat_array: cat_array,
+    %}
+{% endif %}

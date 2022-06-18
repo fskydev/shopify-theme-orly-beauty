@@ -216,8 +216,6 @@
           "grid": 3,
           "rows": 7,
           "show_collection_featured": true,
-          "collection_featired": "",
-          "collection_side_logo": "",
           "show_vendor": false,
           "sort_enable": false,
           "tags_enable": false
@@ -717,6 +715,18 @@
       "pagefly-home": {
         "type": "pagefly-home",
         "settings": {
+        }
+      },
+      "collection-template-all-nail-colors": {
+        "type": "collection-template-all-nail-colors",
+        "settings": {
+          "layout": "grid",
+          "grid": 4,
+          "rows": 2,
+          "show_collection_featured": false,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
         }
       }
     },
