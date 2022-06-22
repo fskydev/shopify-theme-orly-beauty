@@ -1,3 +1,6 @@
+{{ 'all-nail-colors.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'all-nail-colors.js' | asset_url }}"></script>
+
 {% case section.settings.grid %}
   {% when 2 %}
     {%- assign max_height = 530 -%}
@@ -166,6 +169,12 @@
       {% render 'product-grid-sidebar-filters' %}
     </div>
     <div class="collection-right">
+      {% if current_tags.size > 0 %}
+        <div class="page-width productgrid--sidebar-filters--current">
+          {%- render 'product-grid-tags-active' -%}
+        </div>
+      {% endif %}
+
       <div class="page-width" id="Collection">
     {% if section.settings.layout == 'grid' %}
       {% case section.settings.grid %}
@@ -182,7 +191,7 @@
       <div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
         {% for product in collection.products %}
           <div class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-            {% include 'product-card-grid', max_height: max_height %}
+            {% include 'product-card-all-nail-colors', max_height: max_height %}
           </div>
         {% else %}
           {% comment %}

@@ -61,7 +61,7 @@
       {% comment %}
         Loop through collection tags
       {% endcomment %}
-      <div>
+      <div class="filtr-wrapper">
         {% for tag in sorted_tags %}
           {%- if excluded_tags contains tag -%}
             {%- continue -%}
@@ -120,7 +120,7 @@
             {%- endif -%}
 
             <li
-              {% if current_tags contains tag %}class="selected"{% endif %}
+              class="{% if current_tags contains tag %}selected{% endif %} {{ filter_class }}" 
             >
               {% if current_tags contains tag %}
                 {{ tag_content | link_to_remove_tag: tag }}
@@ -134,6 +134,13 @@
         {% endfor %}
       </div>
     </ul>
+    {% if tag_count > tag_limit %}
+      <div class="filter-item--toggle-more">
+        <a class="filter-text--link" href="javascript:;" onclick="toggleFilterItems(event)">
+          See more
+        </a>
+      </div>
+    {% endif %}
   </div>
 {% endfor %}
 </div>

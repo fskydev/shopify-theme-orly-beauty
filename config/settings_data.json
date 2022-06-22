@@ -721,7 +721,7 @@
         "type": "collection-template-all-nail-colors",
         "settings": {
           "layout": "grid",
-          "grid": 4,
+          "grid": 3,
           "rows": 2,
           "show_collection_featured": false,
           "show_vendor": false,
