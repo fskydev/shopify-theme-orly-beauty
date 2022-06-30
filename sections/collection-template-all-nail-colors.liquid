@@ -1,5 +1,6 @@
 {{ 'all-nail-colors.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'all-nail-colors.js' | asset_url }}"></script>
+{{ 'ajaxinate.js' | asset_url | script_tag }}
 
 {% case section.settings.grid %}
   {% when 2 %}
@@ -66,7 +67,7 @@
       <div class="collection-hero__title-wrapper">  
         <h1 class="collection-hero__title">{{ collection.title }}</h1>
         <a class="open-catenav">Filters</a>
-      </div>    
+      </div>
     {% endif %}
 
     <div class="collection-hero">
@@ -167,6 +168,9 @@
   <div class="main-categories">
     <div class="left_sidebar">
       {% render 'product-grid-sidebar-filters' %}
+      <button type="button" class="btn--link" onclick="closeFilterSlide()">
+        {% include 'icon-close' %}
+      </button>
     </div>
     <div class="collection-right">
       {% if current_tags.size > 0 %}
@@ -175,6 +179,14 @@
         </div>
       {% endif %}
 
+      <div class="open-catenav-wrapper">
+        <a class="open-catenav">
+          <span class="utils-filter-icon">
+            {% render 'icon-library', id: 'icon-filters' %}
+          </span>
+          <span class="utils-filter-text">Filters</span>
+        </a>
+      </div>
       <div class="page-width" id="Collection">
     {% if section.settings.layout == 'grid' %}
       {% case section.settings.grid %}
@@ -189,6 +201,7 @@
       {% endcase %}
 
       <div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+        <div id="AjaxinateLoop" >
         {% for product in collection.products %}
           <div class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
             {% include 'product-card-all-nail-colors', max_height: max_height %}
@@ -211,7 +224,7 @@
                           {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
                           {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
                         </div>
-                        <div class="h4 grid-view-item__title">{{ 'homepage.onboarding.product_title' | t }}</div>
+                        <!-- <div class="h4 grid-view-item__title">{{ 'homepage.onboarding.product_title' | t }}</div> -->
                         <div class="grid-view-item__meta">
                           <span class="product-price__price">$19.99</span>
                         </div>
@@ -226,6 +239,12 @@
             {%- assign is_empty_collection = true -%}
           {% endif %}
         {% endfor %}
+        </div>
+        <div id="AjaxinatePagination" style="text-align: center;">
+          {% if paginate.next %}
+            <a href="{{ paginate.next.url }}">Loading More</a>
+          {% endif %}
+        </div>
       </div>
     {% else %}
       <ul class="list-view-items">
@@ -271,6 +290,12 @@
           {% endif %}
         {% endfor %}
       </ul>
+
+      <div class="collection_pagination"> 
+        {% if paginate.pages > 1 %}
+          {% include 'pagination' %}
+        {% endif %}
+      </div>
     {% endif %}
 
     {% if is_empty_collection %}
@@ -281,11 +306,7 @@
 
       </div>
       
-     <div class="collection_pagination"> 
-        {% if paginate.pages > 1 %}
-          {% include 'pagination' %}
-        {% endif %}
-     </div>
+     
       
     </div>
   </div>  

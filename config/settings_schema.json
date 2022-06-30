@@ -728,6 +728,21 @@
     ]
   },
   {
+    "name": "Collections",
+    "settings": [
+      {
+        "type": "header",
+        "content": "All Nail Colors"
+      },
+      {
+        "type": "textarea",
+        "id": "swatches_custom_colors",
+        "label": "Custom colors",
+        "info": "Like “Deep Purple: #7000AA” - one color per line, with names that exactly match your variants."
+      }
+    ]
+  },
+  {
     "name": {
       "en": "Social media",
       "de": "Social Media",

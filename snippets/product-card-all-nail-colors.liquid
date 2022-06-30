@@ -1,5 +1,5 @@
 <div class="grid-view-item product-card">
-  <div class="grid-view-item__link grid-view-item__image-container product-card__link" href="{{ product.url | within: collection }}">
+  <a class="grid-view-item__link grid-view-item__image-container product-card__link">
     <span class="visually-hidden">{{ product.title }}</span>
 
     {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
@@ -10,21 +10,23 @@
       {% include 'image-style' with image: product.featured_image, width: max_height, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
     {% endunless %}
 
-    <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper js df">
-      <div style="padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
-      <div class="reveal">
-        <img id="{{ img_id }}"
-              class="grid-view-item__image lazyload"
-              src="{{ product.featured_image | img_url: '300x300' }}"
-              data-src="{{ img_url }}"
-              data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-              data-aspectratio="{{ product.featured_image.aspect_ratio }}"
-              data-sizes="auto"
-              alt="{{product.title}}">
-        <img class="hidden" src="{{ product.images.last | img_url: '300x300' }}" alt="{{ product.images.last.alt | escape }}" />
+    <a href="{{ product.url | within: collection }}">
+      <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper js df">
+        <div style="padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
+        <div class="reveal">
+          <img id="{{ img_id }}"
+                class="grid-view-item__image lazyload"
+                src="{{ product.featured_image | img_url: '300x300' }}"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                data-aspectratio="{{ product.featured_image.aspect_ratio }}"
+                data-sizes="auto"
+                alt="{{product.title}}">
+          <img class="hidden" src="{{ product.images.last | img_url: '300x300' }}" alt="{{ product.images.last.alt | escape }}" />
+          </div>
         </div>
       </div>
-    </div>
+    </a>
 
     <div class="h4 grid-view-item__title" aria-hidden="true">{{ product.title }}</div>
     <div class="short_desc">{{ product.description | strip_html | truncate: 100 }}</div>
@@ -71,7 +73,6 @@
       <div class="action">
         <span class="product-price__sold-out" style="text-align:center;">{{ 'products.product.sold_out' | t }}</span>
       </div>
-    {% endif %}
-  
-  </div>
+    {% endif %}  
+  </a>
 </div>

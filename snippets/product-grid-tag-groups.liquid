@@ -42,105 +42,175 @@
   assign excluded_groups = excluded_groups_temp | remove_first: '|' | split: '|'
 %}
 
+<div class="filtr-title-wrapper">
+  <h2 class="filtr-title">
+    Filters
+  </h2>
+
+  {% if current_tags.size > 0 %}
+    <div class="page-width productgrid--sidebar-filters--mobile">
+      {%- render 'product-grid-tags-active' -%}
+    </div>
+  {% endif %}
+</div>
 
 <div class="category-nav">
-{% for cat_item in cat_array %}
+  <div>
+    <h2 class="filtr-title">
+      Filters
+    </h2>
+  {% for cat_item in cat_array %}
 
-  {%- if cat_item == 'searchfilter' or cat_item == blank or excluded_groups contains cat_item -%}
-    {%- continue -%}
-  {%- endif -%}
-  
-  <div
-    class="filtr"
-  >
-    {% assign tag_count = 0 %}
-
-    <h3>{{ cat_item }}</h3>
-
-    <ul>
-      {% comment %}
-        Loop through collection tags
-      {% endcomment %}
-      <div class="filtr-wrapper">
-        {% for tag in sorted_tags %}
-          {%- if excluded_tags contains tag -%}
-            {%- continue -%}
-          {%- endif -%}
-
-          {% liquid
-            assign cat = tag | split: '_' | first
-            assign cat_handle = cat | handleize
-            assign tag_handle = tag | handleize
-            assign cat_item_handle = cat_item | handleize
-            assign within_group = false
-            assign active_tag_in_group = nil
-          %}
-          {% if cat_handle != tag_handle and cat_item_handle == cat_handle %}
-            {% assign tag_count = tag_count | plus: 1 %}
-
-            {% comment %}
-              Loop through the currently active tags to determine if we are looping
-              through an active group. If we are, we want to remove the active tag
-              from the href since users can only select one tag per group anyway. This also
-              helps show accurate product counts.
-            {% endcomment %}
-            {% liquid
-              for current_tag in current_tags
-                assign current_cat = current_tag | split: '_' | first
-
-                if current_cat == cat
-                  assign within_group = true
-                  assign active_tag_in_group = current_tag | handleize | append: '+'
-                endif
-              endfor
-            %}
-
-            {% comment %}
-              Strip out tag category prefix and add/remove link for tag filtering
-            {% endcomment %}
-            {%- capture tag_content -%}              
-              {% assign animation_state = 'unchecked' %}
-              {% if current_tags contains tag %}
-                {% assign animation_state = 'checked' %}
-              {% endif %}
-              <span class="filter-text">
-                {{ tag | remove_first: cat | remove_first: '_' }}
-              </span>
-            {%- endcapture -%}
-
-            {% assign filter_active = false %}
-            {%- if current_tags contains tag -%}
-              {% assign filter_active = true %}
-            {%- endif -%}
-
-            {% assign filter_class = 'filter-item' %}
-
-            {%- if tag_count > tag_limit -%}
-              {% assign filter_class = filter_class | append: ' filter-item--hidden' %}
-            {%- endif -%}
-
-            <li
-              class="{% if current_tags contains tag %}selected{% endif %} {{ filter_class }}" 
-            >
-              {% if current_tags contains tag %}
-                {{ tag_content | link_to_remove_tag: tag }}
-              {% elsif within_group == true %}
-                {{ tag_content | link_to_add_tag: tag | remove: active_tag_in_group }}
-              {% else %}
-                {{ tag_content | link_to_add_tag: tag }}
-              {% endif %}
-            </li>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </ul>
-    {% if tag_count > tag_limit %}
-      <div class="filter-item--toggle-more">
-        <a class="filter-text--link" href="javascript:;" onclick="toggleFilterItems(event)">
-          See more
-        </a>
-      </div>
+    {%- if cat_item == 'searchfilter' or cat_item == blank or excluded_groups contains cat_item -%}
+      {%- continue -%}
+    {%- endif -%}
+    
+    {% assign show_swatches = false %}
+    {% assign swatch_trigger = "Color" | strip | downcase %}
+    {% assign cat_name = cat_item | downcase %}
+    {% if cat_name == swatch_trigger %}
+      {% assign show_swatches = true %}
+      {% comment %} Swatches should never follow the display_as_grid layout {% endcomment %}
+      {% assign display_as_grid = false %}
     {% endif %}
+
+    <div
+      class="filtr"
+    >
+      {% assign tag_count = 0 %}
+
+      <button
+        class="productgrid--sidebar-button active"
+        data-filter-group-trigger
+        aria-expanded="false"
+      >
+        <h3 class="productgrid--sidebar-title--small">
+          {{ cat_item }}
+        </h3>
+        <div class="productgrid--sidebar-icon-wrapper" tabindex="-1">
+          <span class="productgrid--sidebar-icon">
+            {% render 'icon-chevron-down-small' %}
+          </span>
+        </div>
+      </button>
+
+      <ul
+        class="productgrid--sidebar-ul
+          {% if show_swatches %}
+            productgrid--sidebar-item-swatches-grid
+          {% endif %}
+        "
+      >
+        {% comment %}
+          Loop through collection tags
+        {% endcomment %}
+        <div class="filtr-wrapper">
+          {% for tag in sorted_tags %}
+            {%- if excluded_tags contains tag -%}
+              {%- continue -%}
+            {%- endif -%}
+
+            {% liquid
+              assign cat = tag | split: '_' | first
+              assign cat_handle = cat | handleize
+              assign tag_handle = tag | handleize
+              assign cat_item_handle = cat_item | handleize
+              assign within_group = false
+              assign active_tag_in_group = nil
+            %}
+            {% if cat_handle != tag_handle and cat_item_handle == cat_handle %}
+              {% assign tag_count = tag_count | plus: 1 %}
+
+              {% comment %}
+                Loop through the currently active tags to determine if we are looping
+                through an active group. If we are, we want to remove the active tag
+                from the href since users can only select one tag per group anyway. This also
+                helps show accurate product counts.
+              {% endcomment %}
+              {% liquid
+                for current_tag in current_tags
+                  assign current_cat = current_tag | split: '_' | first
+
+                  if current_cat == cat
+                    assign within_group = true
+                    assign active_tag_in_group = current_tag | handleize | append: '+'
+                  endif
+                endfor
+              %}
+
+              {%- if show_swatches -%}
+                {%- assign color_name = tag | remove_first: cat | remove_first: '_' -%}
+                {%- capture swatch -%}
+                <!-- <span style="color: red;">{{ color_name }}</span> -->
+                  <div
+                    class="filter-item--swatch-wrapper"
+                    data-swatch-tooltip="{{ color_name }}"
+                  >
+                    <div class="filter-item--swatch">
+                      <div
+                        class="filter-item--swatch-inner"
+                        style="{% render 'swatch-styles', color_name: color_name %}"
+                      >
+                      </div>
+                    </div>
+                  </div>
+                {%- endcapture -%}
+              {%- endif -%}
+
+              {% comment %}
+                Strip out tag category prefix and add/remove link for tag filtering
+              {% endcomment %}
+              {%- capture tag_content -%}
+                {%- if show_swatches -%}
+                  {{ swatch }}
+                {%- else -%}
+                  {% assign animation_state = 'unchecked' %}
+                  {% if current_tags contains tag %}
+                    {% assign animation_state = 'checked' %}
+                  {% endif %}
+
+                  <span class="filter-text">
+                    {{ tag | remove_first: cat | remove_first: '_' }}
+                  </span>
+                {%- endif -%}
+              {%- endcapture -%}
+
+              {% assign filter_active = false %}
+              {%- if current_tags contains tag -%}
+                {% assign filter_active = true %}
+              {%- endif -%}
+
+              {% assign filter_class = 'filter-item' %}
+
+              {%- if tag_count > tag_limit -%}
+                {% assign filter_class = filter_class | append: ' filter-item--hidden' %}
+              {%- endif -%}
+
+              <li
+                class="{% if current_tags contains tag %}selected{% endif %} {{ filter_class }}"
+                data-filter-active="{{ filter_active }}"
+                {% if tag_count > tag_limit %}data-hidden-default{% endif %}
+              >
+                {% if current_tags contains tag %}
+                  {{ tag_content | link_to_remove_tag: tag }}
+                {% elsif within_group == true %}
+                  {{ tag_content | link_to_add_tag: tag | remove: active_tag_in_group }}
+                {% else %}
+                  {{ tag_content | link_to_add_tag: tag }}
+                {% endif %}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </ul>
+      {% if tag_count > tag_limit %}
+        <div class="filter-item--toggle-more">
+          <a class="filter-text--link" href="javascript:;" onclick="toggleFilterItems(event)">
+            See more
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
   </div>
-{% endfor %}
 </div>

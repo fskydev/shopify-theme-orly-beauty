@@ -19,6 +19,7 @@
     "type_base_family": "Google_Work+Sans_400_sans",
     "type_base_size": 16,
     "type_bold_product_titles": false,
+    "swatches_custom_colors": "Bronze: #AF460B\nCopper: #D88244\nGunmetal: #8B878E\nLilac: #A4A6DD\nMauve: #8D615B\nMint: #5F9DA0\nNeon: #C3EF44\nNeutral: #AC967B\nNude: #EFB18D\nPeach: #F2BCAB\nRose Gold: #D7A89A\nTaupe: #C3AEA0\nWhite Gold: #E3D4AD",
     "share_image": "",
     "share_facebook": true,
     "share_twitter": true,
@@ -722,7 +723,7 @@
         "settings": {
           "layout": "grid",
           "grid": 3,
-          "rows": 2,
+          "rows": 4,
           "show_collection_featured": false,
           "show_vendor": false,
           "sort_enable": true,

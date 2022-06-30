@@ -1,0 +1,37 @@
+{%- capture _ -%}
+  {%- assign swatch_bg_color = blank -%}
+  {%- assign swatch_bg_image = blank -%}
+  {%- assign swatch_colors = settings.swatches_custom_colors -%}
+
+  {% comment %} First look for a defined custom color {% endcomment %}
+  {%- assign swatch_colors = swatch_colors | newline_to_br | strip_newlines | split: '<br />' -%}
+  {%- assign swatch_search_color = color_name | downcase -%}
+  {%- for swatch_option in swatch_colors -%}
+    {%- assign swatch_color = swatch_option | split: ':' -%}
+    {%- assign swatch_color_name = swatch_color[0] | strip | downcase -%}
+    {%- assign swatch_color_value = swatch_color[1] | strip -%}
+    {%- if swatch_search_color == swatch_color_name -%}
+      {% capture swatch_bg_color %}
+        background-color: {{ swatch_color_value }};
+      {% endcapture %}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {% comment %} Otherwise default to the raw color name, which will either be a
+  valid named HTML color and displayed as such, or will be ignored by the browser. {% endcomment %}
+  {%- if swatch_bg_color == blank -%}
+    {% capture swatch_bg_color %}
+      background-color: {{ color_name | handleize }};
+    {% endcapture %}
+
+    {% assign swatch_file_name = color_name | downcase | handleize | append: '.png' %}
+    {%- assign swatch_file_url = swatch_file_name | asset_url  -%}
+    {%- capture swatch_bg_image -%}
+      background-image: url('{{- swatch_file_url  -}}');
+    {%- endcapture -%}
+  {%- endif -%}
+
+{%- endcapture -%}
+{{ swatch_bg_color }}
+{{ swatch_bg_image }}
