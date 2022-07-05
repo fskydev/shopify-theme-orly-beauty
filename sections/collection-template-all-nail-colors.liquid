@@ -173,20 +173,23 @@
       </button>
     </div>
     <div class="collection-right">
-      {% if current_tags.size > 0 %}
-        <div class="page-width productgrid--sidebar-filters--current">
-          {%- render 'product-grid-tags-active' -%}
+      <div class="page-width productgrid--sidebar-filters--current">
+        <div class="open-catenav-wrapper">
+          <a class="open-catenav">
+            <span class="utils-filter-icon">
+              {% render 'icon-library', id: 'icon-filters' %}
+            </span>
+            <span class="utils-filter-text">Filters</span>
+          </a>
+  
+          <div class="tags-active-wrapper">
+            {% if current_tags.size > 0 %}
+              {%- render 'product-grid-tags-active' -%}
+            {% endif %}
+          </div>
         </div>
-      {% endif %}
-
-      <div class="open-catenav-wrapper">
-        <a class="open-catenav">
-          <span class="utils-filter-icon">
-            {% render 'icon-library', id: 'icon-filters' %}
-          </span>
-          <span class="utils-filter-text">Filters</span>
-        </a>
       </div>
+      
       <div class="page-width" id="Collection">
     {% if section.settings.layout == 'grid' %}
       {% case section.settings.grid %}

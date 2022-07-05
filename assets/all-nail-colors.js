@@ -115,9 +115,6 @@ const getHeaderHeight = () => {
   var announcementBar =  document.getElementById("announcement-bar-with-slider");
   var headerTop = document.querySelector(".header-top");
   
-  console.log(" ------ announcementBar => ", announcementBar)
-  console.log(" ------ headerTop => ", headerTop)
-
   if(announcementBar != null && headerTop != null) 
     headerHeight = announcementBar.offsetHeight + headerTop.offsetHeight - 1;
   else if(announcementBar == null) {
