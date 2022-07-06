@@ -31,7 +31,7 @@
         {{- tag_icon -}}
       {%- endcapture -%}
 
-      {{ tag_text | link_to_remove_tag: tag | replace: '" title="', '&grid_list" title=""' }}
+      {{ tag_text | link_to_remove_tag: tag }}
     </li>
   {% endfor %}
 
