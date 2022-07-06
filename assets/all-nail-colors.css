@@ -344,6 +344,7 @@
 
 .product-card .product_reviews {
   text-align: center;
+  font-family: "Average Sans", "Work Sans", "HelveticaNeue", "Helvetica Neue" , sans-serif;
 }
 
 .main-categories .collection-right .product-card dl {
@@ -351,7 +352,6 @@
 }
 
 .main-categories .collection-right .product-card dl .product-price .product-price__price {
-  font-family: "Average Sans";
   font-size: 16px;
   font-weight: normal;
   color: #3d4246;
@@ -414,6 +414,12 @@
 .open-catenav .utils-filter-text {
   font-style: normal;
   font-weight: 700;
+}
+
+@media screen and (max-width: 1023px) {
+  .product-price .product-price__price {
+      font-size: 16px !important;
+  }
 }
 
 @media screen and (max-width: 767px) {
