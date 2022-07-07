@@ -217,6 +217,8 @@
           "grid": 3,
           "rows": 7,
           "show_collection_featured": true,
+          "collection_featired": "",
+          "collection_side_logo": "",
           "show_vendor": false,
           "sort_enable": false,
           "tags_enable": false

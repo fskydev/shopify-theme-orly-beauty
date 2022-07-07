@@ -6,6 +6,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 <!--[if IE 9]> <html class="ie9 no-js" lang="{{ shop.locale }}"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="{{ shop.locale }}"> <!--<![endif]-->
 <head>{% render 'pagefly-head' %}
+  
 <!-- PROGRESSIFY-ME:START -->
 {% include 'progressify-me-snippet' %}
 <!-- PROGRESSIFY-ME:END -->
@@ -14,6 +15,15 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 {% render 'orbislabs_sitemap_noindex' %}
 
   <meta name="facebook-domain-verification" content="g9d3yufl4trwnobjlr3yxxl43sy181" />
+ <!-- Reddit Pixel -->
+<script>
+!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','t2_lvc4pjn1', {"optOut":false,"useDecimalCurrencyValues":true,"aaid":"<AAID-HERE>","email":"<EMAIL-HERE>","externalId":"<EXTERNAL-ID-HERE>","idfa":"<IDFA-HERE>"});rdt('track', 'PageVisit');
+</script>
+  <script>
+  rdt('track', 'ViewContent');
+</script>
+<!-- DO NOT MODIFY UNLESS TO REPLACE A USER IDENTIFIER -->
+<!-- End Reddit Pixel -->
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -185,14 +195,9 @@ src="https://ct.pinterest.com/v3/?tid=2613293826795&noscript=1" />
   {% render 'okendo-reviews-json-ld' %}
 
   {% render 'easy-gdpr-settings' %}
-  <!-- Reddit Pixel -->
-<script>
-!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','t2_lvc4pjn1');rdt('track', 'PageVisit');
-</script>
-<!-- DO NOT MODIFY -->
-<!-- End Reddit Pixel -->
+  
 
-</head> 
+{% render "geo" %}</head> 
 
 <body class="template-{{ template | split: '.' | first }}"><div class="pagefly-container">{{ content_for_layout }}</div></body> 
 </html>
