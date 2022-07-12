@@ -1,0 +1,248 @@
+.multi-level-nav.active .window-mask {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  opacity: .75;
+  background: #CE8591;
+  width: 100%;
+  z-index: 999;
+}
+
+.multi-level-nav .get-color-pass {
+  background: #FFA070;
+  position: absolute;
+  top: 30px;
+  -webkit-transform: rotate(46deg);
+  overflow: hidden;
+  right: -70px;
+  width: 250px;
+  text-align: center;
+  padding: 12px;
+  font-family: AvenirNext;
+  text-transform: capitalize;
+  box-shadow: 0 0 3px #0000004d;
+  z-index: 100001;
+}
+
+.multi-level-nav .get-color-pass p {
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.multi-level-nav .get-color-pass p a {
+  color: white;
+  text-decoration: none;
+}
+
+.multi-level-nav .logo-orly {
+  position: absolute;
+  top: 36px;
+  left: 50px;
+  height: 40px;
+  z-index: 100001;
+}
+
+.multi-level-nav label {
+  cursor: pointer;
+}
+
+.multi-level-nav label:focus {
+  outline: none;
+}
+
+.multi-level-nav .ml-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  width: 500px;
+  height: 100%;
+  transform: translate3d(-500px, 0, 0);
+  transition: transform 0.35s;
+  overflow: hidden;
+  z-index: 100001;  
+}
+
+.multi-level-nav > .ml-menu {
+  -webkit-box-shadow: 2px 0px 10px 0px rgb(0 0 0 / 50%);
+  -khtml-box-shadow: 2px 0px 10px 0px rgba(0,0,0,.5);
+  box-shadow: 2px 0 10px #00000080;
+}
+
+.multi-level-nav .ml-menu ul {
+  margin: 95px 0 0 54px;
+  margin-top: 175px;
+}
+
+.multi-level-nav > .ml-menu > ul {
+  margin: 120px 0 0 54px;
+}
+
+.multi-level-nav .ml-menu label.menu-toggle {
+  position: absolute;
+  top: 120px;
+  left: 52px;
+  width: 60px;
+  height: 60px;
+  line-height: 0px;
+  display: block;
+  padding-top: 32px;
+  text-indent: 30px;
+
+  background:url({{ 'icon-back.png' | asset_url }});
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.multi-level-nav > .ml-menu > label.menu-toggle {
+  background: none;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  left: unset;
+  right: 10px;
+  top: 10px;
+  text-indent: 0;
+  text-align: center;
+}
+
+.multi-level-nav .ml-menu ul li > label .nav-menu-icon {
+  display: block;
+  float: right;
+}
+
+.multi-level-nav .ml-menu ul li > label .nav-menu-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.multi-level-nav .ml-menu ul li a, .ml-menu ul li label {
+  display: block;
+  padding: 0 20px 0 0;
+  line-height: 60px;
+  text-decoration: none;
+
+  font-family: "GothamHTFBook";
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+}
+
+.multi-level-nav .ml-menu ul li a:hover, .ml-menu ul li label:hover {
+  color: #666;
+}
+
+.multi-level-nav .menu-checkbox {
+  display: none;
+}
+
+.multi-level-nav .ml-menu .ml-menu label.menu-toggle {
+  font-size: 18px;
+}
+ 
+.multi-level-nav .menu-checkbox:checked + .ml-menu {
+  transform: translate3d(0, 0, 0);
+}
+
+.multi-level-nav .social-wrapper {
+  margin-top: 20px;
+}
+
+.multi-level-nav .social-wrapper ul {
+  margin: 0;
+  text-align: center;
+}
+
+.multi-level-nav .social-wrapper li a svg {
+  color: #f2b8b5;
+}
+
+@media screen and (max-width:767px) {
+  .multi-level-nav .logo-orly {
+    left: 38px;
+  }
+
+  .multi-level-nav .logo-orly svg {
+    width: 90px;
+  }
+
+  .multi-level-nav .ml-menu {
+    width: 360px;
+  }
+
+  .multi-level-nav .ml-menu label.menu-toggle {
+    left: 38px;
+  }
+  
+  .multi-level-nav > .ml-menu > label.menu-toggle {
+    left: unset;
+  }
+
+  .multi-level-nav .ml-menu ul {
+    margin-left: 38px;
+  }
+
+  .multi-level-nav .ml-menu ul li a, .ml-menu ul li label {
+    line-height: 45px;
+    font-size: 19px;
+  }
+}
+
+@media screen and (max-width:479px) {
+  .multi-level-nav .logo-orly {
+    left: 32px;
+  }
+
+  .multi-level-nav .ml-menu {
+    width: 320px;
+  }
+
+  .multi-level-nav .ml-menu ul {
+    margin-left: 32px;
+  }
+
+  .multi-level-nav .ml-menu label.menu-toggle {
+    left: 32px;
+  }
+
+  .multi-level-nav > .ml-menu > label.menu-toggle {
+    left: unset;
+  }
+
+  .multi-level-nav .ml-menu ul li a, .ml-menu ul li label {
+    /* line-height: 40px; */
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .multi-level-nav .logo-orly {
+    left: 25px;
+  }
+
+  .multi-level-nav .ml-menu {
+    width: 270px;
+  }
+
+  .multi-level-nav .ml-menu ul {
+    margin-left: 25px;
+  }
+
+  .multi-level-nav .ml-menu label.menu-toggle {
+    left: 25px;
+  }
+
+  .multi-level-nav > .ml-menu > label.menu-toggle {
+    left: unset;
+  }
+
+  .multi-level-nav .ml-menu ul li a, .ml-menu ul li label {
+    line-height: 35px;
+    font-size: 16px;
+  }
+}

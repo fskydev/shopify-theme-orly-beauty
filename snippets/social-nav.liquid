@@ -1,0 +1,53 @@
+{%- assign nav_social_icons = false -%}
+
+{% if
+  settings.social_twitter_link != blank
+  or settings.social_facebook_link != blank
+  or settings.social_pinterest_link != blank
+  or settings.social_instagram_link != blank
+  or settings.social_tumblr_link != blank
+  or settings.social_snapchat_link != blank
+  or settings.social_youtube_link != blank
+  or settings.social_vimeo_link != blank
+  or template.name == 'article'
+  or template.name == 'blog'
+%}
+  {%- assign nav_social_icons = true -%}
+{% endif %}
+
+{%- assign nav_social_icons = true -%}
+{% if nav_social_icons %}
+  <div>
+    <ul class="list--inline site-footer__social-icons social-icons">
+      <li>
+        <!-- <a class="social-icons__link" href="{{ settings.social_instagram_link | escape }}" aria-describedby="a11y-external-message"> -->
+        <a class="social-icons__link" href="https://www.instagram.com/orly" aria-describedby="a11y-external-message">
+          
+          {% include 'icon-instagram' %}
+          <span class="icon__fallback-text">Instagram</span>
+        </a>
+      </li>
+      <li>
+        <!-- <a class="social-icons__link" href="{{ settings.social_facebook_link | escape }}" aria-describedby="a11y-external-message"> -->
+        <a class="social-icons__link" href="https://facebook.com/orly" aria-describedby="a11y-external-message">
+          {% include 'icon-facebook' %}
+          <span class="icon__fallback-text">Facebook</span>
+        </a>
+      </li>
+      <li>
+        <!-- <a class="social-icons__link" href="{{ settings.social_twitter_link | escape }}" aria-describedby="a11y-external-message"> -->
+        <a class="social-icons__link" href="https://twitter.com/orlynails" aria-describedby="a11y-external-message">
+          {% include 'icon-twitter' %}
+          <span class="icon__fallback-text">Twitter</span>
+        </a>
+      </li>
+      <li>
+        <!-- <a class="social-icons__link" href="{{ settings.social_pinterest_link | escape }}" aria-describedby="a11y-external-message"> -->
+        <a class="social-icons__link" href="https://pinterest.com/orlyofficial" aria-describedby="a11y-external-message">
+          {% include 'icon-pinterest' %}
+          <span class="icon__fallback-text">Pinterest</span>
+        </a>
+      </li>    
+    </ul>
+  </div>
+{% endif %}

@@ -75,6 +75,7 @@
   
     {{ 'builder.css' | asset_url | stylesheet_tag }}
 
+  {{ 'multi-level-nav.css' | asset_url | stylesheet_tag }}
   
   {% include 'google-fonts' %}
 
@@ -117,7 +118,7 @@
   <script async src="https://rebuyengine.com/js/rebuy/{{ "now" | date: "%Y-%m-%d %H" | md5 }}?shop=orlybeauty.myshopify.com"></script>
 
   {{ content_for_header }}
-
+  {{ 'multi-level-nav.js' | asset_url | script_tag }}
   <!-- OrderLogic checkout restrictions ========================================= -->
   {% include 'order-logic' %}
 

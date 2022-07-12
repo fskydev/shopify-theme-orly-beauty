@@ -3002,22 +3002,22 @@ $(theme.init);
 
 
 
-$(document).ready(function(){
-  $(".icon-nav").click(function(){
-     $("#SiteNav li .site-nav__dropdown").hide();
-    $("#SiteNav li:first-child .site-nav__dropdown").show();
-     $("#SiteNav li:first-child").addClass('active');
-    $('body').addClass('open-menu');
+// $(document).ready(function(){
+//   $(".icon-nav").click(function(){
+//      $("#SiteNav li .site-nav__dropdown").hide();
+//     $("#SiteNav li:first-child .site-nav__dropdown").show();
+//      $("#SiteNav li:first-child").addClass('active');
+//     $('body').addClass('open-menu');
     
-  });
+//   });
   
-  $(".page-container").click(function(){
-    $("body").removeClass("open-menu");
-  });  
+//   $(".page-container").click(function(){
+//     $("body").removeClass("open-menu");
+//   });  
 
   
   
-});
+// });
 
 
 
