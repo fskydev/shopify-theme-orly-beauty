@@ -62,10 +62,10 @@
   background: #fff;
   width: 500px;
   height: 100%;
-  transform: translate3d(-500px, 0, 0);
+  transform: translate3d(-510px, 0, 0);
   transition: transform 0.35s;
   overflow: hidden;
-  z-index: 100001;  
+  z-index: 100001;
 }
 
 .multi-level-nav > .ml-menu {
@@ -75,7 +75,7 @@
 }
 
 .multi-level-nav .ml-menu ul {
-  margin: 95px 0 0 54px;
+  margin: 95px 0 30px 54px;
   margin-top: 175px;
 }
 
@@ -121,7 +121,7 @@
   height: 15px;
 }
 
-.multi-level-nav .ml-menu ul li a, .ml-menu ul li label {
+.multi-level-nav .ml-menu ul li > a, .ml-menu ul li label {
   display: block;
   padding: 0 20px 0 0;
   line-height: 60px;
@@ -133,7 +133,7 @@
   color: #000;
 }
 
-.multi-level-nav .ml-menu ul li a:hover, .ml-menu ul li label:hover {
+.multi-level-nav .ml-menu ul li > a:hover, .ml-menu ul li label:hover {
   color: #666;
 }
 
@@ -151,6 +151,7 @@
 
 .multi-level-nav .social-wrapper {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .multi-level-nav .social-wrapper ul {
@@ -183,11 +184,15 @@
     left: unset;
   }
 
+  .multi-level-nav .ml-menu .ml-menu label.menu-toggle {
+    font-size: 17px;
+  }
+
   .multi-level-nav .ml-menu ul {
     margin-left: 38px;
   }
 
-  .multi-level-nav .ml-menu ul li a, .ml-menu ul li label {
+  .multi-level-nav .ml-menu ul li > a, .ml-menu ul li label {
     line-height: 45px;
     font-size: 19px;
   }
@@ -214,8 +219,7 @@
     left: unset;
   }
 
-  .multi-level-nav .ml-menu ul li a, .ml-menu ul li label {
-    /* line-height: 40px; */
+  .multi-level-nav .ml-menu ul li > a, .ml-menu ul li label {
     font-size: 18px;
   }
 }
@@ -241,7 +245,7 @@
     left: unset;
   }
 
-  .multi-level-nav .ml-menu ul li a, .ml-menu ul li label {
+  .multi-level-nav .ml-menu ul li > a, .ml-menu ul li label {
     line-height: 35px;
     font-size: 16px;
   }
