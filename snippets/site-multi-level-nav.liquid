@@ -22,7 +22,7 @@
 
             <div class="ml-menu">
               <label class="menu-toggle" for="ml-menu-{{p_index}}">
-                <span>Back</span>
+                {% render 'icon-chevron-left' %}<span>Back</span>
               </label>
               <ul>
                 {%- for child_link in link.links -%}
@@ -40,7 +40,7 @@
                       <input type="checkbox" id="ml-menu-{{p_index}}-{{c_index}}" name="ml-menu-{{p_index}}-{{c_index}}" class="menu-checkbox">
 
                       <div class="ml-menu">
-                        <label class="menu-toggle" for="ml-menu-{{p_index}}-{{c_index}}"><span>Back</span></label>
+                        <label class="menu-toggle" for="ml-menu-{{p_index}}-{{c_index}}">{% render 'icon-chevron-left' %}<span>Back</span></label>
                         <ul>
                           {%- for grandchild_link in child_link.links -%}
                             {% assign gc_index = forloop.index %}

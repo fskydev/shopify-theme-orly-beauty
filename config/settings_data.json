@@ -59,7 +59,7 @@
           "content": "Get Color Pass",
           "logo": "shopify:\/\/shop_images\/orly-logo-v.png",
           "logo_max_width": 145,
-          "main_linklist": "main-menu",
+          "main_linklist": "multi-level-sidebar-menu",
           "message": false,
           "home_page_only": false,
           "message_text": "20% Off Sitewide! Code: TAKE20",

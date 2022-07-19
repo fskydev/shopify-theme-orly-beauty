@@ -90,13 +90,16 @@
   width: 60px;
   height: 60px;
   line-height: 0px;
-  display: block;
-  padding-top: 32px;
-  text-indent: 30px;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-left: 2px;
+  text-indent: 10px;
+}
 
-  background:url({{ 'icon-back.png' | asset_url }});
-  background-position: left;
-  background-repeat: no-repeat;
+.multi-level-nav .ml-menu label.menu-toggle svg {
+  width: 15px;
+  height: 15px;
 }
 
 .multi-level-nav > .ml-menu > label.menu-toggle {
@@ -109,6 +112,12 @@
   top: 10px;
   text-indent: 0;
   text-align: center;
+  display: block;
+}
+
+.multi-level-nav > .ml-menu > label.menu-toggle svg {
+  width: 20px;
+  height: 20px;
 }
 
 .multi-level-nav .ml-menu ul li > label .nav-menu-icon {
