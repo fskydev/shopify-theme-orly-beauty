@@ -51,6 +51,9 @@
                             </li>
                           {%- endfor -%}
                         </ul>
+                        <div class="menu-close" onclick="closeNavFromGrandChild('ml-menu-{{p_index}}-{{c_index}}', 'ml-menu-{{p_index}}')">
+                          {% render 'icon-close' %}
+                        </div>
                       </div>
                     </li>
 
@@ -66,6 +69,9 @@
                   
                 {%- endfor -%}
               </ul>
+              <div class="menu-close" onclick="closeNavFromChild('ml-menu-{{p_index}}')">
+                {% render 'icon-close' %}
+              </div>
             </div>
           </li>
 

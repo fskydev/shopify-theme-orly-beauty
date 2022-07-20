@@ -7,6 +7,19 @@ const closeNav = () => {
   document.querySelector(".multi-level-nav").classList.remove("active");
 }
 
+const closeNavFromChild = (childMenuId) => {
+  let menuId = "ml-menu";
+
+  document.getElementById(childMenuId).click();
+  document.getElementById(menuId).click();
+  closeNav();
+}
+
+const closeNavFromGrandChild = (grandChildMenuId, childMenuId) => {
+  document.getElementById(grandChildMenuId).click();
+  closeNavFromChild(childMenuId);
+}
+
 document.addEventListener('DOMContentLoaded', (e) => {
   const navMenuCheckboxes = document.querySelectorAll('.menu-checkbox');
 
@@ -33,5 +46,14 @@ document.addEventListener('DOMContentLoaded', (e) => {
         }
       }
     });
+  });
+
+  const windowMaskDiv = document.querySelector('.multi-level-nav .window-mask');
+  windowMaskDiv.addEventListener('click', () => {
+    navMenuCheckboxes.forEach(checkbox => {
+      if (checkbox.checked) checkbox.click();
+    });
+
+    closeNav();
   });
 });
