@@ -20,7 +20,8 @@
 		featured_image: {{ product_6561455734883.featured_image | json }},
 		featured_media: {{ product_6561455734883.featured_media | json }},
 		images: {{ product_6561455734883.images | json }}
-	};{% unless product.id == null %}window.__pageflyProducts["{{product.id}}"] = {
+	};
+{% unless product.id == null %}window.__pageflyProducts["{{product.id}}"] = {
 		id: {{ product.id | json }},
 		handle: {{ product.handle | json }},
 		title: {{ product.title | json }},

@@ -79,6 +79,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
   
     {{ 'builder.css' | asset_url | stylesheet_tag }}
 
+  {{ 'multi-level-nav.css' | asset_url | stylesheet_tag }}
   
   {% include 'google-fonts' %}
 
@@ -121,7 +122,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
   <script async src="https://rebuyengine.com/js/rebuy/{{ "now" | date: "%Y-%m-%d %H" | md5 }}?shop=orlybeauty.myshopify.com"></script>
 
   {{ content_for_header }}
-
+  {{ 'multi-level-nav.js' | asset_url | script_tag }}
   <!-- OrderLogic checkout restrictions ========================================= -->
   {% include 'order-logic' %}
 

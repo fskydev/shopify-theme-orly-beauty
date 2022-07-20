@@ -1,5 +1,5 @@
 {%- comment -%}
-	SEO Manager - product meta search v4.0
+	SEO Manager - product meta search v4.1
 	usage: /search?view=SEOManagerProductMeta&q=1000&page=1
 	Copyright (c) venntov
 	https://venntov.com / https://SEOManager.com
@@ -55,7 +55,7 @@
 				"title"				: {{ product.title | json }},
 				"meta_title"		: {{ meta_title | json }},
 				"meta_description"	: {{ meta_description | json }},
-				"seo_done"			: {{ seoDone | json }},
+				"seo_done"			: {{ seoDone }},
 				"thumbnail"			: {{ product.featured_image.src | img_url : '100x100' | json }},
 				"handle"			: {{ product.handle | json }}
 			}
