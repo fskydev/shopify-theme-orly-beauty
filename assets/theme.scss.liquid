@@ -3917,6 +3917,18 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   }
 }
 
+.site-header__account {
+  position: unset;
+  transform: none;
+  padding: 0 !important;
+  margin-left: 20px !important;
+}
+
+.site-header__account svg{
+  width: 26px;
+  height: auto;
+}
+
 @include media-query($medium-up) {
   .site-header__cart,
   .site-header__account {
@@ -3929,7 +3941,10 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   }
 
   .site-header__account {
+    position: unset;
+    transform: none;
     right: 50px;
+    margin-left: 35px !important;
   }
 }
 

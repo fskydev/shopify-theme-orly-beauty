@@ -272,20 +272,23 @@ margin-bottom:0;
 
 .header-top {
 
-  
-  
+
+
   .container {
-    
-       width:100%;
-       margin:auto;
-      
+
+    width:100%;
+    margin:auto;
+
     .drawer-left  {
-        margin-left: 60px;   
-        margin-top:9px;
+      margin-left: 60px;   
+      margin-top:9px;
     }
     .site-header__icons-wrapper{
-        margin-right: 58px;
+      margin-right: 58px;
       margin-top:7px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
     }
   } 
 }
@@ -1618,99 +1621,121 @@ display:none;
 }
 
 #CustomerLoginForm {width: 100%;
-    
-	
-  
+
+
+
   .lgin_form {overflow:hidden;
-  	width:100%;
-  	max-width: 80%;}
-  
+    width:100%;
+  }
+
   h1 {font-size: 60px;
     font-family: AvenirNext;
     color: #949494;
     font-weight: normal;
     margin: 20px auto;
     padding-bottom: 25px;
-    line-height: 1.1;}
-  
+    line-height: 1.1;
+    text-align: center;
+  }
+
   form {width:50%;
-  	float:left;
-  
+    margin: 0 auto;
+
     p {margin: 0 0 .6em 0;
-    font-family: AvenirNext;
-    color: #949494;
-    font-size: 18px;
-    font-weight: normal;
-    line-height: 1.25;
-    text-transform: capitalize;}
-    
+      font-family: AvenirNext;
+      color: #949494;
+      font-size: 18px;
+      font-weight: normal;
+      line-height: 1.25;
+      text-transform: capitalize;}
+
     label {display:none;}
-    
+
     input {width:86%;
       padding: 2%;
-      width: 86%;
+      width: 100%;
       color: #5B5B5B;
       font-size: 16px;
       margin-bottom:10px;
       background: #fff;
-      border: 1px solid #ddd;}
+      border: 2px solid #2d2d2d;
+    }
   }
-  
+
   .submit-login {overflow: hidden;
-    	width: 100%;
-    	margin:20px auto;
-  
-    .login_btn {float: left;
-      width: 50%;
-      text-align: left;
-    
+    width: 100%;
+    margin:20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .login_btn {
+          display: inline-block;
+
       input[type=submit] {width: auto;
         margin: auto;
-        padding: .5em;
-        border: solid 1px #ADADAD;
-        background: #EDEDED;
-        color: #000;
+        padding: 12px;
+        border: solid 1px #e89cae;
+        background: #e89cae;
+        color: #fff;
         font-size: 15px;
         cursor: pointer;
         display: block;
-        border-radius: 0;
+        border-radius: 5px;
         text-transform: uppercase;
         overflow: hidden;
         height: 38px;
-        font: 15px Arial, Helvetica, sans-serif;
+        font: 14px Arial, Helvetica, sans-serif;
         vertical-align: middle;
-        float: left;}
-      
+        letter-spacing: 2px;
+        line-height: 1;
+        &:hover{
+          color: #e89cae;
+          background: #fff;
+        }
+      }
+
     }
     
-    .recover_password {float: left;
-      width: 50%;
+    .register-link-wrap{
+      margin-top: 20px;
+      #customer_register_link{
+        color: #db80a3;
+        font-weight: 600;
+        &:hover{
+          color: #949494;
+        }
+      }
+    }
+
+    .recover_password {
       vertical-align: middle;
-    
-      a {margin-top: 10px;
+      text-align: center;
+
+      a {margin-bottom: 6px;
         color: #5B5B5B;
         font-family: AvenirNext;
         display: inline-block;}
-      
+
     }
-    
+
   }
-  
-  
+
+
   .login-signup {width:47%;
-  	margin-left:3%;
+    margin-left:3%;
     float:left;
-  	padding-left:5%;
+    padding-left:5%;
     padding-bottom: 5em;
-  	border-left:solid 1px #ADADAD;
-  
+    border-left:solid 1px #ADADAD;
+
     p {margin: 0 0 0.6em;
-    font-family: AvenirNext;
-    color: #949494;
-    font-size: 18px;
-    font-weight: normal;
-    line-height: 1.25;}
-    
+      font-family: AvenirNext;
+      color: #949494;
+      font-size: 18px;
+      font-weight: normal;
+      line-height: 1.25;}
+
     .btn {margin: auto auto 10px;
       display: inline-block;
       padding: .3em 1em;
@@ -1721,18 +1746,18 @@ display:none;
       border-radius: 20px;
       text-decoration: none;
       width: auto;
-    
+
       a {display: block;
         line-height: normal;
         color: #fff;
         font-family: AvenirNext;
         text-transform: uppercase;
         font-size: 16px;}
-      
+
     }
-    
+
   }
-  
+
 }
 
 .login_pro {width: 100%;
@@ -3581,7 +3606,7 @@ div#shopify-section-1526548498002 .btn {margin-top:24px;}
   
  .cart-payall {margin:5px auto 10px;} 
   
-  #CustomerLoginForm .lgin_form {max-width:90%;}  
+  #CustomerLoginForm .lgin_form {max-width:100%;}  
   
 .search-result-instant {min-width:700px;}  
   
@@ -3741,7 +3766,7 @@ div#shopify-section-1526548498002 .btn {margin-top:24px;}
   
 .header-top .container .site-header__icons-wrapper {margin:5px 40px 0 0;}
   
-.site-header .ajax-cart-mini {margin-right: 38px;}  
+.site-header .ajax-cart-mini {margin-right: 20px;}  
   
 .site-header .ajax-cart-mini svg {width: 28px;
     height: 28px;}
@@ -4249,8 +4274,6 @@ div#shopify-section-1526564234245 .btn, #shopify-section-1526623552180 .btn {fon
   .site-header .ajax-cart-mini .site-header__cart .site-header__cart-count span {font-size:16px;
   	padding:0;}
   
-  .site-header .ajax-cart-mini {margin-right:0;}
-  
   .main-categories .left_sidebar.slide_open {top:80px;}
   
   .header-item.close-catenav {left:35px;}
@@ -4327,7 +4350,17 @@ div#shopify-section-1526564234245 .btn, #shopify-section-1526623552180 .btn {fon
 
 @media screen and (max-width:479px) {
   
+  .header-search-icon svg,
+  .site-header__account svg{
+    width: 18px;
+    height: 18px;
+  }
   
+  .site-header .ajax-cart-mini svg{
+    width: 20px;
+    height: 20px;
+  }
+
   .press-page ul li {
     width: 50%;
   }
@@ -4493,6 +4526,8 @@ div#shopify-section-1526564234245 .btn, #shopify-section-1526623552180 .btn, #sh
   
   .site-header .ajax-cart-mini {margin-right: 8px;}
   
+  .site-header__account{margin-left: 8px !important;}
+
   .desktop-hidden {height: 430px;}
   
   #shopify-section-1526380124595 .text-center h1, .main-content h1.h1.mega-title, #shopify-section-1526380124595 .text-center h1, .main-content h1.h1.mega-title {font-size: 19px;

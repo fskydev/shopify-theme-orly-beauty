@@ -170,25 +170,7 @@
             <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
           </button>
                     <div style="display:none;">  <a href="#" class="com--beauty-pro" data-beauty-pro="auth"><span data-node="label">PRO</span></a> </div>
-
-          {% comment %}
-
-          {% if shop.customer_accounts_enabled %}
-            {% if customer %}
-              <a href="/account" class="site-header__account">
-                {% include 'icon-login' %}
-                <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
-              </a>
-            {% else %}
-              <a href="/account/login" class="site-header__account">
-                {% include 'icon-login' %}
-                <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
-              </a>
-            {% endif %}
-          {% endif %}
-          
-          {% endcomment %}
-          
+                    
               <div class="ajax-cart-mini">       
 
           <a href="/cart" class="site-header__cart" {% if settings.cart_type == 'drawer' %} js-drawer-open-right{% endif %}>
@@ -230,12 +212,25 @@
           </a>
             {% include 'mini-cart' %}
           </div>
-           <div class="site-header__search">
-              {% include 'search-form' %}
-            
-</div>
+          <div class="site-header__search">
+              {% include 'search-form' %}            
+          </div>
 
-            </div>
+          {% if shop.customer_accounts_enabled %}
+            {% if customer %}
+              <a href="/account" class="site-header__account">
+                {% include 'icon-login' %}
+                <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
+              </a>
+            {% else %}
+              <a href="/account/login" class="site-header__account">
+                {% include 'icon-login' %}
+                <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
+              </a>
+            {% endif %}
+          {% endif %}
+
+          </div>
 
 
           

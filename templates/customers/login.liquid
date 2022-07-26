@@ -14,7 +14,9 @@
         <h1>Always Professional.</h1>
         <div class="lgin_form">
           {% form 'customer_login' %}
+          {% comment %}
             <p>Customer Login Here</p>
+          {% endcomment %}
             {%- if form.errors -%}
               <div class="form-message form-message--error">
                 {{ form.errors | default_errors }}
@@ -22,46 +24,52 @@
             {%- endif -%}
 
             <label for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
-            <input type="email" name="customer[email]" id="CustomerEmail" class="{% if form.errors contains 'email' %} input--error{% endif %}" autocorrect="off" autocapitalize="off" autofocus>
+            <input type="email" name="customer[email]" id="CustomerEmail" class="{% if form.errors contains 'email' %} input--error{% endif %}" autocorrect="off" autocapitalize="off" autofocus placeholder="Enter your mail">
 
             {% if form.password_needed %}
               <label for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
-              <input type="password" value="" name="customer[password]" id="CustomerPassword" class="{% if form.errors contains 'password' %} input--error{% endif %}">
+              <input type="password" value="" name="customer[password]" id="CustomerPassword" class="{% if form.errors contains 'password' %} input--error{% endif %}" placeholder="Enter your password">
             {% endif %}
 
-            <div class="submit-login">
-              <div class="login_btn">
-                  <input type="submit" class="btn" value="{{ 'customer.login.sign_in' | t }}">
-              </div> 
-              {% if form.password_needed %}
-              <div class="recover_password"><a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></div>
-              {% endif %}
-            </div>
+          <div class="submit-login">
+            {% if form.password_needed %}
+            <div class="recover_password"><a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></div>
+            {% endif %}
+            
+            <div class="login_btn">
+              <input type="submit" class="btn" value="{{ 'customer.login.sign_in' | t }}">
+            </div> 
+            <div class="register-link-wrap">No account? {{ 'layout.customer.create_account' | t | customer_register_link }}</div>
+          </div>
 
           {% endform %}
+          {% comment %}
           <div class="login-signup">
-              <p>No account?</p>
-              <div class="btn">{{ 'layout.customer.create_account' | t | customer_register_link }}</div>
-              <p>Get instant access. </br> Must be a licensed salon professional or salon owner with business license.</p>
-          </div> 
+            <p>No account?</p>
+            <div class="btn">{{ 'layout.customer.create_account' | t | customer_register_link }}</div>
+            <p>Get instant access. </br> Must be a licensed salon professional or salon owner with business license.</p>
+     	 </div> 
+      {% endcomment %}
     	</div>
     
-    	<div class="login_pro">
-    <div class="pro_left">
-      <h3>Go Pro!</h3>
-      <p>Become a verified salon or nail professional and purchase ORLY products for your business.</p>
-      <h6>Benefits include:</h6>
-      
-      <ul>
-        <li>Salon Pricing</li>
-        <li>Professional-only products including GELFX, EPIX</li>
-        <li>Early access to ORLY'S Latest launches, collections.</li>
-      </ul>  
-    </div> 
-    <div class="pro_right">
-      <img src="{{ 'PROPage.png' | asset_url }}"/>
-    </div>  
-  </div> 
+     {% comment %}
+    <div class="login_pro">
+      <div class="pro_left">
+        <h3>Go Pro!</h3>
+        <p>Become a verified salon or nail professional and purchase ORLY products for your business.</p>
+        <h6>Benefits include:</h6>
+
+        <ul>
+          <li>Salon Pricing</li>
+          <li>Professional-only products including GELFX, EPIX</li>
+          <li>Early access to ORLY'S Latest launches, collections.</li>
+        </ul>  
+      </div> 
+      <div class="pro_right">
+        <img src="{{ 'PROPage.png' | asset_url }}"/>
+      </div>  
+    </div>
+     {% endcomment %}
     
     
       </div>

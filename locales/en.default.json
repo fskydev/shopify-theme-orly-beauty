@@ -268,7 +268,7 @@
       "submit": "Reset Password"
     },
     "register": {
-      "title": "Sign up for an Account",
+      "title": "Sign up",
       "first_name": "First Name",
       "last_name": "Last Name",
       "email": "Email",
@@ -305,7 +305,7 @@
       "account": "Account",
       "log_out": "Log out",
       "log_in": "login",
-      "create_account": "signup for professional"
+      "create_account": "Create an Acccount"
     },
     "footer": {
       "social_platform": "{{ name }} on {{ platform }}"
