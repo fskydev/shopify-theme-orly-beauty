@@ -1,11 +1,48 @@
 {% include 'breadcrumbs' %}
+
+{% style %}
+  .register-page-title {
+    font-size: 40px;
+    font-family: AvenirNext;
+    color: #949494;
+    font-weight: normal;
+    margin: 20px auto;
+    padding-bottom: 25px;
+    line-height: 1.1;
+    text-align: center;
+  }
+  #RegisterForm input[type=submit] {
+    width: auto;
+    padding: 12px;
+    border: solid 1px #e89cae;
+    background: #e89cae;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    display: block;
+    border-radius: 5px;
+    text-transform: uppercase;
+    overflow: hidden;
+    height: 38px;
+    font: 14px Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  #RegisterForm input[type=submit]:hover {
+    color: #e89cae;
+    background: #fff;
+  }
+{% endstyle %}
+
 <div class="page-width">
   <div class="grid">
     <div class="grid__item medium-up--one-half medium-up--push-one-quarter">
 
       <div class="form-vertical">
 
-        <h1 class="text-center">{{ 'customer.register.title' | t }}</h1>
+        <h1 class="text-center register-page-title">{{ 'customer.register.title' | t }}</h1>
 
         {%- assign formId = 'RegisterForm' -%}
         {% form 'create_customer', id: formId, novalidate: 'novalidate' %}
@@ -42,7 +79,7 @@
             </span>
           {%- endif -%}
  <label for="Birthdate">Your Birthday</label>
-          <input type="text" maxlength="5" pattern="\d{1,2}/\d{1,2}" id="birthday" class="js-date--west" name="customer[note][birthday]" aria-label="Birthday" placeholder="Birthday: mm/dd" tabindex="2" title="birthday">
+          <input type="text" maxlength="5" pattern="\d{1,2}/\d{1,2}" id="birthday" class="js-date--west" name="customer[note][birthdate]" aria-label="Birthday" placeholder="Birthday: mm/dd" title="birthday">
   
           <label for="{{ formId }}-password">{{ 'customer.register.password' | t }}</label>
           <input
@@ -98,33 +135,8 @@ date.addEventListener('input', function(e) {
   if (values[0]) values[0] = checkValue(values[0], 12);
   if (values[1]) values[1] = checkValue(values[1], 31);
   var output = values.map(function(v, i) {
-    return v.length == 2 && i < 2 ? v + '/' : v;
+    return v.length == 2 && i < 1 ? v + '/' : v;
   });
   this.value = output.join('').substr(0, 14);
-});
-
-date.addEventListener('blur', function(e) {
-  this.type = 'text';
-  var input = this.value;
-  var values = input.split('/').map(function(v, i) {
-    return v.replace(/\D/g, '')
-  });
-  var output = '';
-  
-  if (values.length == 3) {
-    var year = values[2].length !== 4 ? parseInt(values[2]) + 2000 : parseInt(values[2]);
-    var month = parseInt(values[0]) - 1;
-    var day = parseInt(values[1]);
-    var d = new Date(year, month, day);
-    if (!isNaN(d)) {
-      document.getElementById('result').innerText = d.toString();
-      var dates = [d.getMonth() + 1, d.getDate(), d.getFullYear()];
-      output = dates.map(function(v) {
-        v = v.toString();
-        return v.length == 1 ? '0' + v : v;
-      }).join(' / ');
-    };
-  };
-  this.value = output;
 });
 </script>
