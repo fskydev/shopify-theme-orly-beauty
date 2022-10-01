@@ -37,8 +37,9 @@
   <meta name="theme-color" content="{{ settings.color_button }}">
   {% if collection.handle contains 'nail-polish' %}
   	<link rel="canonical" href="https://orlybeauty.com">
+  {% else %}
+     <link rel="canonical" href="{{ canonical_url }}">
   {% endif %}
-  <link rel="canonical" href="{{ canonical_url }}">
 
   {%- if settings.favicon != blank -%}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
