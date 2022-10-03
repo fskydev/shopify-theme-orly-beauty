@@ -1,0 +1,114 @@
+.search-title {
+  padding: 2.5rem;
+}
+
+/* Product card */
+.search-result-items .list-view-item {
+  border: none !important;
+}
+
+.search-result-items .product-card {
+  border: none;
+}
+
+.search-result-items .product-card .grid-view-item__title {
+  font-size: 18px;
+  font-family: "AvenirNext";
+  font-weight: 400;
+  color: #000;
+  text-transform: none;
+  margin-top: 15px;
+  height: 42px;
+  margin-bottom: 2px;
+}
+
+.search-result-items .product-card:hover .grid-view-item__title,
+.grid-view-item__title:hover {
+  color: unset;
+}
+
+.product-card .product_weight {
+  display: none;
+}
+
+.product-card .product_reviews {
+  text-align: center;
+  font-family: "Average Sans", "Work Sans", "HelveticaNeue", "Helvetica Neue" , sans-serif;
+}
+
+.search-result-items .product-card dl {
+  margin-top: 6px;
+  text-align: center;
+}
+
+.search-result-items .product-card dl .product-price .product-price__price {
+  font-family: Helvetica, Arial;
+  font-size: 16px;
+  font-weight: normal;
+  color: #3d4246;
+  line-height: 1.5;
+}
+
+.search-result-items .product-card .action {
+  opacity: unset;
+  padding: 0 13px;
+}
+
+.search-result-items .product-card .action form {
+  width: 100%;
+  padding: 0;
+}
+
+.search-result-items .product-card .action form,
+.search-result-items .product-card .action form:hover {
+  background: none;
+}
+
+.search-result-items .product-card .action .addtocart {
+  background-image: none;
+  
+}
+
+.product-card .product-price__sold-out {
+  display: inline-block;
+  cursor: auto;
+  opacity: .7;
+}
+
+.search-result-items .product-card .action .addtocart,
+.product-card .product-price__sold-out {
+  background-color: #e89cae;
+  color: #fff;
+  width: 100%;
+  font-size: 13px;
+  border-radius: 2px;
+  padding: 12px 9px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-family: "Lato";
+  font-weight: 700;
+  line-height: 1;
+  border: none;
+}
+
+@media screen and (max-width: 767px) {
+  .search-result-items .product-card .grid-view-item__title {
+    height: 36px;
+  }
+}
+
+/* Page & Article card */
+.category-products .search-result-items .list-view-item__title-column .list-view-item__title {
+  font-size: 18px;
+  font-family: "AvenirNext";
+  font-weight: 400;
+  color: #000;
+  text-transform: none;
+  margin-top: 15px;
+  height: unset;
+  margin-bottom: 2px;
+}
+
+.category-products .list-view-items.search-result-items .list-view-item__link .list-view-item__title:hover {
+  color: #000;
+}

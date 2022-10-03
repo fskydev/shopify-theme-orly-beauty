@@ -1,37 +1,17 @@
+{{ 'search.css' | asset_url | stylesheet_tag }}
 {% paginate search.results by 20 %}
 
 <div class="page-width">
   {% if search.results_count == 0 or search.performed == false %}
     <div class="empty-page-content text-center">
-      <h1 class="h2">{{ 'general.search.title' | t }}</h1>
+      <h1 class="h2 search-title">{{ 'general.search.title' | t }}</h1>
   {% else %}
     <div class="section-header text-center">
-      <h1 class="h2">
-        <span class="visuallyhidden">{{ 'general.search.heading' | t: count: search.results_count }}</span>
+      <h1 class="h2 search-title">
+        <span>{{ 'general.search.heading' | t: count: search.results_count }}</span>
         {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
       </h1>
   {% endif %}
-      
-      {% comment %}
-        <div class="grid">
-          <div class="grid__item medium-up--two-fifths medium-up--push-three-tenths">
-            <form action="/pages/search-results" method="get" role="search" class="search">
-              <div class="input-group">
-                <input type="search"
-                  id="SearchInput"
-                  class="input-group__field search__input"
-                  name="q"
-                  value="{{ search.terms | escape }}"
-                  placeholder="{{ 'general.search.placeholder' | t }}"
-                  aria-label="{{ 'general.search.placeholder' | t }}">
-                <span class="input-group__btn">
-                  <button class="btn search__submit" type="submit">{{ 'general.search.submit' | t }}</button>
-                </span>
-              </div>
-            </form>
-          </div>
-        </div>
-	  {% endcomment %}
       
         {% if search.performed and search.results_count == 0 %}
           
@@ -48,13 +28,13 @@
   {% endif %}
   <h2 class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}</h2>
   <div class="category-products">
-  	<ul class="list-view-items">
+  	<ul class="list-view-items search-result-items">
     {% for item in search.results %}
       <li class="list-view-item">
         <a href="{{ item.url }}" class="list-view-item__link">
           {% if item.object_type == 'product' %}
           {% unless item.tags contains 'algolia-ignore' %}
-            {% include 'product-card-list', product: item %}
+            {% include 'product-card-search-results', product: item %}
           {% endunless %}
           {% else %}
             {% if item.image %}
@@ -68,14 +48,14 @@
             <div class="list-view-item__title-column">
               <div class="list-view-item__title">{{ item.title }}</div>
               	
-              <div class="">
+              <div class="list-view-item__desc">
                 {% if item.published_at %}{{ item.published_at | date: "%b %d, %Y" }} &#8212; {% endif %}
                 {{ item.content | strip_html | truncate: 200 }}
               </div>
             </div>
           	<div class="product_weight">
               {% assign current_variant = product.selected_or_first_available_variant %}
-              	{{ current_variant.sku }} <span class="middle_arrow">|</span>
+              	{{ current_variant.sku }} <span class="middle_arrow visually-hidden">|</span>
               {% for variant in product.variants %}
 {% unless variant.metafields.secomapp.freegifts %}
 {% unless variant.title contains '(Freegifts)' %}
