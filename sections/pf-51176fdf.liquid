@@ -24,8 +24,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 		featured_image: {{ product_4496766140515.featured_image | json }},
 		featured_media: {{ product_4496766140515.featured_media | json }},
 		images: {{ product_4496766140515.images | json }}
-	};
-{% unless product.id == null %}window.__pageflyProducts["{{product.id}}"] = {
+	};{% unless product.id == null %}window.__pageflyProducts["{{product.id}}"] = {
 		id: {{ product.id | json }},
 		handle: {{ product.handle | json }},
 		title: {{ product.title | json }},

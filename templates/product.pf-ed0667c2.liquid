@@ -24,8 +24,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 		featured_image: {{ product_4515999121507.featured_image | json }},
 		featured_media: {{ product_4515999121507.featured_media | json }},
 		images: {{ product_4515999121507.images | json }}
-	};
-{% unless product.id == null %}window.__pageflyProducts["{{product.id}}"] = {
+	};{% unless product.id == null %}window.__pageflyProducts["{{product.id}}"] = {
 		id: {{ product.id | json }},
 		handle: {{ product.handle | json }},
 		title: {{ product.title | json }},
@@ -44,8 +43,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 		featured_image: {{ product.featured_image | json }},
 		featured_media: {{ product.featured_media | json }},
 		images: {{ product.images | json }}
-	};{% endunless %}
-window.__pageflyProducts["4520137752675"] = {
+	};{% endunless %}window.__pageflyProducts["4520137752675"] = {
 		id: {{ product_4520137752675.id | json }},
 		handle: {{ product_4520137752675.handle | json }},
 		title: {{ product_4520137752675.title | json }},

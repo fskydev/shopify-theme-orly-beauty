@@ -24,8 +24,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 		featured_image: {{ product.featured_image | json }},
 		featured_media: {{ product.featured_media | json }},
 		images: {{ product.images | json }}
-	};{% endunless %}
-window.__pageflyProducts["4712414052451"] = {
+	};{% endunless %}window.__pageflyProducts["4712414052451"] = {
 		id: {{ product_4712414052451.id | json }},
 		handle: {{ product_4712414052451.handle | json }},
 		title: {{ product_4712414052451.title | json }},
@@ -44,8 +43,7 @@ window.__pageflyProducts["4712414052451"] = {
 		featured_image: {{ product_4712414052451.featured_image | json }},
 		featured_media: {{ product_4712414052451.featured_media | json }},
 		images: {{ product_4712414052451.images | json }}
-	};
-window.__pageflyProducts["6559280300131"] = {
+	};window.__pageflyProducts["6559280300131"] = {
 		id: {{ product_6559280300131.id | json }},
 		handle: {{ product_6559280300131.handle | json }},
 		title: {{ product_6559280300131.title | json }},
@@ -67,8 +65,7 @@ window.__pageflyProducts["6559280300131"] = {
 	};
 	</script>{% if collection_260654923875 == null %}{%- assign collection_260654923875 = collections["super-bloom"] -%}{% endif %} {% if collection_260958355555 == null %}{%- assign collection_260958355555 = collections["electric-escape-nail-lacquers"] -%}{% endif %}<script>
 	window.__pageflyCollections = window.__pageflyCollections || {};
-	window.__pageflyCollections["260654923875"] = {{collection_260654923875 | json }};
-window.__pageflyCollections["260958355555"] = {{collection_260958355555 | json }};
+	window.__pageflyCollections["260654923875"] = {{collection_260654923875 | json }};window.__pageflyCollections["260958355555"] = {{collection_260958355555 | json }};
 	</script><div style="opacity:0" class="sc-ehIIUG hKxtAB __pf" id="__pf"><div data-pf-type="Body" class="sc-cTApHj fVRyQa pf-1_"><div data-pf-type="Layout" class="sc-caiKgP ipNIuR pf-2_"><div data-pf-type="ProductPreview" class="sc-fmBDoT eNSIIY pf-3_"><!-- Copyright FeedArmy 2020 Version 2.37 -->
 {% assign fa_current_variant = product.selected_or_first_available_variant %}
 {%- assign fa_variant_count = product.variants | size -%}

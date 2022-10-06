@@ -25,8 +25,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 		featured_media: {{ product_6730981376099.featured_media | json }},
 		images: {{ product_6730981376099.images | json }},
 		quantity: {% assign quantity = '' %}{% for variant in product_6730981376099.variants %}{% assign quantity = quantity | append: variant.id | append: ':' | append: variant.inventory_quantity | append: ',' %}{% endfor %}{% assign quantity = quantity | split: ','%}{{quantity | json }}
-	};
-{% unless product.id == null %}window.__pageflyProducts["{{product.id}}"] = {
+	};{% unless product.id == null %}window.__pageflyProducts["{{product.id}}"] = {
 		id: {{ product.id | json }},
 		handle: {{ product.handle | json }},
 		title: {{ product.title | json }},
