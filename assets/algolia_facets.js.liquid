@@ -80,7 +80,7 @@
         params = _.cloneDeep(widget.params) || {};
 
     params.container = "[class~='ais-facet-" + facet.escapedName + "']";
-    params.attributeName = facet.name;
+    params.attribute = facet.name;
     params.templates = {};
     params.cssClasses = algolia.facetCssClasses;
 
@@ -102,14 +102,17 @@
     }
 
     var displayFunction = algolia.facetDisplayFunctions[facet.name];
-    params.transformData = function (data) {
-      data.type = {};
-      data.type[facet.type] = true;
-      if (displayFunction) {
-        data.name = displayFunction(data.name);
-      }
-      return data;
-    }
+    params.transformItems = function(items) {
+      return items.map(function(item) {
+        var transformedItem = Object.assign({}, item);
+        transformedItem.type = {};
+        transformedItem.type[facet.type] = true;
+        transformedItem.label = displayFunction
+          ? displayFunction(item.value)
+          : item.value;
+        return transformedItem;
+      });
+    };
 
     return {
       name: widget.name,
