@@ -458,11 +458,10 @@ position: fixed;
     top: 50px;
     width: 16px;
     height: 16px;
-    background: url(https://www.orlybeauty.com/skin/frontend/orly/default/images/cross-icon.png) 0 0 no-repeat;
-    background-color: #fff;
+    background: url({{ 'cross-icon.png' | asset_url }}) 0 0 no-repeat;
     overflow: hidden;
     cursor: pointer;
-
+    background-size: contain;
 }
 
 .search-header.search--focus .hide-search{
@@ -3784,8 +3783,12 @@ div#shopify-section-1526548498002 .btn {margin-top:24px;}
   top:20px;
    margin:auto;}  
 
-  .search-header.search .hide-search {right: 40px;
-    top: 37px;}  
+  .search-header.search .hide-search {
+    right: 5px;
+    top: 50px;
+    width: 12px;
+    height: 12px;
+  }  
   
   .header-serch-form input[type=search] {height: 50px;}  
   
@@ -4584,8 +4587,8 @@ div#shopify-section-1526564234245 .btn, #shopify-section-1526623552180 .btn, #sh
   
   .header-serch-form {top:15px;}  
   
-  .search-header.search .hide-search {top: 32px;
-    right: 25px;}  
+  .search-header.search .hide-search {top: 50px;
+    right: 5px;}  
   
   .cart table td.cart__price-wrapper {padding:10px 0;}   
   
